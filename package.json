@@ -1,14 +1,12 @@
 {
-	"name": "vscode-tree-sitter",
-	"displayName": "Tree Sitter [Deprecated]",
-	"description": "Accurate syntax coloring with tree-sitter",
-	"icon": "tree-sitter-small.png",
-	"version": "0.1.26",
-	"preview": true,
-	"publisher": "georgewfraser",
+	"name": "parse-tree",
+	"displayName": "Parse tree",
+	"description": "Access document syntax using tree-sitter",
+	"version": "0.1.0",
+	"publisher": "pokey",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/georgewfraser/vscode-tree-sitter"
+		"url": "https://github.com/pokey/vscode-parse-tree"
 	},
 	"license": "MIT",
 	"extensionKind": [
@@ -31,40 +29,7 @@
 		"onLanguage:javascript"
 	],
 	"main": "./out/extension.js",
-	"contributes": {
-		"grammars": [
-			{
-				"language": "go",
-				"scopeName": "source.go",
-				"path": "./textmate/go.tmLanguage.json"
-			},
-			{
-				"language": "cpp",
-				"scopeName": "source.cpp",
-				"path": "./textmate/cpp.tmLanguage.json"
-			},
-			{
-				"language": "ruby",
-				"scopeName": "source.ruby",
-				"path": "./textmate/ruby.tmLanguage.json"
-			},
-			{
-				"language": "rust",
-				"scopeName": "source.rust",
-				"path": "./textmate/rust.tmLanguage.json"
-			},
-			{
-				"language": "typescript",
-				"scopeName": "source.ts",
-				"path": "./textmate/typescript.tmLanguage.json"
-			},
-			{
-				"language": "javascript",
-				"scopeName": "source.ts",
-				"path": "./textmate/typescript.tmLanguage.json"
-			}
-		]
-	},
+	"contributes": {},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
