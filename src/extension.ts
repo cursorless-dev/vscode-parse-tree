@@ -1,29 +1,31 @@
 import * as vscode from "vscode";
-import * as Parser from "web-tree-sitter";
-import * as path from "path";
+import * as Parser from "tree-sitter";
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
 const languages: {
   [id: string]: {
-    module: string;
+    loadLanguage: () => any;
     parser?: Parser;
   };
 } = {
-  go: { module: "tree-sitter-go" },
-  cpp: { module: "tree-sitter-cpp" },
-  rust: { module: "tree-sitter-rust" },
-  ruby: { module: "tree-sitter-ruby" },
+  go: { loadLanguage: () => require("tree-sitter-go") },
+  cpp: { loadLanguage: () => require("tree-sitter-cpp") },
+  rust: { loadLanguage: () => require("tree-sitter-rust") },
+  ruby: { loadLanguage: () => require("tree-sitter-ruby") },
+  python: { loadLanguage: () => require("tree-sitter-python") },
   typescript: {
-    module: "tree-sitter-typescript",
+    loadLanguage: () => require("tree-sitter-typescript").typescript,
   },
-  // TODO there is a separate JS grammar now
+  typescriptreact: {
+    loadLanguage: () => require("tree-sitter-typescript").tsx,
+  },
   javascript: {
-    module: "tree-sitter-javascript",
+    loadLanguage: () => require("tree-sitter-javascript"),
+  },
+  javascriptreact: {
+    loadLanguage: () => require("tree-sitter-javascript"),
   },
 };
-
-// For some reason this crashes if we put it inside activate
-const initParser = Parser.init(); // TODO this isn't a field, suppress package member coloring like Go
 
 // Called when the extension is first activated by user opening a file with the appropriate language
 export async function activate(context: vscode.ExtensionContext) {
@@ -35,13 +37,7 @@ export async function activate(context: vscode.ExtensionContext) {
     const language = languages[editor.document.languageId];
     if (language == null) return;
     if (language.parser == null) {
-      const absolute = path.join(
-        context.extensionPath,
-        "parsers",
-        language.module + ".wasm"
-      );
-      const wasm = path.relative(process.cwd(), absolute);
-      const lang = await Parser.Language.load(wasm);
+      const lang = language.loadLanguage();
       const parser = new Parser();
       parser.setLanguage(lang);
       language.parser = parser;
@@ -102,7 +98,6 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(vscode.workspace.onDidCloseTextDocument(close));
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
   async function activateLazily() {
-    await initParser;
     colorAllOpen();
   }
   activateLazily();

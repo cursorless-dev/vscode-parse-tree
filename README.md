@@ -1,39 +1,37 @@
-# Tree Sitter for VSCode [Deprecated]
+# Parse tree
 
-**With the improving support for custom syntax coloring through language server, this extension is no longer needed**
+Exposes an api function that can be used to get a parse tree node for a given
+file location.  Can be used as follows:
 
-This extension gives VSCode support for [tree-sitter](http://tree-sitter.github.io/tree-sitter/) syntax coloring. Examples with tree-sitter coloring on the right:
+```ts
+  const parseTreeExtension = vscode.extensions.getExtension("pokey.parse-tree");
 
-## Go
+  if (parseTreeExtension == null) {
+    throw new Error("Depends on pokey.parse-tree extension");
+  }
 
-![Go](./screenshots/go.png)
+  const { getNodeAtLocation } = await parseTreeExtension.activate();
+```
 
-## Rust
-
-![Rust](./screenshots/rust.png)
-
-## C++
-
-![C++](./screenshots/cpp.png)
-
-## Ruby
-
-![Ruby](./screenshots/ruby.png)
-
-## Javascript / Typescript
-
-![Typescript](./screenshots/typescript.png)
+Don't forget to add add an `extensionDependencies`-entry to `package.json`  as
+described in
+https://code.visualstudio.com/api/references/vscode-api#extensions.
 
 ## Contributing
 
-### Fixing colorization of an existing language
+### Setup
 
-If you see something getting colored wrong, or something that should be colored but isn't, you can help! The simplest way to help is to create an issue with a simple example, a screenshot, and an explanation of what is wrong. 
+In order to get it to build, you need to run the following:
 
-You are also welcome to fix the problem yourself and submit a PR. Colorization is performed by the various `colorLanguage(x, editor)` functions in `src/colors.ts`. When working on the colorization rules, please keep in mind two core principles:
+```sh
+yarn
+./scripts/patch-tree-sitter
+$(npm bin)/electron-rebuild -v $ELECTRON_VERSION
+```
 
-1. Good colorization is *consistent*. It's better to not color at all than to color inconsistently.
-2. Good colorization is *selective*. The fewer things that we color, the more emphasis the color gives.
+where `ELECTRON_VERSION` needs to be set to the current electron version of VSCode (via the about VSCode menu).
+
+Note: the second step (`patch-tree-sitter`) will be necessary until https://github.com/tree-sitter/node-tree-sitter/pull/83 is merged.
 
 ### Adding a new language
 
