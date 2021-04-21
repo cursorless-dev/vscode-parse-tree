@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
@@ -29,7 +29,7 @@
 		"onLanguage:ruby",
 		"onLanguage:rust",
 		"onLanguage:typescript",
-		"onLanguage:typescriptreact",
+		"onLanguage:typescriptreact"
 	],
 	"main": "./out/extension.js",
 	"contributes": {},
