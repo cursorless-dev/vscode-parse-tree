@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
@@ -21,12 +21,15 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:go",
 		"onLanguage:cpp",
-		"onLanguage:rust",
+		"onLanguage:go",
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:python",
 		"onLanguage:ruby",
+		"onLanguage:rust",
 		"onLanguage:typescript",
-		"onLanguage:javascript"
+		"onLanguage:typescriptreact",
 	],
 	"main": "./out/extension.js",
 	"contributes": {},
