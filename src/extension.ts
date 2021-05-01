@@ -19,6 +19,9 @@ const languages: {
   typescriptreact: {
     loadLanguage: () => require("tree-sitter-typescript").tsx,
   },
+  json: {
+    loadLanguage: () => require("tree-sitter-json"),
+  },
   javascript: {
     loadLanguage: () => require("tree-sitter-javascript"),
   },

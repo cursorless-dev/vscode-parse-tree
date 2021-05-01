@@ -2014,6 +2014,13 @@ tree-sitter-javascript@^0.19.0:
   dependencies:
     nan "^2.12.1"
 
+tree-sitter-json@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-json/-/tree-sitter-json-0.19.0.tgz#5c7ebfbb050c63df3fcaa470bd3527b3ee21ecb1"
+  integrity sha512-XospLJCiv/xTS6n4llBhXGCEDvnt30oEZr1Eo7qD9YgMJgEmjhQ/036Qx5kclB21CrP6CLWVudgjQZZ4LAMG8A==
+  dependencies:
+    nan "^2.14.1"
+
 tree-sitter-python@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/tree-sitter-python/-/tree-sitter-python-0.19.0.tgz#ad79a221fab7136559da0704f789173b81e0bdcd"

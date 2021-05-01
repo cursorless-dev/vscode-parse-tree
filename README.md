@@ -25,7 +25,7 @@ In order to get it to build, you need to run the following:
 
 ```sh
 yarn
-./scripts/patch-tree-sitter
+./scripts/patch-tree-sitter.sh
 $(npm bin)/electron-rebuild -v $ELECTRON_VERSION
 ```
 
@@ -42,6 +42,11 @@ It's straightforward to add any [language with a tree-sitter grammar](https://tr
 4. Add a reference to `onLanguage:yourlang` to the [activationEvents section of package.json](https://github.com/georgewfraser/vscode-tree-sitter/blob/fb4400b78481845c6a8497d079508d28aea25c19/package.json#L18). `yourlang` must be a [VSCode language identifier](https://code.visualstudio.com/docs/languages/identifiers).
 5. Hit `F5` in VSCode, with this project open, to test your changes.
 6. Submit a PR!
+
+# Release notes
+
+## 0.2.0
+- Add JSON parser
 
 # Credits
 
