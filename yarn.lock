@@ -1573,7 +1573,7 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-prebuild-install@^5.0.0:
+prebuild-install@^5.0.0, prebuild-install@^5.3.3:
   version "5.3.6"
   resolved "https://registry.yarnpkg.com/prebuild-install/-/prebuild-install-5.3.6.tgz#7c225568d864c71d89d07f8796042733a3f54291"
   integrity sha512-s8Aai8++QQGi4sSbs/M1Qku62PFK49Jm1CbgXklGz4nmHveDq0wzJkg7Na5QbnO1uNH8K7iqx2EQ/mV0MZEmOg==
@@ -1996,10 +1996,10 @@ tree-sitter-bash@^0.19.0:
     nan "^2.14.0"
     prebuild-install "^5.3.3"
 
-tree-sitter-cli@^0.16.5:
-  version "0.16.9"
-  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.16.9.tgz#e70f03389a694119b273cc62f457a257b231eadb"
-  integrity sha512-Aguz2Ns7qG6t71MP9odhh4t9q3+f29BAmZq8XsTDMtoi5o/e9k+Umeqz6brNngCAz3vMBl1OX95ozdnYzhJWIA==
+tree-sitter-cli@^0.19.4:
+  version "0.19.4"
+  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.19.4.tgz#99b03f9de1bb225dbe898fe83b5a30478c838123"
+  integrity sha512-p2kxjuoQeauXBu5eE+j7c5BMCRXmc17EiAswnnWn3ieUlHXBkA0Z7vRnaCSElDR34MhZnSgqgzuuzQk0cDqCjw==
 
 tree-sitter-cpp@^0.19.0:
   version "0.19.0"
@@ -2028,6 +2028,13 @@ tree-sitter-json@^0.19.0:
   integrity sha512-XospLJCiv/xTS6n4llBhXGCEDvnt30oEZr1Eo7qD9YgMJgEmjhQ/036Qx5kclB21CrP6CLWVudgjQZZ4LAMG8A==
   dependencies:
     nan "^2.14.1"
+
+tree-sitter-markdown@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/tree-sitter-markdown/-/tree-sitter-markdown-0.7.1.tgz#9411df0b832a4798808eb1ce3434f1cfee3e2196"
+  integrity sha512-hB3sEm1JtfoRUzGvknL9RQrS/LJvbrdI9WfGbU8gE6xMjbbAKHfHrNzh4Oo9JxksfUf6UEMxy91acRajEIOnGQ==
+  dependencies:
+    nan "^2.14.0"
 
 tree-sitter-python@^0.19.0:
   version "0.19.0"
@@ -2058,13 +2065,12 @@ tree-sitter-typescript@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-tree-sitter@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter/-/tree-sitter-0.19.0.tgz#68c4cfa12b34752d69162b81ad233f3e6fc4a70d"
-  integrity sha512-jw/BNCCRB9RCq/GFGU0VuhchGlIIlYRQFnjXgPKG3fBIo+c3ImuPITtAHJJ4XgTBNfeAQmt8XC4wShgBw8tgdg==
+tree-sitter-yaml@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-yaml/-/tree-sitter-yaml-0.5.0.tgz#c617ba72837399d8105ec10cdb4c360e1ed76076"
+  integrity sha512-POJ4ZNXXSWIG/W4Rjuyg36MkUD4d769YRUGKRqN+sVaj/VCo6Dh6Pkssn1Rtewd5kybx+jT1BWMyWN0CijXnMA==
   dependencies:
     nan "^2.14.0"
-    prebuild-install "^5.0.0"
 
 tslib@^1.13.0, tslib@^1.8.1:
   version "1.14.1"
@@ -2226,6 +2232,11 @@ wcwidth@^1.0.1:
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
+
+web-tree-sitter@^0.19.3:
+  version "0.19.3"
+  resolved "https://registry.yarnpkg.com/web-tree-sitter/-/web-tree-sitter-0.19.3.tgz#cf029aebb22b0cb43c19004ef69dacac7c800717"
+  integrity sha512-iZry/BTbg0o4WDAnG417bBisGq+i2GghelRRjVe8Fd5IEwpWU8omfbUz4l/BP7YoLNGmaFPmmuP+Mg0uXAvS7A==
 
 which-pm-runs@^1.0.0:
   version "1.0.0"
