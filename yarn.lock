@@ -1988,6 +1988,14 @@ tough-cookie@~2.5.0:
     psl "^1.1.28"
     punycode "^2.1.1"
 
+tree-sitter-bash@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-bash/-/tree-sitter-bash-0.19.0.tgz#756332e3c5494a0b5ccda04c182e7206d65cf350"
+  integrity sha512-i/0NUZHSrxmYtQWMX+Tvuk9PBvsB0S3h0vD17qHSGuvPYgvpekRy8do75CAXyH6FlycMhejM39gNRppyvDeiVQ==
+  dependencies:
+    nan "^2.14.0"
+    prebuild-install "^5.3.3"
+
 tree-sitter-cli@^0.16.5:
   version "0.16.9"
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.16.9.tgz#e70f03389a694119b273cc62f457a257b231eadb"

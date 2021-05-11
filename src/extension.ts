@@ -12,6 +12,7 @@ const languages: {
   cpp: { loadLanguage: () => require("tree-sitter-cpp") },
   rust: { loadLanguage: () => require("tree-sitter-rust") },
   ruby: { loadLanguage: () => require("tree-sitter-ruby") },
+  bash: { loadLanguage: () => require("tree-sitter-bash") },
   python: { loadLanguage: () => require("tree-sitter-python") },
   typescript: {
     loadLanguage: () => require("tree-sitter-typescript").typescript,
