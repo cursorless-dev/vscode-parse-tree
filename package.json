@@ -37,6 +37,11 @@
 		"onLanguage:yaml"
 	],
 	"main": "./out/extension.js",
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
 	"contributes": {},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
