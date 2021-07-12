@@ -37,6 +37,9 @@ It's straightforward to add any [language with a tree-sitter grammar](https://tr
 
 # Release notes
 
+## 0.4.0
+Add support for untrusted workspaces
+
 ## 0.3.0
 Switch to wasm to support Windows and Remote SSH
 
