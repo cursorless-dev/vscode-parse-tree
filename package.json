@@ -81,5 +81,10 @@
 		"jsonc-parser": "^2.1.0",
 		"tar": ">=4.4.2",
 		"web-tree-sitter": "^0.19.3"
+	},
+	"__metadata": {
+		"id": "d2779d85-368b-4205-9b9c-cc585a446410",
+		"publisherDisplayName": "Pokey Rule",
+		"publisherId": "23338867-1255-47fc-a9fc-1af10882a056"
 	}
 }
