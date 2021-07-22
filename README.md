@@ -35,16 +35,17 @@ It's straightforward to add any [language with a tree-sitter grammar](https://tr
 5. Hit `F5` in VSCode, with this project open, to test your changes.
 6. Submit a PR!
 
-# Release notes
+### Developing on WSL2
+When working with WSL, the host vscode instance connects to a vscode server on the WSL vm. This happens automatically when you run "code" in WSL, as long as you have the "Remote - WSL" extension installed on the host. From there you need to:
 
-## 0.4.0
-Add support for untrusted workspaces
+* Install the `pokey.command-server` extension on the host vscode
+* Clone the extension in the WSL side.
+* If you're adding language support to `vscode-parse-tree`, you need to clone that as well, build it, and link it into the `vscode-server` extension folder: `ln -s ~/.vscode-server/extensions/vscode-parse-tree ~/git/vscode-pars-tree` for instance.
+* If you get errors about needing to install the `Remote-WSL` extension, you might need to manually delete the extension from the host side and try again.
 
-## 0.3.0
-Switch to wasm to support Windows and Remote SSH
+## Change Log
 
-## 0.2.0
-- Add JSON parser
+See [CHANGELOG.md](CHANGELOG.md).
 
 # Credits
 
