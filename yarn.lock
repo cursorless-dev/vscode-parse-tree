@@ -1996,6 +1996,13 @@ tree-sitter-bash@^0.19.0:
     nan "^2.14.0"
     prebuild-install "^5.3.3"
 
+tree-sitter-c-sharp@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-c-sharp/-/tree-sitter-c-sharp-0.19.0.tgz#89a940fc0f2c05e7d0248c8de101fba01fb73e5a"
+  integrity sha512-Y2T7lisxbJHYg44hxE8XQPFpJLUE5jZSfKO4jyOuNLFS0wpN1wux6SucU4aWTkTfyaiyGWZ10GvEIQ++ZDAVTQ==
+  dependencies:
+    nan "^2.14.0"
+
 tree-sitter-cli@^0.19.4:
   version "0.19.4"
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.19.4.tgz#99b03f9de1bb225dbe898fe83b5a30478c838123"

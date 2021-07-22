@@ -22,6 +22,7 @@
 	],
 	"activationEvents": [
 		"onLanguage:cpp",
+		"onLanguage:csharp",
 		"onLanguage:bash",
 		"onLanguage:go",
 		"onLanguage:javascript",
@@ -59,6 +60,7 @@
 		"@types/node": "^8.10.25",
 		"electron-rebuild": "^2.3.5",
 		"tree-sitter-bash": "^0.19.0",
+		"tree-sitter-c-sharp": "^0.19.0",
 		"tree-sitter-cli": "^0.19.4",
 		"tree-sitter-cpp": "^0.19.0",
 		"tree-sitter-go": "^0.19.0",

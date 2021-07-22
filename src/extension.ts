@@ -11,6 +11,7 @@ const languages: {
 } = {
   bash: { module: "tree-sitter-bash" },
   cpp: { module: "tree-sitter-cpp" },
+  csharp: { module: "tree-sitter-c-sharp" },
   go: { module: "tree-sitter-go" },
   javascript: { module: "tree-sitter-javascript" },
   javascriptreact: { module: "tree-sitter-javascript" },
