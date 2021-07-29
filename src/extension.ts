@@ -112,13 +112,23 @@ export async function activate(context: vscode.ExtensionContext) {
   }
   activateLazily();
 
+  function getTreeForUri(uri: vscode.Uri) {
+    const ret = trees[uri.toString()];
+    if (typeof ret === "undefined") {
+      throw new Error(
+        "Language not supported by parse tree extension.  See https://github.com/pokey/vscode-parse-tree#adding-a-new-language"
+      );
+    }
+    return ret;
+  }
+
   return {
     getTree(document: vscode.TextDocument) {
-      return trees[document.uri.toString()];
+      return getTreeForUri(document.uri);
     },
 
     getNodeAtLocation(location: vscode.Location) {
-      return trees[location.uri.toString()].rootNode.descendantForPosition({
+      return getTreeForUri(location.uri).rootNode.descendantForPosition({
         row: location.range.start.line,
         column: location.range.start.character,
       });
