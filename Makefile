@@ -1,6 +1,6 @@
 # For generating .wasm files for parsers
 # See https://www.npmjs.com/package/web-tree-sitter
-languages = cpp c-sharp bash go javascript json markdown python ruby rust tsx typescript yaml
+languages = cpp c-sharp bash go java javascript json markdown python ruby rust tsx typescript yaml
 
 .PHONY: parsers
 parsers: $(addprefix parsers/tree-sitter-,$(addsuffix .wasm,$(languages)))

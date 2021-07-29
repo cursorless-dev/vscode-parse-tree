@@ -2022,6 +2022,13 @@ tree-sitter-go@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
+tree-sitter-java@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/tree-sitter-java/-/tree-sitter-java-0.19.1.tgz#c1bf59caaa81bf8a4a6dda99e7c97e51b3bd26d4"
+  integrity sha512-yVm+4q1D4niaHcEf2iqhOcIaiSp3wxHjeC4eoLAqSQNVxSrhThmT1FEfM4yDgHV4XaxH+62xpKHCwYG9NzRt6Q==
+  dependencies:
+    nan "^2.14.1"
+
 tree-sitter-javascript@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/tree-sitter-javascript/-/tree-sitter-javascript-0.19.0.tgz#20fc0da277502dac2bb3bf9ff75372268e761558"
