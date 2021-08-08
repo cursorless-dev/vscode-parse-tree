@@ -38,6 +38,7 @@
 		"onLanguage:rust",
 		"onLanguage:typescript",
 		"onLanguage:typescriptreact",
+		"onLanguage:xml",
 		"onLanguage:yaml"
 	],
 	"main": "./out/extension.js",

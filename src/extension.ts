@@ -26,6 +26,7 @@ const languages: {
   rust: { module: "tree-sitter-rust" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
+  xml: { module: "tree-sitter-html" },
   yaml: { module: "tree-sitter-yaml" },
 };
 
