@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as Parser from "web-tree-sitter";
 import * as path from "path";
+import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
 const languages: {
@@ -39,8 +40,12 @@ export async function activate(context: vscode.ExtensionContext) {
   // Parse of all visible documents
   const trees: { [uri: string]: Parser.Tree } = {};
 
-  async function open(editor: vscode.TextEditor) {
-    const language = languages[editor.document.languageId];
+  async function open(document: vscode.TextDocument) {
+    const uriString = document.uri.toString();
+    if (uriString in trees) {
+      return;
+    }
+    const language = languages[document.languageId];
     if (language == null) return;
     if (language.parser == null) {
       const absolute = path.join(
@@ -54,8 +59,8 @@ export async function activate(context: vscode.ExtensionContext) {
       parser.setLanguage(lang);
       language.parser = parser;
     }
-    const t = language.parser.parse(editor.document.getText()); // TODO don't use getText, use Parser.Input
-    trees[editor.document.uri.toString()] = t;
+    const t = language.parser.parse(document.getText()); // TODO don't use getText, use Parser.Input
+    trees[uriString] = t;
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
@@ -94,20 +99,34 @@ export async function activate(context: vscode.ExtensionContext) {
   function asPoint(pos: vscode.Position): Parser.Point {
     return { row: pos.line, column: pos.character };
   }
-  function close(doc: vscode.TextDocument) {
-    delete trees[doc.uri.toString()];
+  function close(document: vscode.TextDocument) {
+    delete trees[document.uri.toString()];
   }
 
   async function colorAllOpen() {
     for (const editor of vscode.window.visibleTextEditors) {
-      await open(editor);
+      await open(editor.document);
     }
   }
+
+  function openIfVisible(document: vscode.TextDocument) {
+    if (
+      vscode.window.visibleTextEditors.some(
+        (editor) => editor.document.uri.toString() === document.uri.toString()
+      )
+    ) {
+      return open(document);
+    }
+  }
+
   context.subscriptions.push(
     vscode.window.onDidChangeVisibleTextEditors(colorAllOpen)
   );
   context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(edit));
   context.subscriptions.push(vscode.workspace.onDidCloseTextDocument(close));
+  context.subscriptions.push(
+    vscode.workspace.onDidOpenTextDocument(openIfVisible)
+  );
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
   async function activateLazily() {
     await initParser;
@@ -117,11 +136,25 @@ export async function activate(context: vscode.ExtensionContext) {
 
   function getTreeForUri(uri: vscode.Uri) {
     const ret = trees[uri.toString()];
+
     if (typeof ret === "undefined") {
-      throw new Error(
-        "Language not supported by parse tree extension.  See https://github.com/pokey/vscode-parse-tree#adding-a-new-language"
+      const document = vscode.workspace.textDocuments.find(
+        (textDocument) => textDocument.uri.toString() === uri.toString()
       );
+
+      if (document == null) {
+        throw new Error(`Document ${uri} is not open`);
+      }
+
+      const languageId = document.languageId;
+
+      if (languageId in languages) {
+        throw new LanguageStillLoadingError(languageId);
+      } else {
+        throw new UnsupportedLanguageError(languageId);
+      }
     }
+
     return ret;
   }
 
