@@ -2,6 +2,11 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.8.0 (8 Aug 2021)
+### Enhancements
+- Add preliminary xml support using html parser
+- Improve error messages
+
 ## 0.7.0 (8 Aug 2021)
 ### Enhancements
 - Add C and HTML support
