@@ -2003,6 +2003,13 @@ tree-sitter-c-sharp@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
+tree-sitter-c@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-c/-/tree-sitter-c-0.19.0.tgz#d82dbc871ad4b10a6c30459dc8178beda390087f"
+  integrity sha512-6wlHAZRUmibYwTv4XdLhiMZ3EXYLZdvkiRIXJJ1rMCSMFwhaaLnBjyFw7aILJT1x6V7oD7I3VNOOniwKHV9osA==
+  dependencies:
+    nan "^2.14.0"
+
 tree-sitter-cli@^0.19.4:
   version "0.19.4"
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.19.4.tgz#99b03f9de1bb225dbe898fe83b5a30478c838123"
@@ -2019,6 +2026,13 @@ tree-sitter-go@^0.19.0:
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/tree-sitter-go/-/tree-sitter-go-0.19.1.tgz#f23c84bff882eafa296ce2d307366e76f1f83e2d"
   integrity sha512-qAHzfuddhbs3kPIW2vMBL5TqC5umhQ3NlDBPtdqlxE6tN2PKWHj0SZxXd/YrvqNUDrMmRpPBRg9W7JyCP/+n3A==
+  dependencies:
+    nan "^2.14.0"
+
+tree-sitter-html@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-html/-/tree-sitter-html-0.19.0.tgz#abebe9950f5ce909b6e3e8da2e90246647a70a22"
+  integrity sha512-xH6XGSBWzb4oU/aG6gouMRQKsd96iKuy0zboUqo3wcIWrA++q9a7CmQTSeIINiSfOXjT2ZLJciXFDgAh6h04Bw==
   dependencies:
     nan "^2.14.0"
 

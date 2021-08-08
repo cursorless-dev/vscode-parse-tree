@@ -10,9 +10,11 @@ const languages: {
   };
 } = {
   bash: { module: "tree-sitter-bash" },
+  c: { module: "tree-sitter-c" },
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
   go: { module: "tree-sitter-go" },
+  html: { module: "tree-sitter-html" },
   java: { module: "tree-sitter-java" },
   javascript: { module: "tree-sitter-javascript" },
   javascriptreact: { module: "tree-sitter-javascript" },
