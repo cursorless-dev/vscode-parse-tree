@@ -10,7 +10,6 @@ const languages: {
     parser?: Parser;
   };
 } = {
-  bash: { module: "tree-sitter-bash" },
   c: { module: "tree-sitter-c" },
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
@@ -25,6 +24,7 @@ const languages: {
   python: { module: "tree-sitter-python" },
   ruby: { module: "tree-sitter-ruby" },
   rust: { module: "tree-sitter-rust" },
+  shellscript: { module: "tree-sitter-bash" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
   xml: { module: "tree-sitter-html" },

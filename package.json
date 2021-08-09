@@ -21,7 +21,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:bash",
 		"onLanguage:c",
 		"onLanguage:cpp",
 		"onLanguage:csharp",
@@ -36,6 +35,7 @@
 		"onLanguage:python",
 		"onLanguage:ruby",
 		"onLanguage:rust",
+		"onLanguage:shellscript",
 		"onLanguage:typescript",
 		"onLanguage:typescriptreact",
 		"onLanguage:xml",
