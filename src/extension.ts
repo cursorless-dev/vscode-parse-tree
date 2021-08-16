@@ -44,7 +44,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
   /**
    * Load the parser model for a given language
-   * @param languageId The vscode language idea of the language to load
+   * @param languageId The vscode language id of the language to load
    * @returns a promise resolving to boolean an indicating whether the language could be loaded
    */
   async function loadLanguage(languageId: string) {
