@@ -2,6 +2,10 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.9.0 (16 Aug 2021)
+### Enhancements
+- Add `loadLanguage` function and improve loading robustness [#8](https://github.com/pokey/vscode-parse-tree/pull/8)
+
 ## 0.8.0 (8 Aug 2021)
 ### Enhancements
 - Add preliminary xml support using html parser
