@@ -42,6 +42,11 @@ export async function activate(context: vscode.ExtensionContext) {
   // Parse of all visible documents
   const trees: { [uri: string]: Parser.Tree } = {};
 
+  /**
+   * Load the parser model for a given language
+   * @param languageId The vscode language idea of the language to load
+   * @returns a promise resolving to boolean an indicating whether the language could be loaded
+   */
   async function loadLanguage(languageId: string) {
     const language = languages[languageId];
     if (language == null) return false;
