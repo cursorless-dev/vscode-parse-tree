@@ -3,12 +3,14 @@ import * as Parser from "web-tree-sitter";
 import * as path from "path";
 import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
+interface Language {
+  module: string;
+  parser?: Parser;
+}
+
 // Be sure to declare the language in package.json and include a minimalist grammar.
 const languages: {
-  [id: string]: {
-    module: string;
-    parser?: Parser;
-  };
+  [id: string]: Language;
 } = {
   c: { module: "tree-sitter-c" },
   cpp: { module: "tree-sitter-cpp" },
@@ -40,27 +42,52 @@ export async function activate(context: vscode.ExtensionContext) {
   // Parse of all visible documents
   const trees: { [uri: string]: Parser.Tree } = {};
 
+  /**
+   * Load the parser model for a given language
+   * @param languageId The vscode language id of the language to load
+   * @returns a promise resolving to boolean an indicating whether the language could be loaded
+   */
+  async function loadLanguage(languageId: string) {
+    const language = languages[languageId];
+    if (language == null) return false;
+    if (language.parser != null) return true;
+
+    const absolute = path.join(
+      context.extensionPath,
+      "parsers",
+      language.module + ".wasm"
+    );
+    const wasm = path.relative(process.cwd(), absolute);
+    const lang = await Parser.Language.load(wasm);
+    const parser = new Parser();
+    parser.setLanguage(lang);
+    language.parser = parser;
+
+    return true;
+  }
+
   async function open(document: vscode.TextDocument) {
     const uriString = document.uri.toString();
-    if (uriString in trees) {
-      return;
-    }
+    if (uriString in trees) return;
+
+    if (!(await loadLanguage(document.languageId))) return;
+
     const language = languages[document.languageId];
-    if (language == null) return;
-    if (language.parser == null) {
-      const absolute = path.join(
-        context.extensionPath,
-        "parsers",
-        language.module + ".wasm"
-      );
-      const wasm = path.relative(process.cwd(), absolute);
-      const lang = await Parser.Language.load(wasm);
-      const parser = new Parser();
-      parser.setLanguage(lang);
-      language.parser = parser;
-    }
+    const t = language.parser!.parse(document.getText()); // TODO don't use getText, use Parser.Input
+    trees[uriString] = t;
+  }
+
+  function openIfLanguageLoaded(document: vscode.TextDocument) {
+    const uriString = document.uri.toString();
+    if (uriString in trees) return null;
+
+    const language = languages[document.languageId];
+    if (language == null) return null;
+    if (language.parser == null) return null;
+
     const t = language.parser.parse(document.getText()); // TODO don't use getText, use Parser.Input
     trees[uriString] = t;
+    return t;
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
@@ -146,6 +173,12 @@ export async function activate(context: vscode.ExtensionContext) {
         throw new Error(`Document ${uri} is not open`);
       }
 
+      const ret = openIfLanguageLoaded(document);
+
+      if (ret != null) {
+        return ret;
+      }
+
       const languageId = document.languageId;
 
       if (languageId in languages) {
@@ -159,6 +192,8 @@ export async function activate(context: vscode.ExtensionContext) {
   }
 
   return {
+    loadLanguage,
+
     getTree(document: vscode.TextDocument) {
       return getTreeForUri(document.uri);
     },
