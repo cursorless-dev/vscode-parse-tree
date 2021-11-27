@@ -12,10 +12,12 @@ interface Language {
 const languages: {
   [id: string]: Language;
 } = {
+  agda: { module: "tree-sitter-agda" },
   c: { module: "tree-sitter-c" },
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
   go: { module: "tree-sitter-go" },
+  haskell: { module: "tree-sitter-haskell" },
   html: { module: "tree-sitter-html" },
   java: { module: "tree-sitter-java" },
   javascript: { module: "tree-sitter-javascript" },
