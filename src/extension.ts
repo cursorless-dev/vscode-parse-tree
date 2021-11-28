@@ -12,6 +12,7 @@ interface Language {
 const languages: {
   [id: string]: Language;
 } = {
+  agda: { module: "tree-sitter-agda" },
   c: { module: "tree-sitter-c" },
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
