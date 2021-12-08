@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.11.0 (8 Dec 2021)
+
+### Enhancements
+
+- Upgrade typescript parser [#12](https://github.com/pokey/vscode-parse-tree/pull/12) ([@pokey](https://github.com/pokey))
+
 ## 0.10.0 (30 Nov 2021)
 
 ### Enhancements
