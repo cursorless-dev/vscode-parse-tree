@@ -79,7 +79,7 @@
 		"tree-sitter-python": "^0.19.0",
 		"tree-sitter-ruby": "^0.19.0",
 		"tree-sitter-rust": "^0.19.0",
-		"tree-sitter-typescript": "^0.19.0",
+		"tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#master",
 		"tree-sitter-yaml": "^0.5.0",
 		"tslint": "^6.0.0",
 		"typescript": "^3.8.2",
