@@ -23,6 +23,7 @@
 	"activationEvents": [
 		"onLanguage:agda",
 		"onLanguage:c",
+		"onLanguage:clojure",
 		"onLanguage:cpp",
 		"onLanguage:csharp",
 		"onLanguage:go",
@@ -69,6 +70,7 @@
 		"tree-sitter-c": "^0.19.0",
 		"tree-sitter-c-sharp": "^0.19.0",
 		"tree-sitter-cli": "^0.20.1",
+		"tree-sitter-clojure": "github:sogaiu/tree-sitter-clojure#master",
 		"tree-sitter-cpp": "^0.19.0",
 		"tree-sitter-go": "^0.19.0",
 		"tree-sitter-html": "^0.19.0",
