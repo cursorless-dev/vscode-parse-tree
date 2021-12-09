@@ -1362,6 +1362,11 @@ mute-stream@~0.0.4:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
+nan@2.14.2:
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
+  integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
+
 nan@^2.12.1, nan@^2.14.0, nan@^2.14.1:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
@@ -2077,6 +2082,13 @@ tree-sitter-cli@^0.20.1:
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.1.tgz#9c6f1c79fd87d2a73a232dbceae673240741d785"
   integrity sha512-I0Gp4ThRp39TDnBAaZKiogvoE85MSeL6/ILZMXbzeEo8hUsudpVhEHRE4CU+Bk5QUaiMiDkD+ZIL3gT2zZ++wg==
 
+"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#master":
+  version "0.0.8"
+  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/39bf0977d223879436c1425fe6bfeb3bcfd86f92"
+  dependencies:
+    nan "2.14.2"
+    web-tree-sitter "0.19.1"
+
 tree-sitter-cpp@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/tree-sitter-cpp/-/tree-sitter-cpp-0.19.0.tgz#ebf38d8e4e7b215c8cf3dd0deb0545dc846a897c"
@@ -2330,6 +2342,11 @@ wcwidth@^1.0.1:
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
+
+web-tree-sitter@0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/web-tree-sitter/-/web-tree-sitter-0.19.1.tgz#2d93df1d65b3850870b3ebca8ae661eb9c798bc9"
+  integrity sha512-Wlveh+zdegmNdK733B18pf+NmliKs2t5+Aid8IOFIBV2MqJmnYVo3AdukbdZJ+iIxzBnIreYFKfcFFCWVEf4AA==
 
 web-tree-sitter@^0.19.4:
   version "0.19.4"

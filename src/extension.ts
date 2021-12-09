@@ -14,6 +14,7 @@ const languages: {
 } = {
   agda: { module: "tree-sitter-agda" },
   c: { module: "tree-sitter-c" },
+  clojure: { module: "tree-sitter-clojure" },
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
   go: { module: "tree-sitter-go" },
