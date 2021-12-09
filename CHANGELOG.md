@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.12.0 (9 Dec 2021)
+
+### Enhancements
+
+- Add support for clojure [#13](https://github.com/pokey/vscode-parse-tree/pull/13) ([@pokey](https://github.com/pokey))
+
 ## 0.11.0 (8 Dec 2021)
 
 ### Enhancements
