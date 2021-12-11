@@ -40,7 +40,7 @@ const initParser = Parser.init(); // TODO this isn't a field, suppress package m
 
 // Called when the extension is first activated by user opening a file with the appropriate language
 export async function activate(context: vscode.ExtensionContext) {
-  console.log("Activating tree-sitter...");
+  console.debug("Activating tree-sitter...");
   // Parse of all visible documents
   const trees: { [uri: string]: Parser.Tree } = {};
 
