@@ -2131,13 +2131,6 @@ tree-sitter-json@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
-tree-sitter-markdown@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/tree-sitter-markdown/-/tree-sitter-markdown-0.7.1.tgz#9411df0b832a4798808eb1ce3434f1cfee3e2196"
-  integrity sha512-hB3sEm1JtfoRUzGvknL9RQrS/LJvbrdI9WfGbU8gE6xMjbbAKHfHrNzh4Oo9JxksfUf6UEMxy91acRajEIOnGQ==
-  dependencies:
-    nan "^2.14.0"
-
 tree-sitter-python@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/tree-sitter-python/-/tree-sitter-python-0.19.0.tgz#ad79a221fab7136559da0704f789173b81e0bdcd"
