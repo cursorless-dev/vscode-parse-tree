@@ -2131,13 +2131,6 @@ tree-sitter-json@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
-tree-sitter-markdown@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/tree-sitter-markdown/-/tree-sitter-markdown-0.7.1.tgz#9411df0b832a4798808eb1ce3434f1cfee3e2196"
-  integrity sha512-hB3sEm1JtfoRUzGvknL9RQrS/LJvbrdI9WfGbU8gE6xMjbbAKHfHrNzh4Oo9JxksfUf6UEMxy91acRajEIOnGQ==
-  dependencies:
-    nan "^2.14.0"
-
 tree-sitter-python@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/tree-sitter-python/-/tree-sitter-python-0.19.0.tgz#ad79a221fab7136559da0704f789173b81e0bdcd"
@@ -2159,6 +2152,13 @@ tree-sitter-rust@^0.19.0:
   integrity sha512-SqvomQKAlnetaWRu9JlDvwZpsm6OTJuIp10B/iThFBjMVMcYsnGATQvBjYmN7jEcyyU9gaN/oJgTTV/HoN/TBw==
   dependencies:
     nan "^2.14.0"
+
+tree-sitter-sparql@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-sparql/-/tree-sitter-sparql-0.1.0.tgz#1619cee88a4e3b1daaf27268a34c519747c801b1"
+  integrity sha512-qtNTPef7zCyrmxuhpI8dtppzEYR2A6XtyPUqJeqTr2soZLLqUacWXezkFFhMNrvyMUknN9Fgua9EEpt1/lG/Zw==
+  dependencies:
+    nan "^2.14.1"
 
 "tree-sitter-typescript@github:tree-sitter/tree-sitter-typescript#master":
   version "0.20.0"
