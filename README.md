@@ -32,7 +32,7 @@ It's straightforward to add any [language with a tree-sitter grammar](https://tr
 2. Add a language to the dictionary at the top of `./src/extension.ts`
 3. Add a reference to `onLanguage:yourlang` to the [activationEvents section of package.json](package.json). `yourlang` must be a [VSCode language identifier](https://code.visualstudio.com/docs/languages/identifiers).
 4. Add your language to the top of the [Makefile](Makefile)
-5. Hit `F5` in VSCode, with the Cursorless project open, to test your changes.
+5. Hit `F5` in VSCode, with this project open, to test your changes.
 6. Submit a PR!
 
 ### Developing on WSL2
