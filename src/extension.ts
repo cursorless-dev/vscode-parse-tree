@@ -28,6 +28,7 @@ const languages: {
   python: { module: "tree-sitter-python" },
   ruby: { module: "tree-sitter-ruby" },
   rust: { module: "tree-sitter-rust" },
+  scala: { module: "tree-sitter-scala" },
   shellscript: { module: "tree-sitter-bash" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },

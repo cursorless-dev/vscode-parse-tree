@@ -32,7 +32,7 @@ It's straightforward to add any [language with a tree-sitter grammar](https://tr
 2. Add a language to the dictionary at the top of `./src/extension.ts`
 3. Add a reference to `onLanguage:yourlang` to the [activationEvents section of package.json](package.json). `yourlang` must be a [VSCode language identifier](https://code.visualstudio.com/docs/languages/identifiers).
 4. Add your language to the top of the [Makefile](Makefile)
-5. Hit `F5` in VSCode, with this project open, to test your changes.
+5. Hit `F5` in VSCode, with the Cursorless project open, to test your changes.
 6. Submit a PR!
 
 ### Developing on WSL2
@@ -41,7 +41,7 @@ When working with WSL, the host vscode instance connects to a vscode server on t
 
 - Install the `pokey.command-server` extension on the host vscode
 - Clone the extension in the WSL side.
-- If you're adding language support to `vscode-parse-tree`, you need to clone that as well, build it, and link it into the `vscode-server` extension folder: `ln -s ~/.vscode-server/extensions/vscode-parse-tree ~/git/vscode-pars-tree` for instance.
+- If you're adding language support to `vscode-parse-tree`, you need to clone that as well, build it, and link it into the `vscode-server` extension folder: `ln -s ~/your/code/vscode-parse-tree ~/.vscode-server/extensions/parse-tree` for instance.
 - If you get errors about needing to install the `Remote-WSL` extension, you might need to manually delete the extension from the host side and try again.
 
 ## Change Log
