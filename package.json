@@ -37,6 +37,7 @@
 		"onLanguage:python",
 		"onLanguage:ruby",
 		"onLanguage:rust",
+		"onLanguage:scala",
 		"onLanguage:shellscript",
 		"onLanguage:typescript",
 		"onLanguage:typescriptreact",
