@@ -2,6 +2,13 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.13.0 (22 Dec 2021)
+
+### Enhancements
+
+- Add support for sparql [#17](https://github.com/pokey/vscode-parse-tree/pull/17) ([@lance-sp](https://github.com/lance-sp))
+- Add support for scala [#16](https://github.com/pokey/vscode-parse-tree/pull/16) ([@SCdF](https://github.com/SCdF))
+
 ## 0.12.0 (9 Dec 2021)
 
 ### Enhancements
