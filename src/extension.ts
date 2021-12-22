@@ -30,7 +30,7 @@ const languages: {
   rust: { module: "tree-sitter-rust" },
   scala: { module: "tree-sitter-scala" },
   shellscript: { module: "tree-sitter-bash" },
-  sparql: { module: "tree-sitter-yaml" },
+  sparql: { module: "tree-sitter-sparql" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
   xml: { module: "tree-sitter-html" },
@@ -212,4 +212,4 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() { }
+export function deactivate() {}
