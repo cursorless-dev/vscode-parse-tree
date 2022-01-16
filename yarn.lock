@@ -2213,12 +2213,19 @@
   dependencies:
     "nan" "^2.14.0"
 
-"tree-sitter-python@^0.19.0":
-  "integrity" "sha512-UAJV73zCE+2b+X8XQOyL6C+MxVUV8BH0TxcOwhfgaDh6F6g4Ub0SqWGF19C1MDrGi25JNnZ8xlsH0aqrasyS3w=="
-  "resolved" "https://registry.npmjs.org/tree-sitter-python/-/tree-sitter-python-0.19.0.tgz"
-  "version" "0.19.0"
+tree-sitter-php@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-php/-/tree-sitter-php-0.19.0.tgz#f194d2c542a5a3cf8a0bf5de4b96df6c2333f10e"
+  integrity sha512-YchOF4ai+CIP8AMHuNDohEOG4T+9+6YwVqyNwWS9+BIBze41D32V9FCc88/v4W5YRvvCdRqJk8V+hWtnCHrUcw==
   dependencies:
-    "nan" "^2.14.0"
+    nan "^2.14.0"
+
+tree-sitter-python@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-python/-/tree-sitter-python-0.19.0.tgz#ad79a221fab7136559da0704f789173b81e0bdcd"
+  integrity sha512-UAJV73zCE+2b+X8XQOyL6C+MxVUV8BH0TxcOwhfgaDh6F6g4Ub0SqWGF19C1MDrGi25JNnZ8xlsH0aqrasyS3w==
+  dependencies:
+    nan "^2.14.0"
 
 "tree-sitter-ruby@^0.19.0":
   "integrity" "sha512-uzASkTuC6wXnnshfDgij/Q9FYWxODCyIKVb0eHVGX9G5Cu5iFPvgJQgWTKIft1zomTjKjD25YIwFUnXnzZf4Ew=="
