@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.14.0 (16 Jan 2021)
+
+### Enhancements
+
+- Add support for php [#19](https://github.com/pokey/vscode-parse-tree/pull/19) ([@nathanheffley](https://github.com/nathanheffley))
+
 ## 0.13.0 (22 Dec 2021)
 
 ### Enhancements
