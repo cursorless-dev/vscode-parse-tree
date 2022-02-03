@@ -98,6 +98,10 @@
 	},
 	"dependencies": {
 		"jsonc-parser": "^2.1.0",
-		"tar": ">=4.4.2"
-	}
+		"tar": ">=4.4.2",
+		"web-tree-sitter": "file:vendor/web-tree-sitter"
+	},
+	"bundledDependencies": [
+		"web-tree-sitter"
+	]
 }
