@@ -9,7 +9,7 @@ WEB_TREE_SITTER_FILES := README.md package.json tree-sitter-web.d.ts tree-sitter
 
 .PHONY: compile
 compile: \
-		$(addprefix parsers/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)) \
+		$(addprefix vendor/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)) \
 		$(addprefix parsers/tree-sitter-,$(addsuffix .wasm,$(LANGUAGES)))
 	tsc -p ./
 
@@ -39,7 +39,7 @@ parsers/tree-sitter-c-sharp.wasm: node_modules/tree-sitter-c-sharp/package.json
 
 # Build web-tree-sitter
 
-$(addprefix parsers/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)):
+$(addprefix vendor/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)):
 	@rm -rf tmp/tree-sitter
 	@git clone                                       \
 		-c advice.detachedHead=false --quiet           \
@@ -47,7 +47,7 @@ $(addprefix parsers/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)):
 		https://github.com/tree-sitter/tree-sitter.git \
 		tmp/tree-sitter
 	@(cd tmp/tree-sitter && ./script/build-wasm)
-	@mkdir -p parsers/web-tree-sitter
-	@cp tmp/tree-sitter/LICENSE parsers/web-tree-sitter
-	@cp $(addprefix tmp/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) parsers/web-tree-sitter
+	@mkdir -p vendor/web-tree-sitter
+	@cp tmp/tree-sitter/LICENSE vendor/web-tree-sitter
+	@cp $(addprefix tmp/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) vendor/web-tree-sitter
 	@rm -rf tmp/tree-sitter
