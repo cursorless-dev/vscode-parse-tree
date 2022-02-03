@@ -1,9 +1,20 @@
-# For generating .wasm files for parsers
-# See https://www.npmjs.com/package/web-tree-sitter
-languages = agda c clojure cpp c-sharp bash go html java javascript json markdown php python ruby rust scala sparql tsx typescript yaml
+LANGUAGES = agda c clojure cpp c-sharp bash go html java javascript json markdown php python ruby rust scala sparql tsx typescript yaml
 
-.PHONY: parsers
-parsers: $(addprefix parsers/tree-sitter-,$(addsuffix .wasm,$(languages)))
+TREE_SITTER_VERSION := v0.20.4
+
+WEB_TREE_SITTER_FILES=README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
+
+
+# Build web-tree-sitter and web-tree-sitter parsers for $(LANGUAGES)
+
+.PHONY: compile
+compile: \
+		$(addprefix parsers/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)) \
+		$(addprefix parsers/tree-sitter-,$(addsuffix .wasm,$(LANGUAGES)))
+	tsc -p ./
+
+
+# Build web-tree-sitter parsers for $(LANGUAGES)
 
 parsers/%.wasm: node_modules/%/package.json
 	mkdir -p $(dir $@)
@@ -24,3 +35,19 @@ parsers/tree-sitter-c-sharp.wasm: node_modules/tree-sitter-c-sharp/package.json
 	mkdir -p $(dir $@)
 	npx tree-sitter build-wasm $(dir $^)
 	mv tree-sitter-c_sharp.wasm $@
+
+
+# Build web-tree-sitter
+
+$(addprefix parsers/web-tree-sitter/,$(WEB_TREE_SITTER_FILES)):
+	@rm -rf tmp/tree-sitter
+	@git clone                                       \
+		-c advice.detachedHead=false --quiet           \
+		--depth=1 --branch=$(TREE_SITTER_VERSION)      \
+		https://github.com/tree-sitter/tree-sitter.git \
+		tmp/tree-sitter
+	@(cd tmp/tree-sitter && ./script/build-wasm)
+	@mkdir -p parsers/web-tree-sitter
+	@cp tmp/tree-sitter/LICENSE parsers/web-tree-sitter
+	@cp $(addprefix tmp/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) parsers/web-tree-sitter
+	@rm -rf tmp/tree-sitter
