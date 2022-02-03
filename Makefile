@@ -1,4 +1,4 @@
-LANGUAGES = agda c clojure cpp c-sharp bash go html java javascript json markdown php python ruby rust scala sparql tsx typescript yaml
+LANGUAGES = agda c clojure cpp c-sharp bash go haskell html java javascript json markdown php python ruby rust scala sparql tsx typescript yaml
 
 TREE_SITTER_VERSION := v0.20.4
 
