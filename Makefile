@@ -2,7 +2,7 @@ LANGUAGES = agda c clojure cpp c-sharp bash go html java javascript json markdow
 
 TREE_SITTER_VERSION := v0.20.4
 
-WEB_TREE_SITTER_FILES=README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
+WEB_TREE_SITTER_FILES := README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
 
 
 # Build web-tree-sitter and web-tree-sitter parsers for $(LANGUAGES)
