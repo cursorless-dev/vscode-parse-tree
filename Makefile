@@ -7,19 +7,11 @@ LANGUAGES = agda c clojure cpp c-sharp bash go haskell html java javascript json
 #       when you change this version number.
 TREE_SITTER_VERSION := v0.20.4
 
-WEB_TREE_SITTER_FILES := README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
-WEB_TREE_SITTER_DIR := vendor/web-tree-sitter/$(TREE_SITTER_VERSION)
-
-# Build web-tree-sitter and web-tree-sitter parsers for $(LANGUAGES)
-
-.PHONY: compile
-compile: \
-		$(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)) \
-		$(addprefix parsers/tree-sitter-,$(addsuffix .wasm,$(LANGUAGES)))
-	tsc -p ./
-
 
 # Build web-tree-sitter parsers for $(LANGUAGES)
+
+.PHONY: parsers
+parsers: $(addprefix parsers/tree-sitter-,$(addsuffix .wasm,$(LANGUAGES)))
 
 parsers/%.wasm: node_modules/%/package.json
 	mkdir -p $(dir $@)
@@ -43,6 +35,12 @@ parsers/tree-sitter-c-sharp.wasm: node_modules/tree-sitter-c-sharp/package.json
 
 
 # Build web-tree-sitter
+
+WEB_TREE_SITTER_FILES := README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
+WEB_TREE_SITTER_DIR := vendor/web-tree-sitter/$(TREE_SITTER_VERSION)
+
+.PHONY: web-tree-sitter
+web-tree-sitter: $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)) \
 
 $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)):
 	@rm -rf tmp/tree-sitter
