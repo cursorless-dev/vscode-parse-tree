@@ -39,18 +39,21 @@ parsers/tree-sitter-c-sharp.wasm: node_modules/tree-sitter-c-sharp/package.json
 WEB_TREE_SITTER_FILES := README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
 WEB_TREE_SITTER_DIR := vendor/web-tree-sitter/$(TREE_SITTER_VERSION)
 
+MAKE_CACHE_DIR := .make-work
+
 .PHONY: web-tree-sitter
 web-tree-sitter: $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)) \
 
 $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)):
-	@rm -rf tmp/tree-sitter
+	@rm -rf $(MAKE_CACHE_DIR)/tree-sitter
 	@git clone                                       \
 		-c advice.detachedHead=false --quiet           \
 		--depth=1 --branch=$(TREE_SITTER_VERSION)      \
 		https://github.com/tree-sitter/tree-sitter.git \
-		tmp/tree-sitter
-	@(cd tmp/tree-sitter && ./script/build-wasm)
+		$(MAKE_CACHE_DIR)/tree-sitter
+	@(cp tree-sitter.patch $(MAKE_CACHE_DIR)/tree-sitter/)
+	@(cd $(MAKE_CACHE_DIR)/tree-sitter && git apply tree-sitter.patch && ./script/build-wasm)
 	@mkdir -p $(WEB_TREE_SITTER_DIR)
-	@cp tmp/tree-sitter/LICENSE $(WEB_TREE_SITTER_DIR)
-	@cp $(addprefix tmp/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) $(WEB_TREE_SITTER_DIR)
-	@rm -rf tmp/tree-sitter
+	@cp $(MAKE_CACHE_DIR)/tree-sitter/LICENSE $(WEB_TREE_SITTER_DIR)
+	@cp $(addprefix $(MAKE_CACHE_DIR)/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) $(WEB_TREE_SITTER_DIR)
+	@rm -rf $(MAKE_CACHE_DIR)/tree-sitter

@@ -1,0 +1,12 @@
+diff --git a/lib/binding_web/package.json b/lib/binding_web/package.json
+index e21685e9..1da9eb73 100644
+--- a/lib/binding_web/package.json
++++ b/lib/binding_web/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "web-tree-sitter",
+-  "version": "0.20.3",
++  "version": "0.20.4",
+   "description": "Tree-sitter bindings for the web",
+   "main": "tree-sitter.js",
+   "types": "tree-sitter-web.d.ts",

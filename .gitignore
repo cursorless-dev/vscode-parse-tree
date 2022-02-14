@@ -5,3 +5,4 @@ node_modules
 *.bin
 /parsers/
 /vendor/
+/.make-work/
