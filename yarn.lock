@@ -1367,7 +1367,7 @@ nan@2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nan@^2.12.1, nan@^2.14.0, nan@^2.14.1:
+nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.15.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
@@ -2130,6 +2130,12 @@ tree-sitter-json@^0.19.0:
   integrity sha512-XospLJCiv/xTS6n4llBhXGCEDvnt30oEZr1Eo7qD9YgMJgEmjhQ/036Qx5kclB21CrP6CLWVudgjQZZ4LAMG8A==
   dependencies:
     nan "^2.14.1"
+
+"tree-sitter-latex@github:latex-lsp/tree-sitter-latex#b1f4fb41ee3b98bfdad043cb7f99469260b84262":
+  version "0.1.0"
+  resolved "https://codeload.github.com/latex-lsp/tree-sitter-latex/tar.gz/b1f4fb41ee3b98bfdad043cb7f99469260b84262"
+  dependencies:
+    nan "^2.15.0"
 
 tree-sitter-markdown@^0.7.1:
   version "0.7.1"
