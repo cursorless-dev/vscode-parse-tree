@@ -56,8 +56,9 @@
 	"contributes": {},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"compile": "make web-tree-sitter && tsc -p ./ && make parsers",
+		"compile": "tsc -p ./ && make parsers",
 		"watch": "tsc -watch -p ./",
+		"preinstall": "make web-tree-sitter",
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run compile && node ./out/test",
 		"benchmark": "npm run compile && node ./out/benchmark",
