@@ -52,7 +52,7 @@ $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)):
 		https://github.com/tree-sitter/tree-sitter.git \
 		$(MAKE_CACHE_DIR)/tree-sitter
 	@(cp tree-sitter.patch $(MAKE_CACHE_DIR)/tree-sitter/)
-	@(cd $(MAKE_CACHE_DIR)/tree-sitter && git apply tree-sitter.patch && ./script/build-wasm)
+	@(cd $(MAKE_CACHE_DIR)/tree-sitter && git apply tree-sitter.patch && ./script/build-wasm --debug)
 	@mkdir -p $(WEB_TREE_SITTER_DIR)
 	@cp $(MAKE_CACHE_DIR)/tree-sitter/LICENSE $(WEB_TREE_SITTER_DIR)
 	@cp $(addprefix $(MAKE_CACHE_DIR)/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) $(WEB_TREE_SITTER_DIR)
