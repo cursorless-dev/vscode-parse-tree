@@ -17,8 +17,10 @@
 		// "noUnusedParameters": true,  /* Report errors on unused parameters. */
 	},
 	"exclude": [
+		".make-work",
+		".vscode-test",
 		"examples",
 		"node_modules",
-		".vscode-test"
+		"vendor"
 	]
 }

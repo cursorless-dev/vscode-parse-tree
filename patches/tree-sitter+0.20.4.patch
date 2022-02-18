@@ -1,0 +1,25 @@
+diff --git a/lib/binding_web/exports.json b/lib/binding_web/exports.json
+index b51a4cb3..ab17ec12 100644
+--- a/lib/binding_web/exports.json
++++ b/lib/binding_web/exports.json
+@@ -4,6 +4,8 @@
+   "_malloc",
+   "_realloc",
+ 
++  "___cxa_atexit",
++
+   "__ZNKSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4copyEPcmm",
+   "__ZNKSt3__220__vector_base_commonILb1EE20__throw_length_errorEv",
+   "__ZNSt3__212basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm",
+diff --git a/lib/binding_web/package.json b/lib/binding_web/package.json
+index e21685e9..1da9eb73 100644
+--- a/lib/binding_web/package.json
++++ b/lib/binding_web/package.json
+@@ -1,6 +1,6 @@
+ {
+   "name": "web-tree-sitter",
+-  "version": "0.20.3",
++  "version": "0.20.4",
+   "description": "Tree-sitter bindings for the web",
+   "main": "tree-sitter.js",
+   "types": "tree-sitter-web.d.ts",
