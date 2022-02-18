@@ -51,8 +51,8 @@ $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)):
 		--depth=1 --branch=$(TREE_SITTER_VERSION)      \
 		https://github.com/tree-sitter/tree-sitter.git \
 		$(MAKE_CACHE_DIR)/tree-sitter
-	@(cp tree-sitter.patch $(MAKE_CACHE_DIR)/tree-sitter/)
-	@(cd $(MAKE_CACHE_DIR)/tree-sitter && git apply tree-sitter.patch && ./script/build-wasm --debug)
+	@(cp patches/tree-sitter.patch $(MAKE_CACHE_DIR)/tree-sitter/)
+	@(cd $(MAKE_CACHE_DIR)/tree-sitter && git apply tree-sitter.patch && ./script/build-wasm)
 	@mkdir -p $(WEB_TREE_SITTER_DIR)
 	@cp $(MAKE_CACHE_DIR)/tree-sitter/LICENSE $(WEB_TREE_SITTER_DIR)
 	@cp $(addprefix $(MAKE_CACHE_DIR)/tree-sitter/lib/binding_web/,$(WEB_TREE_SITTER_FILES)) $(WEB_TREE_SITTER_DIR)
