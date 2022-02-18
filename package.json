@@ -100,7 +100,7 @@
 	"dependencies": {
 		"jsonc-parser": "^2.1.0",
 		"tar": ">=4.4.2",
-		"web-tree-sitter": "file:vendor/web-tree-sitter/v0.20.4"
+		"web-tree-sitter": "file:vendor/web-tree-sitter/0.20.4"
 	},
 	"bundledDependencies": [
 		"web-tree-sitter"
