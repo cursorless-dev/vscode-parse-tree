@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.14.0",
+	"version": "0.15.0",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
@@ -27,6 +27,7 @@
 		"onLanguage:cpp",
 		"onLanguage:csharp",
 		"onLanguage:go",
+		"onLanguage:haskell",
 		"onLanguage:html",
 		"onLanguage:java",
 		"onLanguage:javascript",
@@ -58,6 +59,7 @@
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./ && make parsers",
 		"watch": "tsc -watch -p ./",
+		"preinstall": "make web-tree-sitter",
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run compile && node ./out/test",
 		"benchmark": "npm run compile && node ./out/benchmark",
@@ -77,6 +79,7 @@
 		"tree-sitter-clojure": "github:sogaiu/tree-sitter-clojure#master",
 		"tree-sitter-cpp": "^0.19.0",
 		"tree-sitter-go": "^0.19.0",
+		"tree-sitter-haskell": "github:tree-sitter/tree-sitter-haskell#d6ccd2d9c40bdec29fee0027ef04fe5ff1ae4ceb",
 		"tree-sitter-html": "^0.19.0",
 		"tree-sitter-java": "^0.19.1",
 		"tree-sitter-javascript": "^0.19.0",
@@ -99,6 +102,9 @@
 	"dependencies": {
 		"jsonc-parser": "^2.1.0",
 		"tar": ">=4.4.2",
-		"web-tree-sitter": "^0.19.4"
-	}
+		"web-tree-sitter": "file:vendor/web-tree-sitter/0.20.4"
+	},
+	"bundledDependencies": [
+		"web-tree-sitter"
+	]
 }

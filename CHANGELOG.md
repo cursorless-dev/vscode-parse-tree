@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.15.0 (18 Feb 2022)
+
+### Enhancements
+
+- Bundle web-tree-sitter and added Haskell support [#20](https://github.com/pokey/vscode-parse-tree/pull/20) ([@wenkokke](https://github.com/wenkokke))
+
 ## 0.14.0 (16 Jan 2021)
 
 ### Enhancements

@@ -1,6 +1,9 @@
-out
-node_modules
-.vscode-test/
+/.make-work/
+/.metals/
+/.vscode-test/
+/node_modules/
+/out/
+/parsers/
+/vendor/
 *.vsix
 *.bin
-parsers/
