@@ -25,6 +25,7 @@ const languages: {
   javascriptreact: { module: "tree-sitter-javascript" },
   json: { module: "tree-sitter-json" },
   jsonc: { module: "tree-sitter-json" },
+  latex: { module: "tree-sitter-latex" },
   markdown: { module: "tree-sitter-markdown" },
   php: { module: "tree-sitter-php" },
   python: { module: "tree-sitter-python" },
