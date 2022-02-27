@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.16.0 (27 Feb 2022)
+
+### Enhancements
+
+- Add LaTeX support [#24](https://github.com/pokey/vscode-parse-tree/pull/24) ([@du-da](https://github.com/du-da))
+
 ## 0.15.0 (18 Feb 2022)
 
 ### Enhancements
