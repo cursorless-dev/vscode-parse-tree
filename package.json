@@ -88,7 +88,7 @@
 		"tree-sitter-markdown": "^0.7.1",
 		"tree-sitter-php": "^0.19.0",
 		"tree-sitter-python": "^0.19.0",
-		"tree-sitter-ruby": "^0.19.0",
+		"tree-sitter-ruby": "github:tree-sitter/tree-sitter-ruby#1ebfdb288842dae5a9233e2509a135949023dd82",
 		"tree-sitter-rust": "^0.19.0",
 		"tree-sitter-scala": "github:tree-sitter/tree-sitter-scala#master",
 		"tree-sitter-sparql": "^0.1.0",

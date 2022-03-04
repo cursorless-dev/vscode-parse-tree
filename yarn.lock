@@ -2155,10 +2155,9 @@ tree-sitter-python@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-tree-sitter-ruby@^0.19.0:
+"tree-sitter-ruby@github:tree-sitter/tree-sitter-ruby#1ebfdb288842dae5a9233e2509a135949023dd82":
   version "0.19.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter-ruby/-/tree-sitter-ruby-0.19.0.tgz#a5fd70c7653beaa89c7d643a9b04e0f71eb075bd"
-  integrity sha512-uzASkTuC6wXnnshfDgij/Q9FYWxODCyIKVb0eHVGX9G5Cu5iFPvgJQgWTKIft1zomTjKjD25YIwFUnXnzZf4Ew==
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-ruby/tar.gz/1ebfdb288842dae5a9233e2509a135949023dd82"
   dependencies:
     nan "^2.14.1"
     prebuild-install "^5.0.0"
