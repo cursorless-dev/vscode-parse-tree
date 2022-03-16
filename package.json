@@ -94,7 +94,7 @@
 		"tree-sitter-ruby": "github:tree-sitter/tree-sitter-ruby#1ebfdb288842dae5a9233e2509a135949023dd82",
 		"tree-sitter-rust": "^0.19.0",
 		"tree-sitter-scala": "github:tree-sitter/tree-sitter-scala#master",
-		"tree-sitter-scss": "github:serenadeai/tree-sitter-scss#master",
+		"tree-sitter-scss": "github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a",
 		"tree-sitter-sparql": "^0.1.0",
 		"tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#master",
 		"tree-sitter-yaml": "^0.5.0",
