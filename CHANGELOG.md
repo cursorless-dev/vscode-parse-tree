@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.17.0 (17 Mar 2022)
+
+### Enhancements
+
+- Add support for CSS and SCSS [#25](https://github.com/pokey/vscode-parse-tree/pull/25) ([@Will-Sommers](https://github.com/Will-Sommers))
+
 ## 0.16.0 (27 Feb 2022)
 
 ### Enhancements
