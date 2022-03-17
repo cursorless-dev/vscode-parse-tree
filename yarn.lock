@@ -1357,7 +1357,7 @@ nan@2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.15.0:
+nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.15.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
@@ -2086,6 +2086,13 @@ tree-sitter-cpp@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
+tree-sitter-css@^0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-css/-/tree-sitter-css-0.19.0.tgz#1543d70fa853d776b31b506c57cf13a387aacf93"
+  integrity sha512-LYCHS1V2bzeNJr8Mgh60H06qB8NNJyRJVgW1gKCEjcm5S48d8H9xOnrzIlsyLHaXFfnGWCrHJ6jxN6G3s5fJTA==
+  dependencies:
+    nan "^2.14.1"
+
 tree-sitter-go@^0.19.0:
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/tree-sitter-go/-/tree-sitter-go-0.19.1.tgz#f23c84bff882eafa296ce2d307366e76f1f83e2d"
@@ -2173,6 +2180,12 @@ tree-sitter-rust@^0.19.0:
   resolved "https://codeload.github.com/tree-sitter/tree-sitter-scala/tar.gz/0a3dd53a7fc4b352a538397d054380aaa28be54c"
   dependencies:
     nan "^2.14.1"
+
+"tree-sitter-scss@github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a":
+  version "0.0.1"
+  resolved "https://codeload.github.com/serenadeai/tree-sitter-scss/tar.gz/c478c6868648eff49eb04a4df90d703dc45b312a"
+  dependencies:
+    nan "^2.11.1"
 
 tree-sitter-sparql@^0.1.0:
   version "0.1.0"
