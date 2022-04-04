@@ -29,6 +29,7 @@ const languages: {
   latex: { module: "tree-sitter-latex" },
   markdown: { module: "tree-sitter-markdown" },
   php: { module: "tree-sitter-php" },
+  powershell: { module: "tree-sitter-powershell" },
   python: { module: "tree-sitter-python" },
   ruby: { module: "tree-sitter-ruby" },
   rust: { module: "tree-sitter-rust" },
