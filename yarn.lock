@@ -2072,9 +2072,9 @@ tree-sitter-cli@^0.20.1:
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.4.tgz#4b3fd16c8f1e0870bd428bcc3f2269b75ee97b96"
   integrity sha512-G42x0Ev7mxA8WLUfZY+two5LIhPf6R/m7qDZtKxOzE77zXi6didNI/vf17kHaKaRXJrWnyCxHFaVQFO2LL81yg==
 
-"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#master":
+"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#a9b3ea47e6e4cd07588b61ebeaefc5114691c631":
   version "0.0.8"
-  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/39bf0977d223879436c1425fe6bfeb3bcfd86f92"
+  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/a9b3ea47e6e4cd07588b61ebeaefc5114691c631"
   dependencies:
     nan "2.14.2"
     web-tree-sitter "0.19.1"
@@ -2175,9 +2175,9 @@ tree-sitter-rust@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-"tree-sitter-scala@github:tree-sitter/tree-sitter-scala#master":
+"tree-sitter-scala@github:tree-sitter/tree-sitter-scala#ec6047f531e7d4c13787d4ff208b94a84de34165":
   version "0.19.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-scala/tar.gz/0a3dd53a7fc4b352a538397d054380aaa28be54c"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-scala/tar.gz/ec6047f531e7d4c13787d4ff208b94a84de34165"
   dependencies:
     nan "^2.14.1"
 
@@ -2194,9 +2194,10 @@ tree-sitter-sparql@^0.1.0:
   dependencies:
     nan "^2.14.1"
 
-"tree-sitter-typescript@github:tree-sitter/tree-sitter-typescript#master":
-  version "0.20.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-typescript/tar.gz/e8e8e8dc2745840b036421b4e43286750443cb13"
+tree-sitter-typescript@^0.20.1:
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/tree-sitter-typescript/-/tree-sitter-typescript-0.20.1.tgz#6b338a1414f5ed13cc39e60275ddeaa0f25870a9"
+  integrity sha512-wqpnhdVYX26ATNXeZtprib4+mF2GlYQB1cjRPibYGxDRiugx5OfjWwLE4qPPxEGdp2ZLSmZVesGUjLWzfKo6rA==
   dependencies:
     nan "^2.14.0"
 
@@ -2376,11 +2377,6 @@ wcwidth@^1.0.1:
   integrity sha1-8LDc+RW8X/FSivrbLA4XtTLaL+g=
   dependencies:
     defaults "^1.0.3"
-
-web-tree-sitter@0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/web-tree-sitter/-/web-tree-sitter-0.19.1.tgz#2d93df1d65b3850870b3ebca8ae661eb9c798bc9"
-  integrity sha512-Wlveh+zdegmNdK733B18pf+NmliKs2t5+Aid8IOFIBV2MqJmnYVo3AdukbdZJ+iIxzBnIreYFKfcFFCWVEf4AA==
 
 "web-tree-sitter@file:vendor/web-tree-sitter/0.20.4":
   version "0.20.4"
