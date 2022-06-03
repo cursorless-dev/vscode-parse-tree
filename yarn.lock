@@ -1362,6 +1362,11 @@ nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.15.0:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
 
+nan@^2.14.2:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
+  integrity sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==
+
 napi-build-utils@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/napi-build-utils/-/napi-build-utils-1.0.2.tgz"
@@ -2161,6 +2166,12 @@ tree-sitter-python@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
+"tree-sitter-query@github:nvim-treesitter/tree-sitter-query#5217c6805c09f8fc00ed13d17d5fcb791437aee6":
+  version "1.0.0"
+  resolved "https://codeload.github.com/nvim-treesitter/tree-sitter-query/tar.gz/5217c6805c09f8fc00ed13d17d5fcb791437aee6"
+  dependencies:
+    nan "^2.14.2"
+
 "tree-sitter-ruby@github:tree-sitter/tree-sitter-ruby#1ebfdb288842dae5a9233e2509a135949023dd82":
   version "0.19.0"
   resolved "https://codeload.github.com/tree-sitter/tree-sitter-ruby/tar.gz/1ebfdb288842dae5a9233e2509a135949023dd82"
@@ -2180,12 +2191,6 @@ tree-sitter-rust@^0.19.0:
   resolved "https://codeload.github.com/tree-sitter/tree-sitter-scala/tar.gz/0a3dd53a7fc4b352a538397d054380aaa28be54c"
   dependencies:
     nan "^2.14.1"
-
-"tree-sitter-scheme@github:austinmlv/tree-sitter-scheme#aaf84f496aceb76fc3f355b28af3a3f1c9306273":
-  version "0.1.0"
-  resolved "https://codeload.github.com/austinmlv/tree-sitter-scheme/tar.gz/aaf84f496aceb76fc3f355b28af3a3f1c9306273"
-  dependencies:
-    nan "^2.15.0"
 
 "tree-sitter-scss@github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a":
   version "0.0.1"
