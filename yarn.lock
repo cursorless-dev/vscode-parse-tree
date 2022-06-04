@@ -1357,10 +1357,15 @@ nan@2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.15.0:
+nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==
+
+nan@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
+  integrity sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==
 
 napi-build-utils@^1.0.1:
   version "1.0.2"
@@ -2072,12 +2077,11 @@ tree-sitter-cli@^0.20.1:
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.4.tgz#4b3fd16c8f1e0870bd428bcc3f2269b75ee97b96"
   integrity sha512-G42x0Ev7mxA8WLUfZY+two5LIhPf6R/m7qDZtKxOzE77zXi6didNI/vf17kHaKaRXJrWnyCxHFaVQFO2LL81yg==
 
-"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#a9b3ea47e6e4cd07588b61ebeaefc5114691c631":
-  version "0.0.8"
-  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/a9b3ea47e6e4cd07588b61ebeaefc5114691c631"
+"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#0.0.9":
+  version "0.0.9"
+  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/e57c569ae332ca365da623712ae1f50f84daeae2"
   dependencies:
     nan "2.14.2"
-    web-tree-sitter "0.19.1"
 
 tree-sitter-cpp@^0.19.0:
   version "0.19.0"
@@ -2100,9 +2104,9 @@ tree-sitter-go@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-"tree-sitter-haskell@github:tree-sitter/tree-sitter-haskell#d6ccd2d9c40bdec29fee0027ef04fe5ff1ae4ceb":
+"tree-sitter-haskell@github:tree-sitter/tree-sitter-haskell#1b54c3f39436bbded6593ac9e0103f9115bbbd2e":
   version "0.14.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-haskell/tar.gz/d6ccd2d9c40bdec29fee0027ef04fe5ff1ae4ceb"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-haskell/tar.gz/1b54c3f39436bbded6593ac9e0103f9115bbbd2e"
   dependencies:
     nan "^2.12.1"
     node-gyp "^7.1.2"
@@ -2135,11 +2139,11 @@ tree-sitter-json@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
-"tree-sitter-latex@github:latex-lsp/tree-sitter-latex#1666e9780de42a31b1376d32fbe8332e8dd5850f":
+"tree-sitter-latex@github:latex-lsp/tree-sitter-latex#104a5dea952d5f00150afd6a8436e6cad95ef718":
   version "0.1.0"
-  resolved "https://codeload.github.com/latex-lsp/tree-sitter-latex/tar.gz/1666e9780de42a31b1376d32fbe8332e8dd5850f"
+  resolved "https://codeload.github.com/latex-lsp/tree-sitter-latex/tar.gz/104a5dea952d5f00150afd6a8436e6cad95ef718"
   dependencies:
-    nan "^2.15.0"
+    nan "^2.16.0"
 
 tree-sitter-markdown@^0.7.1:
   version "0.7.1"
@@ -2148,9 +2152,9 @@ tree-sitter-markdown@^0.7.1:
   dependencies:
     nan "^2.14.0"
 
-"tree-sitter-php@github:tree-sitter/tree-sitter-php#0ce134234214427b6aeb2735e93a307881c6cd6f":
+"tree-sitter-php@github:tree-sitter/tree-sitter-php#b9b719ded9a1c4f3fe29848306cfbd6ed4544282":
   version "0.19.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-php/tar.gz/0ce134234214427b6aeb2735e93a307881c6cd6f"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-php/tar.gz/b9b719ded9a1c4f3fe29848306cfbd6ed4544282"
   dependencies:
     nan "^2.14.0"
 
@@ -2161,9 +2165,9 @@ tree-sitter-python@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-"tree-sitter-ruby@github:tree-sitter/tree-sitter-ruby#1ebfdb288842dae5a9233e2509a135949023dd82":
+"tree-sitter-ruby@github:tree-sitter/tree-sitter-ruby#6334d6ab3d04a5672da695d3b155ca3301511f8d":
   version "0.19.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-ruby/tar.gz/1ebfdb288842dae5a9233e2509a135949023dd82"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-ruby/tar.gz/6334d6ab3d04a5672da695d3b155ca3301511f8d"
   dependencies:
     nan "^2.14.1"
     prebuild-install "^5.0.0"
@@ -2175,9 +2179,9 @@ tree-sitter-rust@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-"tree-sitter-scala@github:tree-sitter/tree-sitter-scala#ec6047f531e7d4c13787d4ff208b94a84de34165":
+"tree-sitter-scala@github:tree-sitter/tree-sitter-scala#8599058ef292e82203a1b23d10734dcbaf4d1b5c":
   version "0.19.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-scala/tar.gz/ec6047f531e7d4c13787d4ff208b94a84de34165"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-scala/tar.gz/8599058ef292e82203a1b23d10734dcbaf4d1b5c"
   dependencies:
     nan "^2.14.1"
 
