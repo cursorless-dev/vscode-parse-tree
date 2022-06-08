@@ -33,6 +33,7 @@ const languages: {
   ruby: { module: "tree-sitter-ruby" },
   rust: { module: "tree-sitter-rust" },
   scala: { module: "tree-sitter-scala" },
+  scm: { module: "tree-sitter-query" },
   scss: { module: "tree-sitter-scss" },
   shellscript: { module: "tree-sitter-bash" },
   sparql: { module: "tree-sitter-sparql" },
