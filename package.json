@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.18.0",
+	"version": "0.18.1",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
@@ -93,7 +93,7 @@
 		"tree-sitter-php": "github:tree-sitter/tree-sitter-php#0ce134234214427b6aeb2735e93a307881c6cd6f",
 		"tree-sitter-python": "^0.19.0",
 		"tree-sitter-ruby": "github:tree-sitter/tree-sitter-ruby#1ebfdb288842dae5a9233e2509a135949023dd82",
-		"tree-sitter-rust": "^0.19.0",
+		"tree-sitter-rust": "github:tree-sitter/tree-sitter-rust#36ae187ed6dd3803a8a89dbb54f3124c8ee74662",
 		"tree-sitter-scala": "github:tree-sitter/tree-sitter-scala#master",
 		"tree-sitter-query": "github:nvim-treesitter/tree-sitter-query#5217c6805c09f8fc00ed13d17d5fcb791437aee6",
 		"tree-sitter-scss": "github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a",
