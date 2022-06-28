@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.19.0",
+	"version": "0.18.1",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
