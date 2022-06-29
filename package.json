@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.18.1",
+	"version": "0.18.2",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
@@ -10,7 +10,8 @@
 	},
 	"license": "MIT",
 	"extensionKind": [
-		"workspace", "ui"
+		"workspace",
+		"ui"
 	],
 	"engines": {
 		"vscode": "^1.34.0"
