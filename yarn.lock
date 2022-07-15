@@ -2119,10 +2119,9 @@ tree-sitter-html@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-tree-sitter-java@^0.19.1:
+"tree-sitter-java@github:tree-sitter/tree-sitter-java#ac14b4b1884102839455d32543ab6d53ae089ab7":
   version "0.19.1"
-  resolved "https://registry.yarnpkg.com/tree-sitter-java/-/tree-sitter-java-0.19.1.tgz#c1bf59caaa81bf8a4a6dda99e7c97e51b3bd26d4"
-  integrity sha512-yVm+4q1D4niaHcEf2iqhOcIaiSp3wxHjeC4eoLAqSQNVxSrhThmT1FEfM4yDgHV4XaxH+62xpKHCwYG9NzRt6Q==
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-java/tar.gz/ac14b4b1884102839455d32543ab6d53ae089ab7"
   dependencies:
     nan "^2.14.1"
 
@@ -2159,12 +2158,11 @@ tree-sitter-markdown@^0.7.1:
   dependencies:
     nan "^2.14.0"
 
-tree-sitter-python@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter-python/-/tree-sitter-python-0.19.0.tgz#ad79a221fab7136559da0704f789173b81e0bdcd"
-  integrity sha512-UAJV73zCE+2b+X8XQOyL6C+MxVUV8BH0TxcOwhfgaDh6F6g4Ub0SqWGF19C1MDrGi25JNnZ8xlsH0aqrasyS3w==
+"tree-sitter-python@github:tree-sitter/tree-sitter-python#de221eccf9a221f5b85474a553474a69b4b5784d":
+  version "0.20.2"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-python/tar.gz/de221eccf9a221f5b85474a553474a69b4b5784d"
   dependencies:
-    nan "^2.14.0"
+    nan "^2.15.0"
 
 "tree-sitter-query@github:nvim-treesitter/tree-sitter-query#5217c6805c09f8fc00ed13d17d5fcb791437aee6":
   version "1.0.0"
