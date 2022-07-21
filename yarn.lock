@@ -23,6 +23,12 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
+"@elm-tooling/tree-sitter-elm@github:elm-tooling/tree-sitter-elm#0aecfbf69f0c9bcdfada0f6f2c5398235c23949f":
+  version "5.6.1"
+  resolved "https://codeload.github.com/elm-tooling/tree-sitter-elm/tar.gz/0aecfbf69f0c9bcdfada0f6f2c5398235c23949f"
+  dependencies:
+    nan "^2.15.0"
+
 "@malept/cross-spawn-promise@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@malept/cross-spawn-promise/-/cross-spawn-promise-1.1.1.tgz"
