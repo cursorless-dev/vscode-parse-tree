@@ -18,6 +18,7 @@ const languages: {
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
   css: { module: "tree-sitter-css" },
+  elm: { module: "tree-sitter-elm" },
   go: { module: "tree-sitter-go" },
   haskell: { module: "tree-sitter-haskell" },
   html: { module: "tree-sitter-html" },
