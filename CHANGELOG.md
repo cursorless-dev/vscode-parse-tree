@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.19.0 (21 Jul 2022)
+
+### Enhancements
+
+- Add support for elm [#38](https://github.com/cursorless-dev/vscode-parse-tree/pull/38) ([@Gauteab](https://github.com/Gauteab))
+
 ## 0.18.0 (8 Jun 2022)
 
 ### Enhancements
