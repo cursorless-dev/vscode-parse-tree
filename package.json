@@ -14,7 +14,7 @@
 		"ui"
 	],
 	"engines": {
-		"vscode": "^1.34.0"
+		"vscode": "^1.58.0"
 	},
 	"categories": [
 		"Programming Languages",
@@ -65,16 +65,20 @@
 		"compile": "tsc -p ./ && make parsers",
 		"watch": "tsc -watch -p ./",
 		"preinstall": "make web-tree-sitter",
-		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "npm run compile && node ./out/test",
 		"benchmark": "npm run compile && node ./out/benchmark",
 		"debug": "npm run compile && node --nolazy --inspect-brk=9229 ./out/test",
+		"lint": "eslint src --ext ts",
 		"build": "vsce package -o build.vsix",
 		"publish": "vsce publish patch"
 	},
 	"devDependencies": {
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^8.10.25",
+		"@typescript-eslint/eslint-plugin": "^5.20.0",
+		"@typescript-eslint/parser": "^5.20.0",
+		"eslint": "^8.13.0",
+		"eslint-config-prettier": "^8.5.0",
 		"electron-rebuild": "^2.3.5",
 		"tree-sitter-agda": "github:pokey/tree-sitter-agda#e5fba6cabe8c7fc7993ced2b86704f3841215284",
 		"tree-sitter-bash": "^0.19.0",
@@ -104,9 +108,9 @@
 		"tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#master",
 		"tree-sitter-yaml": "^0.5.0",
 		"tslint": "^6.0.0",
-		"typescript": "^3.8.2",
-		"vsce": "^1.73.0",
-		"vscode": "^1.1.36"
+		"typescript": "^4.5.5",
+		"@types/vscode": "~1.58.0",
+		"@vscode/test-electron": "^2.1.3"
 	},
 	"dependencies": {
 		"jsonc-parser": "^2.1.0",
