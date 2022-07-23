@@ -61,8 +61,12 @@ export async function activate(context: vscode.ExtensionContext) {
    */
   async function loadLanguage(languageId: string) {
     const language = languages[languageId];
-    if (language == null) return false;
-    if (language.parser != null) return true;
+    if (language == null) {
+      return false;
+    }
+    if (language.parser != null) {
+      return true;
+    }
 
     const absolute = path.join(
       context.extensionPath,
@@ -80,9 +84,13 @@ export async function activate(context: vscode.ExtensionContext) {
 
   async function open(document: vscode.TextDocument) {
     const uriString = document.uri.toString();
-    if (uriString in trees) return;
+    if (uriString in trees) {
+      return;
+    }
 
-    if (!(await loadLanguage(document.languageId))) return;
+    if (!(await loadLanguage(document.languageId))) {
+      return;
+    }
 
     const language = languages[document.languageId];
     const t = language.parser!.parse(document.getText()); // TODO don't use getText, use Parser.Input
@@ -91,11 +99,17 @@ export async function activate(context: vscode.ExtensionContext) {
 
   function openIfLanguageLoaded(document: vscode.TextDocument) {
     const uriString = document.uri.toString();
-    if (uriString in trees) return null;
+    if (uriString in trees) {
+      return null;
+    }
 
     const language = languages[document.languageId];
-    if (language == null) return null;
-    if (language.parser == null) return null;
+    if (language == null) {
+      return null;
+    }
+    if (language.parser == null) {
+      return null;
+    }
 
     const t = language.parser.parse(document.getText()); // TODO don't use getText, use Parser.Input
     trees[uriString] = t;
@@ -105,12 +119,16 @@ export async function activate(context: vscode.ExtensionContext) {
   // NOTE: if you make this an async function, it seems to cause edit anomalies
   function edit(edit: vscode.TextDocumentChangeEvent) {
     const language = languages[edit.document.languageId];
-    if (language == null || language.parser == null) return;
+    if (language == null || language.parser == null) {
+      return;
+    }
     updateTree(language.parser, edit);
   }
 
   function updateTree(parser: Parser, edit: vscode.TextDocumentChangeEvent) {
-    if (edit.contentChanges.length == 0) return;
+    if (edit.contentChanges.length === 0) {
+      return;
+    }
     const old = trees[edit.document.uri.toString()];
     for (const e of edit.contentChanges) {
       const startIndex = e.rangeOffset;
@@ -220,4 +238,6 @@ export async function activate(context: vscode.ExtensionContext) {
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() {
+  // Empty
+}

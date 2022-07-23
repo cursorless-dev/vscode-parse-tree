@@ -27,7 +27,7 @@ export async function load() {
     colors.clear()
     // Find out current color theme
     const themeName = vscode.workspace.getConfiguration("workbench").get("colorTheme")
-    if (typeof themeName != 'string') {
+    if (typeof themeName !== 'string') {
         console.warn('workbench.colorTheme is', themeName)
         return
     }
@@ -52,7 +52,7 @@ async function loadThemeNamed(themeName: string) {
         if (packageJson.contributes && packageJson.contributes.themes) {
             for (const theme of packageJson.contributes.themes) {
                 const id = theme.id || theme.label
-                if (id == themeName) {
+                if (id === themeName) {
                     const themeRelativePath: string = theme.path
                     const themeFullPath: string = path.join(extensionPath, themeRelativePath)
                     await loadThemeFile(themeFullPath)
@@ -79,7 +79,7 @@ async function loadThemeFile(themePath: string) {
 
 function loadColors(textMateRules: TextMateRule[]): void {
     for (const rule of textMateRules) {
-        if (typeof rule.scope == 'string') {
+        if (typeof rule.scope === 'string') {
             if (!colors.has(rule.scope)) {
                 colors.set(rule.scope, rule.settings)
             }
@@ -94,7 +94,7 @@ function loadColors(textMateRules: TextMateRule[]): void {
 }
 
 function checkFileExists(filePath: string): Promise<boolean> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _reject) => {
         fs.stat(filePath, (err, stats) => {
             if (stats && stats.isFile()) {
                 resolve(true)
