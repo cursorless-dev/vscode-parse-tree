@@ -2375,12 +2375,11 @@ tree-sitter-json@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
-tree-sitter-kotlin@^0.2.11:
+"tree-sitter-kotlin@github:fwcd/tree-sitter-kotlin#a4f71eb9b8c9b19ded3e0e9470be4b1b77c2b569":
   version "0.2.11"
-  resolved "https://registry.yarnpkg.com/tree-sitter-kotlin/-/tree-sitter-kotlin-0.2.11.tgz#1ffaa4b81ea0dd57940981e0070493d9f6622345"
-  integrity sha512-xrLaWDZws7kYakkVGclw9lC8X78lOi+pbYt1MoTmtzkhUFcmJSIaOpM7sPaiWlXaVcAk1jRY/0ZbcRMMn0P6Mw==
+  resolved "https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/a4f71eb9b8c9b19ded3e0e9470be4b1b77c2b569"
   dependencies:
-    nan "^2.12.1"
+    nan "^2.15.0"
 
 "tree-sitter-latex@github:latex-lsp/tree-sitter-latex#1666e9780de42a31b1376d32fbe8332e8dd5850f":
   version "0.1.0"
