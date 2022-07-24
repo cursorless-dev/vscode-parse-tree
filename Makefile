@@ -7,6 +7,7 @@ LANGUAGES = agda bash c c-sharp clojure cpp css elm go haskell html java javascr
 #       when you change this version number.
 TREE_SITTER_VERSION := 0.20.4
 
+
 # Build web-tree-sitter parsers for $(LANGUAGES)
 
 .PHONY: parsers
