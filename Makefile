@@ -1,12 +1,11 @@
 # For generating .wasm files for parsers
 # See https://www.npmjs.com/package/web-tree-sitter
-LANGUAGES = agda bash c c-sharp clojure cpp css elm go haskell html java javascript json kotlin latex markdown php python query ruby rust scala scss sparql tsx typescript yaml
+LANGUAGES = agda bash c c-sharp clojure cpp css elm go haskell html java javascript json kotlin latex markdown php python query ruby rust scala scss sparql talon tsx typescript yaml
 
 
 # NOTE: Update the version number in the filepath for web-tree-sitter in package.json,
 #       when you change this version number.
 TREE_SITTER_VERSION := 0.20.4
-
 
 # Build web-tree-sitter parsers for $(LANGUAGES)
 

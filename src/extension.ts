@@ -39,6 +39,7 @@ const languages: {
   scss: { module: "tree-sitter-scss" },
   shellscript: { module: "tree-sitter-bash" },
   sparql: { module: "tree-sitter-sparql" },
+  talon: { module: "tree-sitter-talon" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
   xml: { module: "tree-sitter-html" },
