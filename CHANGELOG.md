@@ -2,6 +2,18 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.21.0 (25 Jul 2022)
+
+### Enhancements
+
+- Add support for Talon [#41](https://github.com/cursorless-dev/vscode-parse-tree/pull/41) ([@phillco](https://github.com/phillco))
+
+## 0.20.0 (23 Jul 2022)
+
+### Enhancements
+
+- Add support for Kotlin [#40](https://github.com/cursorless-dev/vscode-parse-tree/pull/40) ([@phillco](https://github.com/phillco))
+
 ## 0.19.0 (21 Jul 2022)
 
 ### Enhancements
