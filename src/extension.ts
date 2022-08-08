@@ -9,7 +9,7 @@ interface Language {
 }
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
-const languages: {
+let languages: {
   [id: string]: Language;
 } = {
   agda: { module: "tree-sitter-agda" },
@@ -68,12 +68,19 @@ export async function activate(context: vscode.ExtensionContext) {
     if (language.parser != null) {
       return true;
     }
-
-    const absolute = path.join(
-      context.extensionPath,
-      "parsers",
-      language.module + ".wasm"
-    );
+    
+    let absolute;
+    if (path.isAbsolute(language.module)) {
+      absolute = language.module;
+    }
+    else {
+      const absolute = path.join(
+        context.extensionPath,
+        "parsers",
+        language.module + ".wasm"
+      );
+    }
+    
     const wasm = path.relative(process.cwd(), absolute);
     const lang = await Parser.Language.load(wasm);
     const parser = new Parser();
@@ -225,6 +232,11 @@ export async function activate(context: vscode.ExtensionContext) {
   return {
     loadLanguage,
 
+    registerLanguage(languageId, wasm) {
+      languages[languageId] = { 'module': wasm };
+      colorAllOpen();
+    },
+    
     getTree(document: vscode.TextDocument) {
       return getTreeForUri(document.uri);
     },
