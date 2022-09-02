@@ -233,7 +233,23 @@ export async function activate(context: vscode.ExtensionContext) {
     loadLanguage,
 
     registerLanguage(languageId, wasm) {
-      languages[languageId] = { 'module': wasm };
+      if (languages[languageId] != null) {
+        const language = languages[languageId];
+        if (language.parser != null) {
+          language.parser.delete();
+        }
+      }
+      languages[languageId] = { module: wasm };
+
+      for (const uriString in trees) {
+        if (vscode.workspace.textDocuments.find(textDocument =>
+          textDocument.languageId == languageId &&
+          textDocument.uri.toString() === uriString
+        )) {
+          delete trees[uriString];
+        }
+      }
+
       colorAllOpen();
     },
     
