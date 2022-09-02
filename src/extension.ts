@@ -9,7 +9,7 @@ interface Language {
 }
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
-let languages: {
+const languages: {
   [id: string]: Language;
 } = {
   agda: { module: "tree-sitter-agda" },
