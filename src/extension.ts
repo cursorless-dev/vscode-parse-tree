@@ -241,7 +241,7 @@ export async function activate(context: vscode.ExtensionContext) {
       }
       languages[languageId] = { module: wasm };
 
-      for (const uriString in trees) {
+      for (let uriString in trees) {
         if (vscode.workspace.textDocuments.find(textDocument =>
           textDocument.languageId == languageId &&
           textDocument.uri.toString() === uriString
