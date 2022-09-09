@@ -17,6 +17,14 @@ Don't forget to add add an `extensionDependencies`-entry to `package.json` as
 described in
 https://code.visualstudio.com/api/references/vscode-api#extensions.
 
+#### Parsing a Custom language
+
+```ts
+const { registerLanguage } = await parseTreeExtension.activate();
+
+registerLanguage(languageId, wasmFile);
+```
+
 ## Contributing
 
 ### Setup
