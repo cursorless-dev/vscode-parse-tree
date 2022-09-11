@@ -1605,7 +1605,7 @@ nan@2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0:
+nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
   integrity sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==
@@ -2361,10 +2361,9 @@ tree-sitter-html@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
-tree-sitter-javascript@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter-javascript/-/tree-sitter-javascript-0.19.0.tgz#20fc0da277502dac2bb3bf9ff75372268e761558"
-  integrity sha512-SNykDdNgmlJZhX02ZIu0TQF9P7t847jV7769SxA9XrZ2QXjofQsVTMEi9+LpXZKsI0UoFYI25FnZm3fFm0z2yw==
+"tree-sitter-javascript@github:tree-sitter/tree-sitter-javascript#936d976a782e75395d9b1c8c7c7bf4ba6fe0d86b":
+  version "0.20.0"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-javascript/tar.gz/936d976a782e75395d9b1c8c7c7bf4ba6fe0d86b"
   dependencies:
     nan "^2.12.1"
 
@@ -2450,9 +2449,9 @@ tree-sitter-sparql@^0.1.0:
   dependencies:
     nan "^2.16.0"
 
-"tree-sitter-typescript@github:tree-sitter/tree-sitter-typescript#master":
+"tree-sitter-typescript@github:tree-sitter/tree-sitter-typescript#082da44a5263599186dadafd2c974c19f3a73d28":
   version "0.20.1"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-typescript/tar.gz/49e82b1bce36d6046df911901684cd66b5345d58"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-typescript/tar.gz/082da44a5263599186dadafd2c974c19f3a73d28"
   dependencies:
     nan "^2.14.0"
 
