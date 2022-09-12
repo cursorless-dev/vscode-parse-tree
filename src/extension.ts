@@ -74,7 +74,7 @@ export async function activate(context: vscode.ExtensionContext) {
       absolute = language.module;
     }
     else {
-      const absolute = path.join(
+      absolute = path.join(
         context.extensionPath,
         "parsers",
         language.module + ".wasm"
