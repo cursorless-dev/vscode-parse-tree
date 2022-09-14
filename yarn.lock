@@ -2443,9 +2443,9 @@ tree-sitter-sparql@^0.1.0:
   dependencies:
     nan "^2.14.1"
 
-"tree-sitter-talon@https://github.com/wenkokke/tree-sitter-talon.git#af55d41a483112a1ce28742961b16f45ebd0538c":
-  version "1.0.0"
-  resolved "https://github.com/wenkokke/tree-sitter-talon.git#af55d41a483112a1ce28742961b16f45ebd0538c"
+"tree-sitter-talon@github:wenkokke/tree-sitter-talon#0abecabd89f080715319b3111f8bfccbd529912b":
+  version "3.0.0"
+  resolved "https://codeload.github.com/wenkokke/tree-sitter-talon/tar.gz/0abecabd89f080715319b3111f8bfccbd529912b"
   dependencies:
     nan "^2.16.0"
 

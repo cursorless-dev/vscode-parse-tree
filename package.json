@@ -108,7 +108,7 @@
 		"tree-sitter-query": "github:nvim-treesitter/tree-sitter-query#5217c6805c09f8fc00ed13d17d5fcb791437aee6",
 		"tree-sitter-scss": "github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a",
 		"tree-sitter-sparql": "^0.1.0",
-		"tree-sitter-talon": "https://github.com/wenkokke/tree-sitter-talon.git#af55d41a483112a1ce28742961b16f45ebd0538c",
+		"tree-sitter-talon": "github:wenkokke/tree-sitter-talon#0abecabd89f080715319b3111f8bfccbd529912b",
 		"tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#082da44a5263599186dadafd2c974c19f3a73d28",
 		"tree-sitter-yaml": "^0.5.0",
 		"tslint": "^6.0.0",
