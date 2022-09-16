@@ -18,11 +18,11 @@ described in
 https://code.visualstudio.com/api/references/vscode-api#extensions.
 
 #### Parsing a Custom language
-
+Parsing your own language is as simple as registering your `languageId` with an absolute path to your `.wasm` file 
 ```ts
 const { registerLanguage } = await parseTreeExtension.activate();
 
-registerLanguage(languageId, wasmFile);
+registerLanguage(languageId, wasmPath);
 ```
 
 ## Contributing
