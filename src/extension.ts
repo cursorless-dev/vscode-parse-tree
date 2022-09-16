@@ -232,12 +232,12 @@ export async function activate(context: vscode.ExtensionContext) {
   return {
     loadLanguage,
 
-    registerLanguage(languageId, wasm) {
+    registerLanguage(languageId, wasmPath) {
       if (languages[languageId] != null) {
           return;
       }
 
-      languages[languageId] = { module: wasm };
+      languages[languageId] = { module: wasmPath };
       colorAllOpen();
     },
     
