@@ -234,7 +234,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     registerLanguage(languageId, wasmPath) {
       if (languages[languageId] != null) {
-          return;
+        throw new Error(`Language id '${languageId}', is already registered`);
       }
 
       languages[languageId] = { module: wasmPath };
