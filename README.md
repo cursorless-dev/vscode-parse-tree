@@ -16,13 +16,13 @@ if (parseTreeExtension == null) {
 const { getNodeAtLocation } = await parseTreeExtension.activate();
 ```
 
-Don't forget to add add an `extensionDependencies`-entry to `package.json` as
+Don't forget to add an `extensionDependencies`-entry to `package.json` as
 described in
 https://code.visualstudio.com/api/references/vscode-api#extensions.
 
 ### Parsing a custom language
 
-If you'd like to add support for a new language, see the [Adding a new language](#adding-a-new-language) section below. Alternatively, your extension can register a custom language with this extension. Although this is not the preferred way to add a new language, it can convenient if you have a parser which you don't believe belongs in the main extension.
+If you'd like to add support for a new language, see the [Adding a new language](#adding-a-new-language) section below. Alternatively, your extension can register a custom language with this extension. Although this is not the preferred way to add a new language, it can be convenient when you have a parser that you don't believe belongs in the main extension.
 
 Parsing your own language is as simple as registering your `languageId` with an absolute path to your `.wasm` file:
 
