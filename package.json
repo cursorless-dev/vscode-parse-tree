@@ -10,8 +10,8 @@
 	},
 	"license": "MIT",
 	"extensionKind": [
-		"workspace",
-		"ui"
+		"ui",
+		"workspace"
 	],
 	"engines": {
 		"vscode": "^1.58.0"
