@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.22.0 (18 Sep 2022)
+
+### Enhancements
+
+- Add Starlark support [#44](https://github.com/cursorless-dev/vscode-parse-tree/pull/44) ([@auscompgeek](https://github.com/auscompgeek))
+
 ## 0.21.0 (25 Jul 2022)
 
 ### Enhancements
