@@ -1,7 +1,10 @@
 # Parse tree
 
-Exposes an api function that can be used to get a parse tree node for a given
-file location. Can be used as follows:
+Exposes an api function that can be used to get a parse tree node for a given file location.
+
+## Usage
+
+Can be used as follows:
 
 ```ts
 const parseTreeExtension = vscode.extensions.getExtension("pokey.parse-tree");
@@ -17,8 +20,12 @@ Don't forget to add add an `extensionDependencies`-entry to `package.json` as
 described in
 https://code.visualstudio.com/api/references/vscode-api#extensions.
 
-#### Parsing a Custom language
-Parsing your own language is as simple as registering your `languageId` with an absolute path to your `.wasm` file 
+### Parsing a custom language
+
+If you'd like to add support for a new language, see the [Adding a new language](#adding-a-new-language) section below. Alternatively, your extension can register a custom language with this extension. Although this is not the preferred way to add a new language, it can convenient if you have a parser which you don't believe belongs in the main extension.
+
+Parsing your own language is as simple as registering your `languageId` with an absolute path to your `.wasm` file:
+
 ```ts
 const { registerLanguage } = await parseTreeExtension.activate();
 
@@ -57,9 +64,9 @@ When working with WSL, the host vscode instance connects to a vscode server on t
 We build a custom version of `web-tree-sitter` to ensure that we can always use the latest version and fix any problems as they come up.
 To update `web-tree-sitter`:
 
-  1. Update the variable `TREE_SITTER_VERSION` in the [`Makefile`](Makefile#L8);
-  2. Update the path to `web-tree-sitter` in [`package.json`](package.json#103);
-  3. (Optional) Create a new patch in `patches/tree-sitter+$TREE_SITTER_VERSION.patch`.
+1. Update the variable `TREE_SITTER_VERSION` in the [`Makefile`](Makefile#L8);
+2. Update the path to `web-tree-sitter` in [`package.json`](package.json#103);
+3. (Optional) Create a new patch in `patches/tree-sitter+$TREE_SITTER_VERSION.patch`.
 
 The script which builds our custom version is in the [`Makefile`](Makefile#L37-63).
 
