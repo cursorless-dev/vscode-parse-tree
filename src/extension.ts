@@ -70,11 +70,17 @@ export async function activate(context: vscode.ExtensionContext) {
       return true;
     }
 
-    const absolute = path.join(
-      context.extensionPath,
-      "parsers",
-      language.module + ".wasm"
-    );
+    let absolute;
+    if (path.isAbsolute(language.module)) {
+      absolute = language.module;
+    } else {
+      absolute = path.join(
+        context.extensionPath,
+        "parsers",
+        language.module + ".wasm"
+      );
+    }
+
     const wasm = path.relative(process.cwd(), absolute);
     const lang = await Parser.Language.load(wasm);
     const parser = new Parser();
@@ -225,6 +231,23 @@ export async function activate(context: vscode.ExtensionContext) {
 
   return {
     loadLanguage,
+
+    /**
+     * Register a parser wasm file for a language not supported by this
+     * extension. Note that {@link wasmPath} must be an absolute path, and
+     * {@link languageId} must not already have a registered parser.
+     * @param languageId The VSCode language id that you'd like to register a
+     * parser for
+     * @param wasmPath The absolute path to the wasm file for your parser
+     */
+    registerLanguage(languageId: string, wasmPath: string) {
+      if (languages[languageId] != null) {
+        throw new Error(`Language id '${languageId}' is already registered`);
+      }
+
+      languages[languageId] = { module: wasmPath };
+      colorAllOpen();
+    },
 
     getTree(document: vscode.TextDocument) {
       return getTreeForUri(document.uri);
