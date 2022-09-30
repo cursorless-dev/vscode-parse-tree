@@ -2,6 +2,18 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.23.0 (21 Sep 2022)
+
+### Enhancements
+
+- Api for registering custom languages [#43](https://github.com/cursorless-dev/vscode-parse-tree/pull/43) ([@RedCMD](https://github.com/RedCMD))
+
+## 0.22.0 (18 Sep 2022)
+
+### Enhancements
+
+- Add Starlark support [#44](https://github.com/cursorless-dev/vscode-parse-tree/pull/44) ([@auscompgeek](https://github.com/auscompgeek))
+
 ## 0.21.0 (25 Jul 2022)
 
 ### Enhancements

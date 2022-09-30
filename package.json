@@ -2,7 +2,7 @@
 	"name": "parse-tree",
 	"displayName": "Parse tree",
 	"description": "Access document syntax using tree-sitter",
-	"version": "0.21.2",
+	"version": "0.23.0",
 	"publisher": "pokey",
 	"repository": {
 		"type": "git",
@@ -10,8 +10,8 @@
 	},
 	"license": "MIT",
 	"extensionKind": [
-		"workspace",
-		"ui"
+		"ui",
+		"workspace"
 	],
 	"engines": {
 		"vscode": "^1.58.0"
@@ -45,12 +45,13 @@
 		"onLanguage:ruby",
 		"onLanguage:rust",
 		"onLanguage:scala",
+		"onLanguage:scm",
 		"onLanguage:scss",
 		"onLanguage:shellscript",
+		"onLanguage:sparql",
+		"onLanguage:starlark",
 		"onLanguage:talon",
 		"onLanguage:typescript",
-		"onLanguage:sparql",
-		"onLanguage:scm",
 		"onLanguage:typescriptreact",
 		"onLanguage:xml",
 		"onLanguage:yaml"
