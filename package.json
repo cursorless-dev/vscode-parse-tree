@@ -29,6 +29,7 @@
 		"onLanguage:css",
 		"onLanguage:csharp",
 		"onLanguage:elm",
+		"onLanguage:flow",
 		"onLanguage:go",
 		"onLanguage:haskell",
 		"onLanguage:html",
