@@ -21,7 +21,6 @@ const languages: {
   elm: { module: "tree-sitter-elm" },
   flow: { module: "tree-sitter-tsx" },
   go: { module: "tree-sitter-go" },
-  hack: { module: "tree-sitter-hack"},
   haskell: { module: "tree-sitter-haskell" },
   html: { module: "tree-sitter-html" },
   java: { module: "tree-sitter-java" },
