@@ -2341,6 +2341,12 @@ tree-sitter-go@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
+"tree-sitter-hack@github:slackhq/tree-sitter-hack#b7bd6928532ada34dddb1dece4a158ab62c6e783":
+  version "0.0.4"
+  resolved "https://codeload.github.com/slackhq/tree-sitter-hack/tar.gz/b7bd6928532ada34dddb1dece4a158ab62c6e783"
+  dependencies:
+    nan "^2.14.1"
+
 "tree-sitter-haskell@github:tree-sitter/tree-sitter-haskell#d6ccd2d9c40bdec29fee0027ef04fe5ff1ae4ceb":
   version "0.14.0"
   resolved "https://codeload.github.com/tree-sitter/tree-sitter-haskell/tar.gz/d6ccd2d9c40bdec29fee0027ef04fe5ff1ae4ceb"
