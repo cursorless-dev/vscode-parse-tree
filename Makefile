@@ -23,6 +23,11 @@ parsers/tree-sitter-elm.wasm: node_modules/@elm-tooling/tree-sitter-elm/package.
 	npx tree-sitter build-wasm $(dir $^)
 	mv $(notdir $@) $@
 
+parsers/tree-sitter-markdown.wasm: node_modules/tree-sitter-markdown/tree-sitter-markdown/grammar.js
+	mkdir -p $(dir $@)
+	npx tree-sitter build-wasm $(dir $^)
+	mv $(notdir $@) $@
+
 parsers/tree-sitter-typescript.wasm: node_modules/tree-sitter-typescript/typescript/package.json
 	mkdir -p $(dir $@)
 	npx tree-sitter build-wasm $(dir $^)
