@@ -2444,6 +2444,12 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
+"tree-sitter-elixir@github:elixir-lang/tree-sitter-elixir#b20eaa75565243c50be5e35e253d8beb58f45d56":
+  version "0.19.0"
+  resolved "https://codeload.github.com/elixir-lang/tree-sitter-elixir/tar.gz/b20eaa75565243c50be5e35e253d8beb58f45d56"
+  dependencies:
+    nan "^2.15.0"
+
 tree-sitter-go@^0.19.0:
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/tree-sitter-go/-/tree-sitter-go-0.19.1.tgz#f23c84bff882eafa296ce2d307366e76f1f83e2d"
