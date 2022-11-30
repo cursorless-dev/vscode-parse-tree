@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.24.0 (29 Nov 2022)
+
+### Enhancements
+
+- Add Elixir support [#57](https://github.com/cursorless-dev/vscode-parse-tree/pull/57) ([@shawa](https://github.com/shawa))
+
 ## 0.23.0 (21 Sep 2022)
 
 ### Enhancements
