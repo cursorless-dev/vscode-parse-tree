@@ -55,6 +55,7 @@
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
     "onLanguage:xml",
+    "onLanguage:xaml",
     "onLanguage:yaml"
   ],
   "main": "./out/extension.js",

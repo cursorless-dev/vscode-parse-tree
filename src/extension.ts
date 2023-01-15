@@ -45,6 +45,7 @@ const languages: {
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
   xml: { module: "tree-sitter-html" },
+  xaml: { module: "tree-sitter-html" },
   yaml: { module: "tree-sitter-yaml" },
 };
 
