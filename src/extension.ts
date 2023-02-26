@@ -31,6 +31,7 @@ const languages: {
   kotlin: { module: "tree-sitter-kotlin" },
   latex: { module: "tree-sitter-latex" },
   markdown: { module: "tree-sitter-markdown" },
+  perl: { module: "tree-sitter-perl" },
   php: { module: "tree-sitter-php" },
   python: { module: "tree-sitter-python" },
   ruby: { module: "tree-sitter-ruby" },
