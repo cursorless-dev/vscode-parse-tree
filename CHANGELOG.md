@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.25.0 (1 Mar 2023)
+
+### Enhancements
+
+- Include tree-sitter-perl to add Perl support [#61](https://github.com/cursorless-dev/vscode-parse-tree/pull/61) ([@Leeft](https://github.com/Leeft))
+
 ## 0.24.0 (29 Nov 2022)
 
 ### Enhancements
