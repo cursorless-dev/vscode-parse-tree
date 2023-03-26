@@ -2510,9 +2510,9 @@ tree-sitter-json@^0.19.0:
     nan "^2.14.0"
     node-pre-gyp "^0.17.0"
 
-"tree-sitter-perl@github:ganezdragon/tree-sitter-perl#c43bae0090cfcfc62d9904312599ded1b645a66d":
+"tree-sitter-perl@github:ganezdragon/tree-sitter-perl#3d3a95ee6645d7bcd993e77b252ffd33fd297c8e":
   version "0.3.0"
-  resolved "https://codeload.github.com/ganezdragon/tree-sitter-perl/tar.gz/c43bae0090cfcfc62d9904312599ded1b645a66d"
+  resolved "https://codeload.github.com/ganezdragon/tree-sitter-perl/tar.gz/3d3a95ee6645d7bcd993e77b252ffd33fd297c8e"
   dependencies:
     nan "^2.14.1"
 
