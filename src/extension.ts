@@ -28,6 +28,7 @@ const languages: {
   javascriptreact: { module: "tree-sitter-javascript" },
   json: { module: "tree-sitter-json" },
   jsonc: { module: "tree-sitter-json" },
+  julia: { module: "tree-sitter-julia" },
   kotlin: { module: "tree-sitter-kotlin" },
   latex: { module: "tree-sitter-latex" },
   markdown: { module: "tree-sitter-markdown" },
