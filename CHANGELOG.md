@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.26.0 (29 Mar 2023)
+
+### Enhancements
+
+- Add tree-sitter-julia support
+
 ## 0.25.0 (1 Mar 2023)
 
 ### Enhancements
