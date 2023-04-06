@@ -256,6 +256,8 @@ export async function activate(context: vscode.ExtensionContext) {
       return getTreeForUri(document.uri);
     },
 
+    getTreeForUri,
+
     getNodeAtLocation(location: vscode.Location) {
       return getTreeForUri(location.uri).rootNode.descendantForPosition({
         row: location.range.start.line,
