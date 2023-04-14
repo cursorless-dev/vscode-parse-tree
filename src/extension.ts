@@ -235,6 +235,10 @@ export async function activate(context: vscode.ExtensionContext) {
   return {
     loadLanguage,
 
+    getLanguage(languageId: string): Parser.Language | undefined {
+      return languages[languageId]?.parser?.getLanguage();
+    },
+
     /**
      * Register a parser wasm file for a language not supported by this
      * extension. Note that {@link wasmPath} must be an absolute path, and
