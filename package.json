@@ -95,7 +95,7 @@
     "tree-sitter-clojure": "github:sogaiu/tree-sitter-clojure#master",
     "tree-sitter-cpp": "^0.19.0",
     "@elm-tooling/tree-sitter-elm": "github:elm-tooling/tree-sitter-elm#0aecfbf69f0c9bcdfada0f6f2c5398235c23949f",
-    "tree-sitter-go": "^0.19.0",
+    "tree-sitter-go": "github:tree-sitter/tree-sitter-go#64457ea6b73ef5422ed1687178d4545c3e91334a",
     "tree-sitter-elixir": "github:elixir-lang/tree-sitter-elixir#b20eaa75565243c50be5e35e253d8beb58f45d56",
     "tree-sitter-haskell": "github:tree-sitter/tree-sitter-haskell#d6ccd2d9c40bdec29fee0027ef04fe5ff1ae4ceb",
     "tree-sitter-html": "^0.19.0",
