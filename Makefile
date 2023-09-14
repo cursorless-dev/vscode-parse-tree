@@ -5,7 +5,7 @@ LANGUAGES = agda bash c c-sharp clojure cpp css elm elixir go haskell html java 
 
 # NOTE: Update the version number in the filepath for web-tree-sitter in package.json,
 #       when you change this version number.
-TREE_SITTER_VERSION := 0.20.4
+TREE_SITTER_VERSION := 0.20.8
 
 
 # Build web-tree-sitter parsers for $(LANGUAGES)
