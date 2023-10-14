@@ -1665,10 +1665,10 @@ nan@2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.16.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.16.0.tgz#664f43e45460fb98faf00edca0bb0d7b8dce7916"
-  integrity sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==
+nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.16.0, nan@^2.17.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
+  integrity sha512-W7tfG7vMOGtD30sHoZSSc/JVYiyDPEyQVso/Zz+/uQd0B0L46gtC+pHha5FFMRpil6fm/AoEcRWyOVi4+E/f8w==
 
 napi-build-utils@^1.0.1:
   version "1.0.2"
@@ -2514,6 +2514,12 @@ tree-sitter-json@^0.19.0:
     "@mapbox/node-pre-gyp" "^1.0.9"
     nan "^2.14.0"
     node-pre-gyp "^0.17.0"
+
+"tree-sitter-nix@github:nix-community/tree-sitter-nix#66e3e9ce9180ae08fc57372061006ef83f0abde7":
+  version "0.0.2"
+  resolved "https://codeload.github.com/nix-community/tree-sitter-nix/tar.gz/66e3e9ce9180ae08fc57372061006ef83f0abde7"
+  dependencies:
+    nan "^2.17.0"
 
 "tree-sitter-perl@github:ganezdragon/tree-sitter-perl#3d3a95ee6645d7bcd993e77b252ffd33fd297c8e":
   version "0.3.0"
