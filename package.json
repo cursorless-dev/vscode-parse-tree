@@ -54,6 +54,7 @@
     "onLanguage:shellscript",
     "onLanguage:sparql",
     "onLanguage:starlark",
+    "onLanguage:swift",
     "onLanguage:talon",
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
@@ -118,6 +119,7 @@
     "tree-sitter-scala": "github:tree-sitter/tree-sitter-scala#master",
     "tree-sitter-scss": "github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a",
     "tree-sitter-sparql": "^0.1.0",
+    "tree-sitter-swift": "github:alex-pinkus/tree-sitter-swift#main",
     "tree-sitter-talon": "github:wenkokke/tree-sitter-talon#fd202684c693d1b893fe34575209452424cc9909",
     "tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#286e90c32060032225f636a573d0e999f7766c97",
     "tree-sitter-yaml": "^0.5.0",
@@ -128,5 +130,9 @@
     "jsonc-parser": "^2.1.0",
     "tar": ">=4.4.2",
     "web-tree-sitter": "^0.20.8"
+  },
+  "resolutions": {
+    "nan": "github:jkleinsc/nan#remove_accessor_signature",
+    "node-gyp": "^9.4.0"
   }
 }
