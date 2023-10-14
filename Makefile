@@ -51,14 +51,10 @@ web-tree-sitter: $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES))
 $(addprefix $(WEB_TREE_SITTER_DIR)/,$(WEB_TREE_SITTER_FILES)): tree-sitter-version
 	@rm -rf $(MAKE_CACHE_DIR)/tree-sitter
 	@TREE_SITTER_VERSION=$(shell cat tree-sitter-version) ;\
-	git clone                                       \
-		-c advice.detachedHead=false --quiet           \
-		--depth=1 \
-		https://github.com/tree-sitter/tree-sitter.git \
-		$(MAKE_CACHE_DIR)/tree-sitter ;\
-	cd $(MAKE_CACHE_DIR)/tree-sitter && \
-	git fetch origin $$TREE_SITTER_VERSION && \
-	git checkout $$TREE_SITTER_VERSION && \
+	mkdir -p $(MAKE_CACHE_DIR)/tree-sitter && \
+	curl -L https://github.com/tree-sitter/tree-sitter/archive/refs/tags/$$TREE_SITTER_VERSION.tar.gz | \
+	tar -xz -C $(MAKE_CACHE_DIR)/tree-sitter --strip-components=1
+	@cd $(MAKE_CACHE_DIR)/tree-sitter && \
 	./script/build-wasm
 	@mkdir -p $(WEB_TREE_SITTER_DIR)
 	@cp $(MAKE_CACHE_DIR)/tree-sitter/LICENSE $(WEB_TREE_SITTER_DIR)
