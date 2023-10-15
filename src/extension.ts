@@ -44,6 +44,7 @@ const languages: {
   sparql: { module: "tree-sitter-sparql" },
   starlark: { module: "tree-sitter-python" },
   talon: { module: "tree-sitter-talon" },
+  terraform: { module: "tree-sitter-hcl" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
   xml: { module: "tree-sitter-html" },

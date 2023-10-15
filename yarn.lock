@@ -2424,6 +2424,11 @@ tree-sitter-cli@^0.20.1:
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.6.tgz#2a7202190d7bd64e112b451f94573dbe40a04f04"
   integrity sha512-tjbAeuGSMhco/EnsThjWkQbDIYMDmdkWsTPsa/NJAW7bjaki9P7oM9TkLxfdlnm4LXd1wR5wVSM2/RTLtZbm6A==
 
+tree-sitter-cli@^0.20.6:
+  version "0.20.8"
+  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.8.tgz#06a81cea8d6d82f93d67eed7d28b6bc04a4a8916"
+  integrity sha512-XjTcS3wdTy/2cc/ptMLc/WRyOLECRYcMTrSWyhZnj1oGSOWbHLTklgsgRICU3cPfb0vy+oZCC33M43u6R1HSCA==
+
 "tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#master":
   version "0.0.9"
   resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/087bac78c53fe1387756cd5b8e68a69b3f6d7244"
@@ -2462,6 +2467,13 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.12.1"
     node-gyp "^7.1.2"
+
+"tree-sitter-hcl@https://github.com/MichaHoffmann/tree-sitter-hcl":
+  version "0.2.0-snapshot"
+  resolved "https://github.com/MichaHoffmann/tree-sitter-hcl#b5539065432c08e4118eb3ee7c94902fdda85708"
+  dependencies:
+    nan "^2.14.2"
+    tree-sitter-cli "^0.20.6"
 
 tree-sitter-html@^0.19.0:
   version "0.19.0"

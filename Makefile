@@ -1,6 +1,6 @@
 # For generating .wasm files for parsers
 # See https://www.npmjs.com/package/web-tree-sitter
-LANGUAGES = agda bash c c-sharp clojure cpp css elm elixir go haskell html java javascript json julia kotlin latex markdown perl php python query ruby rust scala scss sparql talon tsx typescript yaml
+LANGUAGES = agda bash c c-sharp clojure cpp css elm elixir go haskell html java javascript json julia kotlin latex markdown perl php python query ruby rust scala scss sparql talon terraform tsx typescript yaml
 
 # Build web-tree-sitter parsers for $(LANGUAGES)
 
@@ -37,6 +37,10 @@ parsers/tree-sitter-c-sharp.wasm: node_modules/tree-sitter-c-sharp/package.json
 	npx tree-sitter build-wasm $(dir $^)
 	mv tree-sitter-c_sharp.wasm $@
 
+parsers/tree-sitter-terraform.wasm: node_modules/tree-sitter-hcl/package.json
+	mkdir -p $(dir $@)
+	npx tree-sitter build-wasm $(dir $^)
+	mv tree-sitter-hcl.wasm $@
 
 # Build web-tree-sitter
 
