@@ -123,7 +123,7 @@
     "tree-sitter-scss": "github:serenadeai/tree-sitter-scss#c478c6868648eff49eb04a4df90d703dc45b312a",
     "tree-sitter-sparql": "^0.1.0",
     "tree-sitter-swift": "github:alex-pinkus/tree-sitter-swift#7e4ccc97a25315022a70b730085deccd5680a39b",
-    "tree-sitter-talon": "github:wenkokke/tree-sitter-talon#fd202684c693d1b893fe34575209452424cc9909",
+    "tree-sitter-talon": "github:wenkokke/tree-sitter-talon#18b2de7d4c5f59130ef3f8e9db4c572964ce6da1",
     "tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#286e90c32060032225f636a573d0e999f7766c97",
     "tree-sitter-yaml": "^0.5.0",
     "tslint": "^6.0.0",
