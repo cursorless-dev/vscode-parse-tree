@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.28.0 (16 Oct 2023)
+
+### Enhancements
+
+- Add terraform support [#72](https://github.com/cursorless-dev/vscode-parse-tree/pull/72) ([@danlamanna](https://github.com/danlamanna))
+
 ## 0.27.0 (16 Oct 2023)
 
 ### Enhancements
