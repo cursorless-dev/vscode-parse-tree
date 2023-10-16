@@ -136,9 +136,5 @@
   },
   "bundledDependencies": [
     "web-tree-sitter"
-  ],
-  "resolutions": {
-    "nan": "github:jkleinsc/nan#remove_accessor_signature",
-    "node-gyp": "^9.4.0"
-  }
+  ]
 }
