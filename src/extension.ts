@@ -31,6 +31,7 @@ const languages: {
   julia: { module: "tree-sitter-julia" },
   kotlin: { module: "tree-sitter-kotlin" },
   latex: { module: "tree-sitter-latex" },
+  lua: { module: "tree-sitter-lua" },
   markdown: { module: "tree-sitter-markdown" },
   nix: { module: "tree-sitter-nix" },
   perl: { module: "tree-sitter-perl" },
