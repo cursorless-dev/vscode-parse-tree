@@ -45,6 +45,7 @@ const languages: {
   shellscript: { module: "tree-sitter-bash" },
   sparql: { module: "tree-sitter-sparql" },
   starlark: { module: "tree-sitter-python" },
+  swift: { module: "tree-sitter-swift" },
   talon: { module: "tree-sitter-talon" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },

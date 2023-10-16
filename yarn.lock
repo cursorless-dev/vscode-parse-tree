@@ -2419,7 +2419,7 @@ tree-sitter-c@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-tree-sitter-cli@^0.20.1:
+tree-sitter-cli@=0.20.6, tree-sitter-cli@^0.20.1:
   version "0.20.6"
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.6.tgz#2a7202190d7bd64e112b451f94573dbe40a04f04"
   integrity sha512-tjbAeuGSMhco/EnsThjWkQbDIYMDmdkWsTPsa/NJAW7bjaki9P7oM9TkLxfdlnm4LXd1wR5wVSM2/RTLtZbm6A==
@@ -2582,6 +2582,14 @@ tree-sitter-sparql@^0.1.0:
   integrity sha512-qtNTPef7zCyrmxuhpI8dtppzEYR2A6XtyPUqJeqTr2soZLLqUacWXezkFFhMNrvyMUknN9Fgua9EEpt1/lG/Zw==
   dependencies:
     nan "^2.14.1"
+
+"tree-sitter-swift@github:alex-pinkus/tree-sitter-swift#7e4ccc97a25315022a70b730085deccd5680a39b":
+  version "0.3.6"
+  resolved "https://codeload.github.com/alex-pinkus/tree-sitter-swift/tar.gz/7e4ccc97a25315022a70b730085deccd5680a39b"
+  dependencies:
+    nan "^2.15.0"
+    tree-sitter-cli "=0.20.6"
+    which "2.0.2"
 
 "tree-sitter-talon@github:wenkokke/tree-sitter-talon#fd202684c693d1b893fe34575209452424cc9909":
   version "3.5.0"
@@ -2749,7 +2757,7 @@ which-pm-runs@^1.0.0:
   resolved "https://registry.yarnpkg.com/which-pm-runs/-/which-pm-runs-1.1.0.tgz#35ccf7b1a0fce87bd8b92a478c9d045785d3bf35"
   integrity sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==
 
-which@^2.0.1, which@^2.0.2:
+which@2.0.2, which@^2.0.1, which@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/which/-/which-2.0.2.tgz#7c6a8dd0a636a0327e10b59c9286eee93f3f51b1"
   integrity sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==
