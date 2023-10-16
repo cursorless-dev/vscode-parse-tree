@@ -37,6 +37,7 @@ parsers/tree-sitter-c-sharp.wasm: node_modules/tree-sitter-c-sharp/package.json
 	npx tree-sitter build-wasm $(dir $^)
 	mv tree-sitter-c_sharp.wasm $@
 
+
 # Build web-tree-sitter
 
 WEB_TREE_SITTER_FILES := README.md package.json tree-sitter-web.d.ts tree-sitter.js tree-sitter.wasm
