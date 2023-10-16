@@ -8,7 +8,7 @@ All notable changes to the "vscode-parse-tree" extension will be documented in t
 
 - Add nix support [#66](https://github.com/cursorless-dev/vscode-parse-tree/pull/66) ([@fidgetingbits](https://github.com/fidgetingbits))
 - Add lua support [#67](https://github.com/cursorless-dev/vscode-parse-tree/pull/67) ([@fidgetingbits](https://github.com/fidgetingbits))
-- Add swift support [#](https://github.com/cursorless-dev/vscode-parse-tree/pull/) ([@swsnider](https://github.com/swsnider))
+- Add swift support [#70](https://github.com/cursorless-dev/vscode-parse-tree/pull/70) ([@swsnider](https://github.com/swsnider))
 
 ## 0.26.0 (29 Mar 2023)
 
