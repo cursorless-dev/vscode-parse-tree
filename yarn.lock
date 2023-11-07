@@ -2603,9 +2603,9 @@ tree-sitter-sparql@^0.1.0:
     tree-sitter-cli "=0.20.6"
     which "2.0.2"
 
-"tree-sitter-talon@github:wenkokke/tree-sitter-talon#18b2de7d4c5f59130ef3f8e9db4c572964ce6da1":
-  version "3.5.1"
-  resolved "https://codeload.github.com/wenkokke/tree-sitter-talon/tar.gz/18b2de7d4c5f59130ef3f8e9db4c572964ce6da1"
+"tree-sitter-talon@github:wenkokke/tree-sitter-talon#dafc9fabf7acc1a46d51cce379cec00c07661aa7":
+  version "4.0.0"
+  resolved "https://codeload.github.com/wenkokke/tree-sitter-talon/tar.gz/dafc9fabf7acc1a46d51cce379cec00c07661aa7"
   dependencies:
     nan "^2.16.0"
 
