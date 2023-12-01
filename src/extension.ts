@@ -50,7 +50,7 @@ const languages: {
   terraform: { module: "tree-sitter-hcl" },
   typescript: { module: "tree-sitter-typescript" },
   typescriptreact: { module: "tree-sitter-tsx" },
-  xml: { module: "tree-sitter-html" },
+  xml: { module: "tree-sitter-xml" },
   yaml: { module: "tree-sitter-yaml" },
 };
 
