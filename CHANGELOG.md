@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.29.0 (1 Dec 2023)
+
+### Enhancements
+
+- Switch to tree-sitter-xml
+
 ## 0.28.0 (16 Oct 2023)
 
 ### Enhancements
