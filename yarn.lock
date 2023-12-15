@@ -2750,12 +2750,11 @@ tree-sitter-html@^0.19.0:
   dependencies:
     nan "^2.12.1"
 
-tree-sitter-json@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter-json/-/tree-sitter-json-0.19.0.tgz#5c7ebfbb050c63df3fcaa470bd3527b3ee21ecb1"
-  integrity sha512-XospLJCiv/xTS6n4llBhXGCEDvnt30oEZr1Eo7qD9YgMJgEmjhQ/036Qx5kclB21CrP6CLWVudgjQZZ4LAMG8A==
+"tree-sitter-json@github:tree-sitter/tree-sitter-json#3fef30de8aee74600f25ec2e319b62a1a870d51e":
+  version "0.20.1"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-json/tar.gz/3fef30de8aee74600f25ec2e319b62a1a870d51e"
   dependencies:
-    nan "^2.14.1"
+    nan "^2.18.0"
 
 "tree-sitter-julia@github:tree-sitter/tree-sitter-julia#e2f449e2bcc95f1d07ceb62d67f986005f73a6be":
   version "0.20.0"
