@@ -1879,9 +1879,9 @@ node-abi@^2.7.0:
     semver "^5.4.1"
 
 node-abi@^3.3.0:
-  version "3.52.0"
-  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.52.0.tgz#ffba0a85f54e552547e5849015f40f9514d5ba7c"
-  integrity sha512-JJ98b02z16ILv7859irtXn4oUaFWADtvkzy2c0IAatNVX2Mc9Yoh8z6hZInn3QwvMEYhHuQloYi+TTQy67SIdQ==
+  version "3.54.0"
+  resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-3.54.0.tgz#f6386f7548817acac6434c6cba02999c9aebcc69"
+  integrity sha512-p7eGEiQil0YUV3ItH4/tBb781L5impVmmx2E9FRKF7d18XXzp4PGT2tdYMFY6wQqgxD0IwNZOiSJ0/K0fSi/OA==
   dependencies:
     semver "^7.3.5"
 
@@ -2687,12 +2687,11 @@ tr46@~0.0.3:
   dependencies:
     nan "^2.14.0"
 
-tree-sitter-bash@^0.20.3:
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/tree-sitter-bash/-/tree-sitter-bash-0.20.3.tgz#641415d93340cc7f920de10ae1836b1ce88ec14b"
-  integrity sha512-/CjVqWSCPJ05G8LgqNedxNY9FgRpZydFDXdO48c8wb0VCvKaZSGHwihlkyAcfFqpnI061aI2DAu6VuRnJPhoAg==
+"tree-sitter-bash@github:tree-sitter/tree-sitter-bash#7331995b19b8f8aba2d5e26deb51d2195c18bc94":
+  version "0.20.4"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-bash/tar.gz/7331995b19b8f8aba2d5e26deb51d2195c18bc94"
   dependencies:
-    nan "^2.17.0"
+    nan "^2.18.0"
     prebuild-install "^7.1.1"
     web-tree-sitter "^0.20.8"
 
@@ -2757,7 +2756,7 @@ tree-sitter-css@^0.19.0:
   resolved "https://codeload.github.com/tree-sitter/tree-sitter-haskell/tar.gz/ca10c43a4c9bfe588c480d2941726c2fadcae699"
   dependencies:
     nan "^2.12.1"
-    node-gyp ">=7 <10"
+    node-gyp "^7.1.2"
 
 "tree-sitter-hcl@https://github.com/MichaHoffmann/tree-sitter-hcl#b5539065432c08e4118eb3ee7c94902fdda85708":
   version "0.2.0-snapshot"
