@@ -21,7 +21,7 @@
         ({ pkgs }: {
           default = pkgs.mkShell
             {
-              packages = with pkgs; [ nodejs yarn emscripten python310 steam-run vsce ];
+              packages = with pkgs; [ nodejs yarn emscripten python310 vsce ];
               shellHook = ''
                 if [ ! -d $(pwd)/.emscripten_cache ]; then
                   cp -R ${pkgs.emscripten}/share/emscripten/cache/ $(pwd)/.emscripten_cache
