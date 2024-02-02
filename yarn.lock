@@ -2758,9 +2758,9 @@ tree-sitter-css@^0.19.0:
     nan "^2.12.1"
     node-gyp ">=7 <11"
 
-"tree-sitter-hcl@https://github.com/MichaHoffmann/tree-sitter-hcl#b5539065432c08e4118eb3ee7c94902fdda85708":
+"tree-sitter-hcl@github:MichaHoffmann/tree-sitter-hcl#e135399cb31b95fac0760b094556d1d5ce84acf0":
   version "0.2.0-snapshot"
-  resolved "https://github.com/MichaHoffmann/tree-sitter-hcl#b5539065432c08e4118eb3ee7c94902fdda85708"
+  resolved "https://codeload.github.com/MichaHoffmann/tree-sitter-hcl/tar.gz/e135399cb31b95fac0760b094556d1d5ce84acf0"
   dependencies:
     nan "^2.14.2"
     tree-sitter-cli "^0.20.6"
