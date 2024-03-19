@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.30.0 (19 Mar 2024)
+
+### Enhancements
+
+- Add Gleam support [#81](https://github.com/cursorless-dev/vscode-parse-tree/pull/81) ([@Vynlar](https://github.com/Vynlar))
+
 ## 0.29.0 (1 Dec 2023)
 
 ### Enhancements
