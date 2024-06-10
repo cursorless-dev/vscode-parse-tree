@@ -32,7 +32,7 @@ parsers/tree-sitter-tsx.wasm: node_modules/tree-sitter-typescript/tsx/package.js
 	npx tree-sitter build-wasm $(dir $^)
 	mv $(notdir $@) $@
 
-parsers/tree-sitter-xml.wasm: node_modules/tree-sitter-xml/tree-sitter-xml/package.json
+parsers/tree-sitter-xml.wasm: node_modules/tree-sitter-xml/xml/package.json
 	mkdir -p $(dir $@)
 	npx tree-sitter build-wasm $(dir $^)
 	mv $(notdir $@) $@
