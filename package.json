@@ -110,7 +110,7 @@
     "tree-sitter-hcl": "github:MichaHoffmann/tree-sitter-hcl#e135399cb31b95fac0760b094556d1d5ce84acf0",
     "tree-sitter-html": "github:tree-sitter/tree-sitter-html#e4d834eb4918df01dcad5c27d1b15d56e3bd94cd",
     "tree-sitter-java": "github:tree-sitter/tree-sitter-java#ac14b4b1884102839455d32543ab6d53ae089ab7",
-    "tree-sitter-javascript": "github:tree-sitter/tree-sitter-javascript#5720b249490b3c17245ba772f6be4a43edb4e3b7",
+    "tree-sitter-javascript": "github:tree-sitter/tree-sitter-javascript#391a8fcc48a11f63bf18ec9885f6f069e760949a",
     "tree-sitter-json": "github:tree-sitter/tree-sitter-json#3fef30de8aee74600f25ec2e319b62a1a870d51e",
     "tree-sitter-julia": "github:tree-sitter/tree-sitter-julia#e2f449e2bcc95f1d07ceb62d67f986005f73a6be",
     "tree-sitter-kotlin": "github:fwcd/tree-sitter-kotlin#c9cb8504b81684375e7beb8907517dbd6947a1be",
@@ -131,7 +131,7 @@
     "tree-sitter-talon": "github:pokey/tree-sitter-talon#f69923ea2490530babe105f0a36434e4a23e127e",
     "tree-sitter-typescript": "github:tree-sitter/tree-sitter-typescript#4ad3010c91d700026d036b5230e2d99ba94ae8a4",
     "tree-sitter-xml": "github:ObserverOfTime/tree-sitter-xml#648183d86f6f8ffb240ea11b4c6873f6f45d8b67",
-    "tree-sitter-yaml": "^0.5.0",
+    "tree-sitter-yaml": "github:tree-sitter-grammars/tree-sitter-yaml#7b03feefd36b5f155465ca736c6304aca983b267",
     "typescript": "^4.5.5"
   },
   "dependencies": {

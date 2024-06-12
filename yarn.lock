@@ -1522,12 +1522,12 @@ nan@2.14.2:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nan@^2.11.1, nan@^2.12.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.17.0, nan@^2.18.0:
+nan@^2.11.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.17.0, nan@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
   integrity sha512-W7tfG7vMOGtD30sHoZSSc/JVYiyDPEyQVso/Zz+/uQd0B0L46gtC+pHha5FFMRpil6fm/AoEcRWyOVi4+E/f8w==
 
-nan@^2.19.0:
+nan@^2.16.0, nan@^2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.19.0.tgz#bb58122ad55a6c5bc973303908d5b16cfdd5a8c0"
   integrity sha512-nO1xXxfh/RWNxfd/XPfbIfFk5vgLsAxUR9y5O0cHMJu/AW9U95JLXqthYHjEp+8gQ5p96K9jUp8nbVOxCdRbtw==
@@ -2192,11 +2192,12 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
-"tree-sitter-javascript@github:tree-sitter/tree-sitter-javascript#5720b249490b3c17245ba772f6be4a43edb4e3b7":
-  version "0.20.0"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-javascript/tar.gz/5720b249490b3c17245ba772f6be4a43edb4e3b7"
+"tree-sitter-javascript@github:tree-sitter/tree-sitter-javascript#391a8fcc48a11f63bf18ec9885f6f069e760949a":
+  version "0.21.3"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-javascript/tar.gz/391a8fcc48a11f63bf18ec9885f6f069e760949a"
   dependencies:
-    nan "^2.12.1"
+    node-addon-api "^8.0.0"
+    node-gyp-build "^4.8.1"
 
 "tree-sitter-json@github:tree-sitter/tree-sitter-json#3fef30de8aee74600f25ec2e319b62a1a870d51e":
   version "0.20.1"
@@ -2328,12 +2329,12 @@ tree-sitter-sparql@^0.1.0:
     node-addon-api "^8.0.0"
     node-gyp-build "^4.8.1"
 
-tree-sitter-yaml@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter-yaml/-/tree-sitter-yaml-0.5.0.tgz#c617ba72837399d8105ec10cdb4c360e1ed76076"
-  integrity sha512-POJ4ZNXXSWIG/W4Rjuyg36MkUD4d769YRUGKRqN+sVaj/VCo6Dh6Pkssn1Rtewd5kybx+jT1BWMyWN0CijXnMA==
+"tree-sitter-yaml@github:tree-sitter-grammars/tree-sitter-yaml#7b03feefd36b5f155465ca736c6304aca983b267":
+  version "0.6.1"
+  resolved "https://codeload.github.com/tree-sitter-grammars/tree-sitter-yaml/tar.gz/7b03feefd36b5f155465ca736c6304aca983b267"
   dependencies:
-    nan "^2.14.0"
+    node-addon-api "^8.0.0"
+    node-gyp-build "^4.8.0"
 
 ts-api-utils@^1.0.1:
   version "1.0.3"
