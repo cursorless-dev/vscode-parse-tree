@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.31.0 (14 Jun 2024)
+
+### Enhancements
+
+- Upgrade tree-sitter [#84](https://github.com/cursorless-dev/vscode-parse-tree/pull/84) ([@pokey](https://github.com/pokey))
+
 ## 0.30.0 (19 Mar 2024)
 
 ### Enhancements
