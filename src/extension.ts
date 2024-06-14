@@ -91,6 +91,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const wasm = path.relative(process.cwd(), absolute);
+    await initParser;
     const lang = await Parser.Language.load(wasm);
     const parser = new Parser();
     parser.setLanguage(lang);
@@ -202,11 +203,7 @@ export async function activate(context: vscode.ExtensionContext) {
     vscode.workspace.onDidOpenTextDocument(openIfVisible)
   );
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
-  async function activateLazily() {
-    await initParser;
-    colorAllOpen();
-  }
-  activateLazily();
+  colorAllOpen();
 
   function getTreeForUri(uri: vscode.Uri) {
     const ret = trees[uri.toString()];
