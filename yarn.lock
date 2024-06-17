@@ -1517,11 +1517,6 @@ ms@^2.0.0:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-nan@2.14.2:
-  version "2.14.2"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
-  integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
-
 nan@^2.11.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.17.0, nan@^2.18.0:
   version "2.18.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
@@ -2127,11 +2122,9 @@ tree-sitter-cli@^0.22.6:
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.22.6.tgz#f0542bce4095952c292d3f0300d72aeab442b765"
   integrity sha512-s7mYOJXi8sIFkt/nLJSqlYZP96VmKTc3BAwIX0rrrlRxWjWuCwixFqwzxWZBQz4R8Hx01iP7z3cT3ih58BUmZQ==
 
-"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#master":
-  version "0.0.9"
-  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/087bac78c53fe1387756cd5b8e68a69b3f6d7244"
-  dependencies:
-    nan "2.14.2"
+"tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#f4236d4da8aa92bc105d9c118746474c608e6af7":
+  version "0.0.13"
+  resolved "https://codeload.github.com/sogaiu/tree-sitter-clojure/tar.gz/f4236d4da8aa92bc105d9c118746474c608e6af7"
 
 "tree-sitter-cpp@github:tree-sitter/tree-sitter-cpp#9d412ba7e597fe158f209da33e60f31b1f0df967":
   version "0.22.2"
@@ -2199,11 +2192,12 @@ tree-sitter-css@^0.19.0:
     node-addon-api "^8.0.0"
     node-gyp-build "^4.8.1"
 
-"tree-sitter-json@github:tree-sitter/tree-sitter-json#3fef30de8aee74600f25ec2e319b62a1a870d51e":
-  version "0.20.1"
-  resolved "https://codeload.github.com/tree-sitter/tree-sitter-json/tar.gz/3fef30de8aee74600f25ec2e319b62a1a870d51e"
+"tree-sitter-json@github:tree-sitter/tree-sitter-json#94f5c527b2965465956c2000ed6134dd24daf2a7":
+  version "0.21.0"
+  resolved "https://codeload.github.com/tree-sitter/tree-sitter-json/tar.gz/94f5c527b2965465956c2000ed6134dd24daf2a7"
   dependencies:
-    nan "^2.18.0"
+    node-addon-api "^8.0.0"
+    node-gyp-build "^4.8.0"
 
 "tree-sitter-julia@github:tree-sitter/tree-sitter-julia#e2f449e2bcc95f1d07ceb62d67f986005f73a6be":
   version "0.20.0"
