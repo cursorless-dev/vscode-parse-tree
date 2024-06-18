@@ -38,6 +38,12 @@ registerLanguage(languageId, wasmPath);
 
 1. `yarn`
 2. Install [emscripten](https://emscripten.org/docs/getting_started/downloads.html) for generating parser wasm files
+3. Activate a version of emscripten that is compatible with `./tree-sitter-version`:
+   ```
+   emsdk_version=$(curl -s "https://raw.githubusercontent.com/tree-sitter/tree-sitter/$(cat tree-sitter-version)/cli/loader/emscripten-version")
+   emsdk install $emsdk_version
+   emsdk activate $emsdk_version
+   ```
 
 ### Adding a new language
 
