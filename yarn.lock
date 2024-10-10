@@ -1482,7 +1482,7 @@ nan@^2.11.1, nan@^2.14.0, nan@^2.14.1, nan@^2.14.2, nan@^2.15.0, nan@^2.17.0, na
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.18.0.tgz#26a6faae7ffbeb293a39660e88a76b82e30b7554"
   integrity sha512-W7tfG7vMOGtD30sHoZSSc/JVYiyDPEyQVso/Zz+/uQd0B0L46gtC+pHha5FFMRpil6fm/AoEcRWyOVi4+E/f8w==
 
-nan@^2.16.0, nan@^2.19.0:
+nan@^2.16.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.19.0.tgz#bb58122ad55a6c5bc973303908d5b16cfdd5a8c0"
   integrity sha512-nO1xXxfh/RWNxfd/XPfbIfFk5vgLsAxUR9y5O0cHMJu/AW9U95JLXqthYHjEp+8gQ5p96K9jUp8nbVOxCdRbtw==
@@ -2084,11 +2084,12 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.14.0"
 
-"tree-sitter-kotlin@github:fwcd/tree-sitter-kotlin#c9cb8504b81684375e7beb8907517dbd6947a1be":
-  version "0.3.7"
-  resolved "https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/c9cb8504b81684375e7beb8907517dbd6947a1be"
+"tree-sitter-kotlin@github:fwcd/tree-sitter-kotlin#76f53c48d29e8588934fb55b0240d7bdfe00bfe5":
+  version "0.3.9"
+  resolved "https://codeload.github.com/fwcd/tree-sitter-kotlin/tar.gz/76f53c48d29e8588934fb55b0240d7bdfe00bfe5"
   dependencies:
-    nan "^2.19.0"
+    node-addon-api "^7.1.0"
+    node-gyp-build "^4.8.0"
 
 "tree-sitter-latex@github:latex-lsp/tree-sitter-latex#1666e9780de42a31b1376d32fbe8332e8dd5850f":
   version "0.1.0"
