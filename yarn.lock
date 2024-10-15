@@ -2019,6 +2019,13 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
+tree-sitter-dart@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-dart/-/tree-sitter-dart-1.0.0.tgz#c2e6f2fead28913714dd9a00bfea4b57c3c49f47"
+  integrity sha512-Ve5YMPJjjGW9LEsO+MngAOibQsw5obFp+bUT41pvwdcXWRwJImOWs3eaPi6AubEiBmc09qvhdvxeIXvxlhMnug==
+  dependencies:
+    nan "^2.15.0"
+
 "tree-sitter-elixir@github:elixir-lang/tree-sitter-elixir#b20eaa75565243c50be5e35e253d8beb58f45d56":
   version "0.19.0"
   resolved "https://codeload.github.com/elixir-lang/tree-sitter-elixir/tar.gz/b20eaa75565243c50be5e35e253d8beb58f45d56"
@@ -2187,7 +2194,8 @@ tree-sitter-sparql@^0.1.0:
   version "4.0.0"
   resolved "https://codeload.github.com/pokey/tree-sitter-talon/tar.gz/f69923ea2490530babe105f0a36434e4a23e127e"
   dependencies:
-    nan "^2.16.0"
+    node-addon-api "^7.1.0"
+    node-gyp-build "^4.8.0"
 
 "tree-sitter-typescript@github:tree-sitter/tree-sitter-typescript#4ad3010c91d700026d036b5230e2d99ba94ae8a4":
   version "0.21.1"
