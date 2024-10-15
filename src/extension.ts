@@ -18,6 +18,7 @@ const languages: {
   cpp: { module: "tree-sitter-cpp" },
   csharp: { module: "tree-sitter-c-sharp" },
   css: { module: "tree-sitter-css" },
+  dart: { module: "tree-sitter-dart" },
   elm: { module: "tree-sitter-elm" },
   elixir: { module: "tree-sitter-elixir" },
   gleam: { module: "tree-sitter-gleam" },
