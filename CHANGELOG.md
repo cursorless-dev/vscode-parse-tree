@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.32.0 (25 Oct 2024)
+
+### Enhancements
+
+- add: dart language compatibility [#89](https://github.com/cursorless-dev/vscode-parse-tree/pull/89) ([@sonnyvesali](https://github.com/sonnyvesali))
+
 ## 0.31.0 (14 Jun 2024)
 
 ### Enhancements
