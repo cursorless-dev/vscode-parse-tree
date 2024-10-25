@@ -2019,6 +2019,13 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.14.1"
 
+"tree-sitter-dart@github:UserNobody14/tree-sitter-dart#9ac03bb2154316624fb4c41fe0f372a5f1597b43":
+  version "1.0.0"
+  resolved "https://codeload.github.com/UserNobody14/tree-sitter-dart/tar.gz/9ac03bb2154316624fb4c41fe0f372a5f1597b43"
+  dependencies:
+    node-addon-api "^7.1.0"
+    node-gyp-build "^4.8.0"
+
 "tree-sitter-elixir@github:elixir-lang/tree-sitter-elixir#b20eaa75565243c50be5e35e253d8beb58f45d56":
   version "0.19.0"
   resolved "https://codeload.github.com/elixir-lang/tree-sitter-elixir/tar.gz/b20eaa75565243c50be5e35e253d8beb58f45d56"
