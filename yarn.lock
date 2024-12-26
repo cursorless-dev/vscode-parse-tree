@@ -2150,6 +2150,11 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.14.2"
 
+tree-sitter-r@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-r/-/tree-sitter-r-1.1.0.tgz#5fc0b854754b9a2aa5ebfe2feea577455d5d1f2f"
+  integrity sha512-dYYlIPiJjNlkldagvissXUiXQpEzyHUs1sAjsWmPM7KhVmrzS8M+O9LAa/o7CiZN6sP63ReH1nM6qmx+Wfbhbg==
+
 "tree-sitter-ruby@github:tree-sitter/tree-sitter-ruby#dc2d7d6b50f9975bc3c35bbec0ba11b2617b736b":
   version "0.21.0"
   resolved "https://codeload.github.com/tree-sitter/tree-sitter-ruby/tar.gz/dc2d7d6b50f9975bc3c35bbec0ba11b2617b736b"
