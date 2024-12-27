@@ -40,6 +40,7 @@ const languages: {
   perl: { module: "tree-sitter-perl" },
   php: { module: "tree-sitter-php" },
   python: { module: "tree-sitter-python" },
+  r: { module: "tree-sitter-r" },
   ruby: { module: "tree-sitter-ruby" },
   rust: { module: "tree-sitter-rust" },
   scala: { module: "tree-sitter-scala" },
