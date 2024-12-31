@@ -31,6 +31,7 @@
     "onLanguage:dart",
     "onLanguage:elm",
     "onLanguage:elixir",
+    "onLanguage:gdscript",
     "onLanguage:gleam",
     "onLanguage:go",
     "onLanguage:haskell",
