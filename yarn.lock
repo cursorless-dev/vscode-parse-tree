@@ -1521,6 +1521,11 @@ node-api-version@^0.1.4:
   dependencies:
     semver "^7.3.5"
 
+node-gyp-build@^4.6.0:
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.4.tgz#8a70ee85464ae52327772a90d66c6077a900cfc8"
+  integrity sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==
+
 node-gyp-build@^4.8.0, node-gyp-build@^4.8.1:
   version "4.8.1"
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.1.tgz#976d3ad905e71b76086f4f0b0d3637fe79b6cda5"
@@ -2031,6 +2036,13 @@ tree-sitter-css@^0.19.0:
   resolved "https://codeload.github.com/elixir-lang/tree-sitter-elixir/tar.gz/b20eaa75565243c50be5e35e253d8beb58f45d56"
   dependencies:
     nan "^2.15.0"
+
+"tree-sitter-gdscript@github:PrestonKnopp/tree-sitter-gdscript#bf39f1b38a234d79940fd8866abb0b132ab51b1e":
+  version "3.0.0"
+  resolved "https://codeload.github.com/PrestonKnopp/tree-sitter-gdscript/tar.gz/bf39f1b38a234d79940fd8866abb0b132ab51b1e"
+  dependencies:
+    nan "^2.14.2"
+    node-gyp-build "^4.6.0"
 
 "tree-sitter-gleam@github:gleam-lang/tree-sitter-gleam#2012f294baacf30e7a62414754021284377366c6":
   version "1.0.0"
