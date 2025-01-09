@@ -1514,6 +1514,11 @@ node-addon-api@^7.1.0:
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-7.1.0.tgz#71f609369379c08e251c558527a107107b5e0fdb"
   integrity sha512-mNcltoe1R8o7STTegSOHdnJNN7s5EUvhoS7ShnTHDyOSd+8H+UdWODq6qSv67PjC8Zc5JRT8+oLAMCr0SIXw7g==
 
+node-addon-api@^8.2.1, node-addon-api@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-8.3.0.tgz#ec3763f18befc1cdf66d11e157ce44d5eddc0603"
+  integrity sha512-8VOpLHFrOQlAH+qA0ZzuGRlALRA6/LVh8QJldbrC4DY0hXoMP0l4Acq8TzFC018HztWiRqyCEj2aTWY2UvnJUg==
+
 node-api-version@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/node-api-version/-/node-api-version-0.1.4.tgz#1ed46a485e462d55d66b5aa1fe2821720dedf080"
@@ -1521,15 +1526,15 @@ node-api-version@^0.1.4:
   dependencies:
     semver "^7.3.5"
 
-node-gyp-build@^4.6.0:
-  version "4.8.4"
-  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.4.tgz#8a70ee85464ae52327772a90d66c6077a900cfc8"
-  integrity sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==
-
 node-gyp-build@^4.8.0, node-gyp-build@^4.8.1:
   version "4.8.1"
   resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.1.tgz#976d3ad905e71b76086f4f0b0d3637fe79b6cda5"
   integrity sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==
+
+node-gyp-build@^4.8.2, node-gyp-build@^4.8.4:
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/node-gyp-build/-/node-gyp-build-4.8.4.tgz#8a70ee85464ae52327772a90d66c6077a900cfc8"
+  integrity sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==
 
 node-gyp@^9.0.0:
   version "9.4.1"
@@ -2001,10 +2006,10 @@ tree-sitter-cli@^0.20.6:
   resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.8.tgz#06a81cea8d6d82f93d67eed7d28b6bc04a4a8916"
   integrity sha512-XjTcS3wdTy/2cc/ptMLc/WRyOLECRYcMTrSWyhZnj1oGSOWbHLTklgsgRICU3cPfb0vy+oZCC33M43u6R1HSCA==
 
-tree-sitter-cli@^0.22.6:
-  version "0.22.6"
-  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.22.6.tgz#f0542bce4095952c292d3f0300d72aeab442b765"
-  integrity sha512-s7mYOJXi8sIFkt/nLJSqlYZP96VmKTc3BAwIX0rrrlRxWjWuCwixFqwzxWZBQz4R8Hx01iP7z3cT3ih58BUmZQ==
+tree-sitter-cli@^0.24.6:
+  version "0.24.6"
+  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.24.6.tgz#e9cedc6ce22464ac08469fffa2f508e0f8ad16cd"
+  integrity sha512-FJ9B1XwXt8Auq75NK/6bpeci7avXSk73OMDq4elXHPS4ue11ZFeCrH/anVN/u5BAZjWqFO9nWGLNEdpdZOg+eA==
 
 "tree-sitter-clojure@github:sogaiu/tree-sitter-clojure#f4236d4da8aa92bc105d9c118746474c608e6af7":
   version "0.0.13"
@@ -2037,12 +2042,12 @@ tree-sitter-css@^0.19.0:
   dependencies:
     nan "^2.15.0"
 
-"tree-sitter-gdscript@github:PrestonKnopp/tree-sitter-gdscript#bf39f1b38a234d79940fd8866abb0b132ab51b1e":
-  version "3.0.0"
-  resolved "https://codeload.github.com/PrestonKnopp/tree-sitter-gdscript/tar.gz/bf39f1b38a234d79940fd8866abb0b132ab51b1e"
+"tree-sitter-gdscript@github:PrestonKnopp/tree-sitter-gdscript#48b49330888a4669b48619b211cc8da573827725":
+  version "4.0.3"
+  resolved "https://codeload.github.com/PrestonKnopp/tree-sitter-gdscript/tar.gz/48b49330888a4669b48619b211cc8da573827725"
   dependencies:
-    nan "^2.14.2"
-    node-gyp-build "^4.6.0"
+    node-addon-api "^8.2.1"
+    node-gyp-build "^4.8.2"
 
 "tree-sitter-gleam@github:gleam-lang/tree-sitter-gleam#2012f294baacf30e7a62414754021284377366c6":
   version "1.0.0"
@@ -2229,6 +2234,14 @@ tree-sitter-sparql@^0.1.0:
     node-addon-api "^8.0.0"
     node-gyp-build "^4.8.0"
 
+tree-sitter@^0.22.4:
+  version "0.22.4"
+  resolved "https://registry.yarnpkg.com/tree-sitter/-/tree-sitter-0.22.4.tgz#7d29547f663ff6f49ee8d1ac444e6fa169c72b77"
+  integrity sha512-usbHZP9/oxNsUY65MQUsduGRqDHQOou1cagUSwjhoSYAmSahjQDAVsh9s+SlZkn8X8+O1FULRGwHu7AFP3kjzg==
+  dependencies:
+    node-addon-api "^8.3.0"
+    node-gyp-build "^4.8.4"
+
 ts-api-utils@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/ts-api-utils/-/ts-api-utils-1.0.3.tgz#f12c1c781d04427313dbac808f453f050e54a331"
@@ -2306,7 +2319,7 @@ wcwidth@^1.0.1:
     defaults "^1.0.3"
 
 "web-tree-sitter@file:vendor/web-tree-sitter":
-  version "0.22.6"
+  version "0.24.6"
 
 which@2.0.2, which@^2.0.1, which@^2.0.2:
   version "2.0.2"
