@@ -59,13 +59,6 @@ When working with WSL, the host vscode instance connects to a vscode server on t
 - If you're adding language support to `vscode-parse-tree`, you need to clone that as well, build it, and link it into the `vscode-server` extension folder: `ln -s ~/your/code/vscode-parse-tree ~/.vscode-server/extensions/parse-tree` for instance.
 - If you get errors about needing to install the `Remote-WSL` extension, you might need to manually delete the extension from the host side and try again.
 
-### Updating `web-tree-sitter`
-
-We build a custom version of `web-tree-sitter` to ensure that we can always use the latest version and fix any problems as they come up.
-To update `web-tree-sitter` update the contents of [./tree-sitter-version](./tree-sitter-version) to the latest commit sha of [tree-sitter](https://github.com/tree-sitter/tree-sitter/commits/master).
-
-The script which builds our custom version is at the end of our [`Makefile`](./Makefile).
-
 ## Change Log
 
 See [CHANGELOG.md](CHANGELOG.md).
