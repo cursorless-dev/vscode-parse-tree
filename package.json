@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.32.0",
+  "version": "0.32.1",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -78,7 +78,6 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./ && make parsers",
     "watch": "tsc -watch -p ./",
-    "preinstall": "make web-tree-sitter",
     "test": "npm run compile && node ./out/test",
     "benchmark": "npm run compile && node ./out/benchmark",
     "debug": "npm run compile && node --nolazy --inspect-brk=9229 ./out/test",
@@ -142,10 +141,7 @@
   "dependencies": {
     "jsonc-parser": "^2.1.0",
     "tar": ">=4.4.2",
-    "web-tree-sitter": "file:vendor/web-tree-sitter"
+    "web-tree-sitter": "^0.24.6"
   },
-  "bundledDependencies": [
-    "web-tree-sitter"
-  ],
-  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+  "packageManager": "yarn@1.22.22"
 }
