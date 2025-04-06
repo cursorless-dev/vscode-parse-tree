@@ -86,7 +86,10 @@ export async function activate(context: vscode.ExtensionContext) {
     } else {
       absolute = path.join(
         context.extensionPath,
-        "parsers",
+        "node_modules",
+        "@cursorless",
+        "tree-sitter-wasms",
+        "out",
         language.module + ".wasm"
       );
     }

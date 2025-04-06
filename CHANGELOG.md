@@ -2,6 +2,12 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.33.0 (6 Apr 2025)
+
+### Enhancements
+
+- Stop building wasm and instead use dependency `@cursorless/tree-sitter-wasms`
+
 ## 0.32.0 (25 Oct 2024)
 
 ### Enhancements
