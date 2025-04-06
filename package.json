@@ -75,7 +75,8 @@
   "contributes": {},
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsc -p ./ && npm run copy-assets",
+    "copy-assets": "sh copy-assets.sh",
     "watch": "tsc -watch -p ./",
     "test": "npm run compile && node ./out/test",
     "benchmark": "npm run compile && node ./out/benchmark",
