@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -86,7 +86,7 @@
     "publish": "vsce publish patch"
   },
   "devDependencies": {
-    "@cursorless/tree-sitter-wasms": "0.1.0",
+    "@cursorless/tree-sitter-wasms": "0.2.0",
     "@electron/rebuild": "^3.3.0",
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.25",
