@@ -2,7 +2,7 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
-## 0.33.0 (6 Apr 2025)
+## 0.35.0 (6 Apr 2025)
 
 ### Enhancements
 
