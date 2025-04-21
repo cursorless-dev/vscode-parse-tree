@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@cursorless/tree-sitter-wasms@0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@cursorless/tree-sitter-wasms/-/tree-sitter-wasms-0.2.4.tgz#a5af2779bcfd2d6c642eaead8eb0d9f6bf9595eb"
-  integrity sha512-99Ezvy6dPXGa+RE4XVbt2UsHGEoj/ljc7i5iaXnOGyHemSpZ7FpbDWHfsGOeX2LUdOVZod1vPeEbR37XJotW8w==
+"@cursorless/tree-sitter-wasms@0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@cursorless/tree-sitter-wasms/-/tree-sitter-wasms-0.2.5.tgz#575c4961ff56627f3e544cfc9a9983360901ab83"
+  integrity sha512-nyxFQb2Qj7uQSPxZ+/7dPQV4Q7pzzgwPioS1mYoMSCLQEsU9GokvM+5jrQL60aXXaODqgJEmGvuIo9CQIZ6qPw==
 
 "@electron/rebuild@^3.3.0":
   version "3.3.0"
