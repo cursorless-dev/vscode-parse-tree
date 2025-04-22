@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as Parser from "web-tree-sitter";
 import * as path from "path";
+import * as fs from "fs";
 import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
 interface Language {
@@ -16,7 +17,7 @@ const languages: {
   c: { module: "tree-sitter-c" },
   clojure: { module: "tree-sitter-clojure" },
   cpp: { module: "tree-sitter-cpp" },
-  csharp: { module: "tree-sitter-c-sharp" },
+  csharp: { module: "tree-sitter-c_sharp" },
   css: { module: "tree-sitter-css" },
   dart: { module: "tree-sitter-dart" },
   elm: { module: "tree-sitter-elm" },
@@ -89,6 +90,10 @@ export async function activate(context: vscode.ExtensionContext) {
         "parsers",
         language.module + ".wasm"
       );
+    }
+
+    if (!fs.existsSync(absolute)) {
+      throw Error(`Parser for ${languageId} not found at ${absolute}`);
     }
 
     const wasm = path.relative(process.cwd(), absolute);
