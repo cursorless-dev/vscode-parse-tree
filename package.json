@@ -99,6 +99,6 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "web-tree-sitter": "^0.24.6"
+    "web-tree-sitter": "^0.25.3"
   }
 }

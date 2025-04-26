@@ -59,7 +59,7 @@ const languages: {
 };
 
 // For some reason this crashes if we put it inside activate
-const initParser = Parser.init(); // TODO this isn't a field, suppress package member coloring like Go
+const initParser = Parser.Parser.init(); // TODO this isn't a field, suppress package member coloring like Go
 
 // Called when the extension is first activated by user opening a file with the appropriate language
 export async function activate(context: vscode.ExtensionContext) {
@@ -96,12 +96,7 @@ export async function activate(context: vscode.ExtensionContext) {
       throw Error(`Parser for ${languageId} not found at ${absolute}`);
     }
 
-    const wasm = path.relative(process.cwd(), absolute);
-    await initParser;
-    const lang = await Parser.Language.load(wasm);
-    const parser = new Parser();
-    parser.setLanguage(lang);
-    language.parser = parser;
+      const parser = new Parser.Parser();
 
     return true;
   }
@@ -118,7 +113,9 @@ export async function activate(context: vscode.ExtensionContext) {
 
     const language = languages[document.languageId];
     const t = language.parser!.parse(document.getText()); // TODO don't use getText, use Parser.Input
-    trees[uriString] = t;
+    if (t != null) {
+      trees[uriString] = t;
+    }
   }
 
   function openIfLanguageLoaded(document: vscode.TextDocument) {
@@ -136,7 +133,9 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const t = language.parser.parse(document.getText()); // TODO don't use getText, use Parser.Input
-    trees[uriString] = t;
+    if (t != null) {
+      trees[uriString] = t;
+    }
     return t;
   }
 
@@ -149,7 +148,10 @@ export async function activate(context: vscode.ExtensionContext) {
     updateTree(language.parser, edit);
   }
 
-  function updateTree(parser: Parser, edit: vscode.TextDocumentChangeEvent) {
+  function updateTree(
+    parser: Parser.Parser,
+    edit: vscode.TextDocumentChangeEvent
+  ) {
     if (edit.contentChanges.length === 0) {
       return;
     }
@@ -175,7 +177,9 @@ export async function activate(context: vscode.ExtensionContext) {
       old.edit(delta);
     }
     const t = parser.parse(edit.document.getText(), old); // TODO don't use getText, use Parser.Input
-    trees[edit.document.uri.toString()] = t;
+    if (t != null) {
+      trees[edit.document.uri.toString()] = t;
+    }
   }
   function asPoint(pos: vscode.Position): Parser.Point {
     return { row: pos.line, column: pos.character };
@@ -245,7 +249,7 @@ export async function activate(context: vscode.ExtensionContext) {
     loadLanguage,
 
     getLanguage(languageId: string): Parser.Language | undefined {
-      return languages[languageId]?.parser?.getLanguage();
+      return languages[languageId]?.parser?.language ?? undefined;
     },
 
     /**
