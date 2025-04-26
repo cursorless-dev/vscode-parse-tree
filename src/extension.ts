@@ -1,12 +1,12 @@
 import * as vscode from "vscode";
-import * as Parser from "web-tree-sitter";
+import * as treeSitter from "web-tree-sitter";
 import * as path from "path";
 import * as fs from "fs";
 import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
 interface Language {
   module: string;
-  parser?: Parser;
+  parser?: treeSitter.Parser;
 }
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
@@ -59,13 +59,13 @@ const languages: {
 };
 
 // For some reason this crashes if we put it inside activate
-const initParser = Parser.Parser.init(); // TODO this isn't a field, suppress package member coloring like Go
+const initParser = treeSitter.Parser.init(); // TODO this isn't a field, suppress package member coloring like Go
 
 // Called when the extension is first activated by user opening a file with the appropriate language
 export async function activate(context: vscode.ExtensionContext) {
   console.debug("Activating tree-sitter...");
   // Parse of all visible documents
-  const trees: { [uri: string]: Parser.Tree } = {};
+  const trees: { [uri: string]: treeSitter.Tree } = {};
 
   /**
    * Load the parser model for a given language
@@ -96,7 +96,12 @@ export async function activate(context: vscode.ExtensionContext) {
       throw Error(`Parser for ${languageId} not found at ${absolute}`);
     }
 
-      const parser = new Parser.Parser();
+    const wasm = path.relative(process.cwd(), absolute);
+    await initParser;
+    const lang = await treeSitter.Language.load(wasm);
+    const parser = new treeSitter.Parser();
+    parser.setLanguage(lang);
+    language.parser = parser;
 
     return true;
   }
@@ -149,7 +154,7 @@ export async function activate(context: vscode.ExtensionContext) {
   }
 
   function updateTree(
-    parser: Parser.Parser,
+    parser: treeSitter.Parser,
     edit: vscode.TextDocumentChangeEvent
   ) {
     if (edit.contentChanges.length === 0) {
@@ -181,7 +186,7 @@ export async function activate(context: vscode.ExtensionContext) {
       trees[edit.document.uri.toString()] = t;
     }
   }
-  function asPoint(pos: vscode.Position): Parser.Point {
+  function asPoint(pos: vscode.Position): treeSitter.Point {
     return { row: pos.line, column: pos.character };
   }
   function close(document: vscode.TextDocument) {
@@ -248,7 +253,7 @@ export async function activate(context: vscode.ExtensionContext) {
   return {
     loadLanguage,
 
-    getLanguage(languageId: string): Parser.Language | undefined {
+    getLanguage(languageId: string): treeSitter.Language | undefined {
       return languages[languageId]?.parser?.language ?? undefined;
     },
 
