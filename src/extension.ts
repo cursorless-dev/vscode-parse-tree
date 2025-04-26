@@ -117,10 +117,11 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const language = languages[document.languageId];
-    const t = language.parser!.parse(document.getText()); // TODO don't use getText, use Parser.Input
-    if (t != null) {
-      trees[uriString] = t;
+    const t = language.parser!.parse(document.getText());
+    if (t == null) {
+      throw Error(`Failed to parse ${document.uri}`);
     }
+    trees[uriString] = t;
   }
 
   function openIfLanguageLoaded(document: vscode.TextDocument) {
@@ -137,10 +138,11 @@ export async function activate(context: vscode.ExtensionContext) {
       return null;
     }
 
-    const t = language.parser.parse(document.getText()); // TODO don't use getText, use Parser.Input
-    if (t != null) {
-      trees[uriString] = t;
+    const t = language.parser.parse(document.getText());
+    if (t == null) {
+      throw Error(`Failed to parse ${document.uri}`);
     }
+    trees[uriString] = t;
     return t;
   }
 
@@ -181,14 +183,17 @@ export async function activate(context: vscode.ExtensionContext) {
       };
       old.edit(delta);
     }
-    const t = parser.parse(edit.document.getText(), old); // TODO don't use getText, use Parser.Input
-    if (t != null) {
-      trees[edit.document.uri.toString()] = t;
+    const t = parser.parse(edit.document.getText(), old);
+    if (t == null) {
+      throw Error(`Failed to parse ${edit.document.uri}`);
     }
+    trees[edit.document.uri.toString()] = t;
   }
+
   function asPoint(pos: vscode.Position): treeSitter.Point {
     return { row: pos.line, column: pos.character };
   }
+
   function close(document: vscode.TextDocument) {
     delete trees[document.uri.toString()];
   }
