@@ -131,10 +131,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const language = languages[document.languageId];
-    if (language == null) {
-      return null;
-    }
-    if (language.parser == null) {
+    if (language?.parser == null) {
       return null;
     }
 
