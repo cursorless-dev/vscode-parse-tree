@@ -117,7 +117,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const language = languages[document.languageId];
-    const t = language.parser!.parse(document.getText());
+    const t = language.parser?.parse(document.getText());
     if (t == null) {
       throw Error(`Failed to parse ${document.uri}`);
     }
