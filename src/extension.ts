@@ -255,8 +255,25 @@ export async function activate(context: vscode.ExtensionContext) {
   return {
     loadLanguage,
 
+    /**
+     * @deprecated
+     */
     getLanguage(languageId: string): treeSitter.Language | undefined {
+      console.warn(
+        "vscode-parse-tree: getLanguage is deprecated, use createQuery(languageId, source) instead."
+      );
       return languages[languageId]?.parser?.language ?? undefined;
+    },
+
+    createQuery(
+      languageId: string,
+      source: string
+    ): treeSitter.Query | undefined {
+      const language = languages[languageId]?.parser?.language;
+      if (language == null) {
+        return undefined;
+      }
+      return new treeSitter.Query(language, source);
     },
 
     /**
