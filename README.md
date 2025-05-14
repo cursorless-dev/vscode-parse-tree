@@ -37,7 +37,6 @@ registerLanguage(languageId, wasmPath);
 ### Setup
 
 1. `yarn`
-2. Install [emscripten](https://emscripten.org/docs/getting_started/downloads.html) for generating parser wasm files
 
 ### Adding a new language
 
