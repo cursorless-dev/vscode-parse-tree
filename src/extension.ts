@@ -2,6 +2,7 @@ import * as vscode from "vscode";
 import * as treeSitter from "web-tree-sitter";
 import * as path from "path";
 import * as fs from "fs";
+import * as semver from "semver";
 import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
 interface Language {
@@ -69,6 +70,20 @@ export async function activate(context: vscode.ExtensionContext) {
   const trees: { [uri: string]: treeSitter.Tree } = {};
 
   /**
+   * FIXME: On newer vscode versions the latex Tree sitter parser throws memory errors
+   * https://github.com/cursorless-dev/cursorless/issues/2879
+   */
+  const disableLatex = semver.gte(vscode.version, "1.98.0");
+
+  const validateGetLatex = (languageId: string) => {
+    if (languageId === "latex" && disableLatex) {
+      throw new Error(
+        "Latex is disabled on vscode versions >= 1.98.0. See https://github.com/cursorless-dev/cursorless/issues/2879"
+      );
+    }
+  };
+
+  /**
    * Load the parser model for a given language
    * @param languageId The vscode language id of the language to load
    * @returns a promise resolving to boolean an indicating whether the language could be loaded
@@ -80,6 +95,10 @@ export async function activate(context: vscode.ExtensionContext) {
     }
     if (language.parser != null) {
       return true;
+    }
+
+    if (languageId === "latex" && disableLatex) {
+      return false;
     }
 
     let absolute;
@@ -244,6 +263,7 @@ export async function activate(context: vscode.ExtensionContext) {
       const languageId = document.languageId;
 
       if (languageId in languages) {
+        validateGetLatex(document.languageId);
         throw new LanguageStillLoadingError(languageId);
       } else {
         throw new UnsupportedLanguageError(languageId);
@@ -263,6 +283,7 @@ export async function activate(context: vscode.ExtensionContext) {
       console.warn(
         "vscode-parse-tree: getLanguage is deprecated, use createQuery(languageId, source) instead."
       );
+      validateGetLatex(languageId);
       return languages[languageId]?.parser?.language ?? undefined;
     },
 
@@ -272,6 +293,7 @@ export async function activate(context: vscode.ExtensionContext) {
     ): treeSitter.Query | undefined {
       const language = languages[languageId]?.parser?.language;
       if (language == null) {
+        validateGetLatex(languageId);
         return undefined;
       }
       return new treeSitter.Query(language, source);

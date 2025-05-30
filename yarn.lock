@@ -7,10 +7,10 @@
   resolved "https://registry.yarnpkg.com/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz#bd9154aec9983f77b3a034ecaa015c2e4201f6cf"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@cursorless/tree-sitter-wasms@0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@cursorless/tree-sitter-wasms/-/tree-sitter-wasms-0.2.5.tgz#575c4961ff56627f3e544cfc9a9983360901ab83"
-  integrity sha512-nyxFQb2Qj7uQSPxZ+/7dPQV4Q7pzzgwPioS1mYoMSCLQEsU9GokvM+5jrQL60aXXaODqgJEmGvuIo9CQIZ6qPw==
+"@cursorless/tree-sitter-wasms@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@cursorless/tree-sitter-wasms/-/tree-sitter-wasms-0.3.0.tgz#2b337faadca78e9251e76eeb46d18828d5a2e44e"
+  integrity sha512-CfR0xdzNzP5aG+N+/0DmX5CBjPjWLRdY8WXp54SyfAp8B4UNOVrKjLfWnKXDzo83gv+zJeNdQDSxUE3FY0eUYQ==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
@@ -952,6 +952,11 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
   integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
+
+semver@7.7.2:
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.7.2.tgz#67d99fdcd35cec21e6f8b87a7fd515a33f982b58"
+  integrity sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==
 
 semver@^7.5.4:
   version "7.5.4"
