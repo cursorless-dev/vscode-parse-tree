@@ -112,7 +112,6 @@ export async function activate(context: vscode.ExtensionContext) {
       absolute = path.join(
         context.extensionPath,
         "parsers",
-        "out",                    // bafflingly, upgrading the vscode-parse-tree dep to 0.4.0 causes the parsers to be placed in a different location???
         language.module + ".wasm"
       );
     }
