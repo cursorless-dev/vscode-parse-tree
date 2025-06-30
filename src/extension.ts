@@ -23,7 +23,7 @@ const languages: {
   dart: { module: "tree-sitter-dart" },
   elm: { module: "tree-sitter-elm" },
   elixir: { module: "tree-sitter-elixir" },
-  gdscript: {module: "tree-sitter-gdscript"},
+  gdscript: { module: "tree-sitter-gdscript" },
   gleam: { module: "tree-sitter-gleam" },
   go: { module: "tree-sitter-go" },
   haskell: { module: "tree-sitter-haskell" },
