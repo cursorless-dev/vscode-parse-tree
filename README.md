@@ -36,7 +36,7 @@ registerLanguage(languageId, wasmPath);
 
 ### Setup
 
-1. `yarn`
+1. `npm install`
 
 ### Adding a new language
 
@@ -45,7 +45,7 @@ It's straightforward to add any [language with a tree-sitter grammar](https://tr
 1. Add a dependency on the npm package for that language in [tree-sitter-wasms](https://github.com/cursorless-dev/tree-sitter-wasms)
 2. Add a language to the dictionary at the top of `./src/extension.ts`
 3. Add a reference to `onLanguage:yourlang` to the [activationEvents section of package.json](package.json). `yourlang` must be a [VSCode language identifier](https://code.visualstudio.com/docs/languages/identifiers).
-4. Run `yarn compile`, then hit `F5` in VSCode, with this project open, to test your changes.
+4. Run `npm install` and `npm run compile`, then hit `F5` in VSCode, with this project open, to test your changes.
 5. Submit a PR!
 
 ### Developing on WSL2
