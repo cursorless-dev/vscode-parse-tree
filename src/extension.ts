@@ -11,9 +11,9 @@ interface Language {
 }
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
-const languages: {
-  [id: string]: Language;
-} = {
+const languages: Record<string, Language | undefined> = {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  "java-properties": { module: "tree-sitter-properties" },
   agda: { module: "tree-sitter-agda" },
   c: { module: "tree-sitter-c" },
   clojure: { module: "tree-sitter-clojure" },
@@ -21,8 +21,8 @@ const languages: {
   csharp: { module: "tree-sitter-c_sharp" },
   css: { module: "tree-sitter-css" },
   dart: { module: "tree-sitter-dart" },
-  elm: { module: "tree-sitter-elm" },
   elixir: { module: "tree-sitter-elixir" },
+  elm: { module: "tree-sitter-elm" },
   gdscript: { module: "tree-sitter-gdscript" },
   gleam: { module: "tree-sitter-gleam" },
   go: { module: "tree-sitter-go" },
@@ -68,7 +68,7 @@ const initParser = treeSitter.Parser.init(); // TODO this isn't a field, suppres
 export async function activate(context: vscode.ExtensionContext) {
   console.debug("Activating tree-sitter...");
   // Parse of all visible documents
-  const trees: { [uri: string]: treeSitter.Tree } = {};
+  const trees: Record<string, treeSitter.Tree | undefined> = {};
 
   /**
    * FIXME: On newer vscode versions some Tree sitter parser throws memory errors
@@ -141,6 +141,9 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const language = languages[document.languageId];
+    if (language?.parser == null) {
+      throw new Error(`No parser for language ${document.languageId}`);
+    }
     const t = language.parser?.parse(document.getText());
     if (t == null) {
       throw Error(`Failed to parse ${document.uri}`);
@@ -184,6 +187,9 @@ export async function activate(context: vscode.ExtensionContext) {
       return;
     }
     const old = trees[edit.document.uri.toString()];
+    if (old == null) {
+      throw new Error(`No existing tree for ${edit.document.uri}`);
+    }
     for (const e of edit.contentChanges) {
       const startIndex = e.rangeOffset;
       const oldEndIndex = e.rangeOffset + e.rangeLength;
@@ -243,13 +249,14 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.workspace.onDidOpenTextDocument(openIfVisible)
   );
+
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
   colorAllOpen();
 
   function getTreeForUri(uri: vscode.Uri) {
     const ret = trees[uri.toString()];
 
-    if (typeof ret === "undefined") {
+    if (ret == null) {
       const document = vscode.workspace.textDocuments.find(
         (textDocument) => textDocument.uri.toString() === uri.toString()
       );
