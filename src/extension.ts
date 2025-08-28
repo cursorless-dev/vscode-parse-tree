@@ -14,6 +14,8 @@ interface Language {
 const languages: {
   [id: string]: Language;
 } = {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  "java-properties": { module: "tree-sitter-properties" },
   agda: { module: "tree-sitter-agda" },
   c: { module: "tree-sitter-c" },
   clojure: { module: "tree-sitter-clojure" },
@@ -42,7 +44,6 @@ const languages: {
   nix: { module: "tree-sitter-nix" },
   perl: { module: "tree-sitter-perl" },
   php: { module: "tree-sitter-php" },
-  properties: { module: "tree-sitter-properties" },
   python: { module: "tree-sitter-python" },
   r: { module: "tree-sitter-r" },
   ruby: { module: "tree-sitter-ruby" },
@@ -250,7 +251,7 @@ export async function activate(context: vscode.ExtensionContext) {
   function getTreeForUri(uri: vscode.Uri) {
     const ret = trees[uri.toString()];
 
-    if (typeof ret === "undefined") {
+    if (ret == null) {
       const document = vscode.workspace.textDocuments.find(
         (textDocument) => textDocument.uri.toString() === uri.toString()
       );
