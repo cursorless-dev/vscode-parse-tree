@@ -249,6 +249,7 @@ export async function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
     vscode.workspace.onDidOpenTextDocument(openIfVisible)
   );
+
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
   colorAllOpen();
 
