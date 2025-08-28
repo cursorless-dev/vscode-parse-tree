@@ -11,9 +11,7 @@ interface Language {
 }
 
 // Be sure to declare the language in package.json and include a minimalist grammar.
-const languages: {
-  [id: string]: Language;
-} = {
+const languages: Record<string, Language | undefined> = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   "java-properties": { module: "tree-sitter-properties" },
   agda: { module: "tree-sitter-agda" },
@@ -70,7 +68,7 @@ const initParser = treeSitter.Parser.init(); // TODO this isn't a field, suppres
 export async function activate(context: vscode.ExtensionContext) {
   console.debug("Activating tree-sitter...");
   // Parse of all visible documents
-  const trees: { [uri: string]: treeSitter.Tree } = {};
+  const trees: Record<string, treeSitter.Tree | undefined> = {};
 
   /**
    * FIXME: On newer vscode versions some Tree sitter parser throws memory errors
@@ -143,6 +141,9 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     const language = languages[document.languageId];
+    if (language?.parser == null) {
+      throw new Error(`No parser for language ${document.languageId}`);
+    }
     const t = language.parser?.parse(document.getText());
     if (t == null) {
       throw Error(`Failed to parse ${document.uri}`);
@@ -186,6 +187,9 @@ export async function activate(context: vscode.ExtensionContext) {
       return;
     }
     const old = trees[edit.document.uri.toString()];
+    if (old == null) {
+      throw new Error(`No existing tree for ${edit.document.uri}`);
+    }
     for (const e of edit.contentChanges) {
       const startIndex = e.rangeOffset;
       const oldEndIndex = e.rangeOffset + e.rangeLength;
