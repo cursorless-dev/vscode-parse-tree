@@ -42,6 +42,7 @@ const languages: Record<string, Language | undefined> = {
   nix: { module: "tree-sitter-nix" },
   perl: { module: "tree-sitter-perl" },
   php: { module: "tree-sitter-php" },
+  properties: { module: "tree-sitter-properties" },
   python: { module: "tree-sitter-python" },
   r: { module: "tree-sitter-r" },
   ruby: { module: "tree-sitter-ruby" },
