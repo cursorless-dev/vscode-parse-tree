@@ -10,10 +10,12 @@ interface Language {
   parser?: treeSitter.Parser;
 }
 
+/* eslint-disable @typescript-eslint/naming-convention */
+
 // Be sure to declare the language in package.json and include a minimalist grammar.
 const languages: Record<string, Language | undefined> = {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   "java-properties": { module: "tree-sitter-properties" },
+  "talon-list": { module: "tree-sitter-talon" },
   agda: { module: "tree-sitter-agda" },
   c: { module: "tree-sitter-c" },
   clojure: { module: "tree-sitter-clojure" },
