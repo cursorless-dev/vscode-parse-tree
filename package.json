@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.42.0",
+  "version": "0.43.0",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -79,6 +79,7 @@
   },
   "contributes": {},
   "scripts": {
+    "clean": "rm -rf ./out && rm -rf parsers",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./ && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
@@ -91,13 +92,14 @@
     "publish": "vsce publish patch"
   },
   "devDependencies": {
-    "@cursorless/tree-sitter-wasms": "0.5.0",
+    "@cursorless/tree-sitter-wasms": "0.6.0",
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.10.25",
     "@types/vscode": "~1.58.0",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
     "@vscode/test-electron": "^2.1.3",
+    "@vscode/vsce": "^3.6.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint": "^8.53.0",
     "typescript": "^4.5.5"
