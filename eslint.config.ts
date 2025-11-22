@@ -40,5 +40,5 @@ export default eslintTs.config(
   {
     files: ["eslint.config.ts"],
     extends: [eslintTs.configs.disableTypeChecked],
-  }
+  },
 );
