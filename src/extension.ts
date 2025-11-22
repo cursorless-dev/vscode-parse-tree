@@ -65,7 +65,7 @@ const languages: Record<string, Language | undefined> = {
 };
 
 // For some reason this crashes if we put it inside activate
-// TODO: this isn't a field, suppress package member coloring like Go
+// Fix: this isn't a field, suppress package member coloring like Go
 const initParser = treeSitter.Parser.init();
 
 // Called when the extension is first activated by user opening a file with the appropriate language
