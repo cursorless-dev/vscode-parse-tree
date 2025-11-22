@@ -79,13 +79,13 @@
   },
   "contributes": {},
   "scripts": {
-    "clean": "rm -rf ./out && rm -rf parsers",
+    "clean": "rm -rf ./out && rm -rf parsers && rm -f build.vsix",
     "watch": "tsc -watch -p .",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./ && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
     "build": "vsce package -o build.vsix",
-    "prettier": "prettier --write --list-different .",
+    "prettier": "prettier --write .",
     "lint": "eslint src && prettier --check ."
   },
   "devDependencies": {
