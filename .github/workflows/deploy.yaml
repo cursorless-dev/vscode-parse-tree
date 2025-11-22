@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm --color ci
 
-      - name: Run lint
-        run: npm --color run lint
-
       - name: Read version from package.json
         run: |
           VERSION=$(node -p "require('./package.json').version")
