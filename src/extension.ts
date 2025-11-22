@@ -80,9 +80,8 @@ export function activate(context: vscode.ExtensionContext) {
    * https://github.com/cursorless-dev/vscode-parse-tree/issues/110
    */
   const disabledLanguages = semver.gte(vscode.version, "1.98.0")
-    ? new Set([""])
-    : // ? new Set(["latex", "swift"])
-      null;
+    ? new Set(["latex", "swift"])
+    : null;
 
   const validateGetLanguage = (languageId: string) => {
     if (disabledLanguages?.has(languageId)) {
