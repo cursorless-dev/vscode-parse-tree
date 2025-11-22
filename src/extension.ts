@@ -1,8 +1,8 @@
+import * as fs from "fs";
+import * as path from "path";
+import * as semver from "semver";
 import * as vscode from "vscode";
 import * as treeSitter from "web-tree-sitter";
-import * as path from "path";
-import * as fs from "fs";
-import * as semver from "semver";
 import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
 interface Language {
@@ -65,10 +65,11 @@ const languages: Record<string, Language | undefined> = {
 };
 
 // For some reason this crashes if we put it inside activate
-const initParser = treeSitter.Parser.init(); // TODO this isn't a field, suppress package member coloring like Go
+// TODO: this isn't a field, suppress package member coloring like Go
+const initParser = treeSitter.Parser.init();
 
 // Called when the extension is first activated by user opening a file with the appropriate language
-export async function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext) {
   console.debug("Activating tree-sitter...");
   // Parse of all visible documents
   const trees: Record<string, treeSitter.Tree | undefined> = {};
@@ -79,8 +80,9 @@ export async function activate(context: vscode.ExtensionContext) {
    * https://github.com/cursorless-dev/vscode-parse-tree/issues/110
    */
   const disabledLanguages = semver.gte(vscode.version, "1.98.0")
-    ? new Set(["latex", "swift"])
-    : null;
+    ? new Set([""])
+    : // ? new Set(["latex", "swift"])
+      null;
 
   const validateGetLanguage = (languageId: string) => {
     if (disabledLanguages?.has(languageId)) {
@@ -149,7 +151,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
     const t = language.parser?.parse(document.getText());
     if (t == null) {
-      throw Error(`Failed to parse ${document.uri}`);
+      throw Error(`Failed to parse ${document.uri.toString()}`);
     }
     trees[uriString] = t;
   }
@@ -167,7 +169,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
     const t = language.parser.parse(document.getText());
     if (t == null) {
-      throw Error(`Failed to parse ${document.uri}`);
+      throw Error(`Failed to parse ${document.uri.toString()}`);
     }
     trees[uriString] = t;
     return t;
@@ -191,7 +193,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
     const old = trees[edit.document.uri.toString()];
     if (old == null) {
-      throw new Error(`No existing tree for ${edit.document.uri}`);
+      throw new Error(`No existing tree for ${edit.document.uri.toString()}`);
     }
     for (const e of edit.contentChanges) {
       const startIndex = e.rangeOffset;
@@ -215,7 +217,7 @@ export async function activate(context: vscode.ExtensionContext) {
     }
     const t = parser.parse(edit.document.getText(), old);
     if (t == null) {
-      throw Error(`Failed to parse ${edit.document.uri}`);
+      throw Error(`Failed to parse ${edit.document.uri.toString()}`);
     }
     trees[edit.document.uri.toString()] = t;
   }
@@ -234,13 +236,13 @@ export async function activate(context: vscode.ExtensionContext) {
     }
   }
 
-  function openIfVisible(document: vscode.TextDocument) {
+  async function openIfVisible(document: vscode.TextDocument) {
     if (
       vscode.window.visibleTextEditors.some(
         (editor) => editor.document.uri.toString() === document.uri.toString()
       )
     ) {
-      return open(document);
+      await open(document);
     }
   }
 
@@ -254,7 +256,7 @@ export async function activate(context: vscode.ExtensionContext) {
   );
 
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
-  colorAllOpen();
+  void colorAllOpen();
 
   function getTreeForUri(uri: vscode.Uri) {
     const ret = trees[uri.toString()];
@@ -265,7 +267,7 @@ export async function activate(context: vscode.ExtensionContext) {
       );
 
       if (document == null) {
-        throw new Error(`Document ${uri} is not open`);
+        throw new Error(`Document ${uri.toString()} is not open`);
       }
 
       const ret = openIfLanguageLoaded(document);
@@ -327,7 +329,7 @@ export async function activate(context: vscode.ExtensionContext) {
       }
 
       languages[languageId] = { module: wasmPath };
-      colorAllOpen();
+      void colorAllOpen();
     },
 
     getTree(document: vscode.TextDocument) {
