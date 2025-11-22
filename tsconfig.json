@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
-    "lib": ["es2020"],
-    "outDir": "out",
+    "module": "nodenext",
+    "target": "esnext",
+    "moduleResolution": "nodenext",
     "rootDir": "src",
+    "outDir": "out",
     "sourceMap": true,
     "strict": true,
     "noEmitOnError": true,

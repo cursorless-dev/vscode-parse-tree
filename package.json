@@ -80,6 +80,7 @@
   "contributes": {},
   "scripts": {
     "clean": "rm -rf ./out && rm -rf parsers",
+    "watch": "tsc -watch -p .",
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./ && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
@@ -89,14 +90,16 @@
   },
   "devDependencies": {
     "@cursorless/tree-sitter-wasms": "0.6.0",
+    "@eslint/js": "^9.31.0",
     "@types/node": "^24.10.1",
+    "@types/semver": "^7.3.12",
     "@types/vscode": "1.95.0",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
     "@vscode/vsce": "^3.7.0",
-    "eslint-config-prettier": "^9.1.2",
-    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint": "^9.34.0",
+    "jiti": "^2.6.1",
     "prettier": "^3.6.2",
+    "typescript-eslint": "^8.41.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
