@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.46.0",
+  "version": "0.47.0",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -69,7 +69,8 @@
     "onLanguage:typescript",
     "onLanguage:typescriptreact",
     "onLanguage:xml",
-    "onLanguage:yaml"
+    "onLanguage:yaml",
+    "onLanguage:zig"
   ],
   "main": "./out/extension.js",
   "capabilities": {
@@ -89,7 +90,7 @@
     "lint": "eslint src && prettier --check ."
   },
   "devDependencies": {
-    "@cursorless/tree-sitter-wasms": "0.6.0",
+    "@cursorless/tree-sitter-wasms": "0.7.0",
     "@eslint/js": "^9.31.0",
     "@types/node": "^24.10.1",
     "@types/semver": "^7.3.12",

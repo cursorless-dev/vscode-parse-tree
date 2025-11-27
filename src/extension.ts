@@ -62,6 +62,7 @@ const languages: Record<string, Language | undefined> = {
   typescriptreact: { module: "tree-sitter-tsx" },
   xml: { module: "tree-sitter-xml" },
   yaml: { module: "tree-sitter-yaml" },
+  zig: { module: "tree-sitter-zig" },
 };
 
 // For some reason this crashes if we put it inside activate
