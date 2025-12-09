@@ -95,7 +95,7 @@
     "@types/node": "^24.10.1",
     "@types/semver": "^7.3.12",
     "@types/vscode": "1.95.0",
-    "@vscode/vsce": "^3.7.0",
+    "@vscode/vsce": "^3.7.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint": "^9.34.0",
     "jiti": "^2.6.1",
