@@ -88,7 +88,7 @@ export function activate(context: vscode.ExtensionContext) {
   const validateGetLanguage = (languageId: string) => {
     if (disabledLanguages?.has(languageId)) {
       throw new Error(
-        `${languageId} is disabled on vscode versions 1.98.0 through 1.06.3. See https://github.com/cursorless-dev/cursorless/issues/2879`
+        `${languageId} is disabled on vscode versions 1.98.0 through 1.06.3. See https://github.com/cursorless-dev/cursorless/issues/2879`,
       );
     }
   };
@@ -118,7 +118,7 @@ export function activate(context: vscode.ExtensionContext) {
       absolute = path.join(
         context.extensionPath,
         "parsers",
-        language.module + ".wasm"
+        language.module + ".wasm",
       );
     }
 
@@ -187,7 +187,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   function updateTree(
     parser: treeSitter.Parser,
-    edit: vscode.TextDocumentChangeEvent
+    edit: vscode.TextDocumentChangeEvent,
   ) {
     if (edit.contentChanges.length === 0) {
       return;
@@ -240,7 +240,7 @@ export function activate(context: vscode.ExtensionContext) {
   async function openIfVisible(document: vscode.TextDocument) {
     if (
       vscode.window.visibleTextEditors.some(
-        (editor) => editor.document.uri.toString() === document.uri.toString()
+        (editor) => editor.document.uri.toString() === document.uri.toString(),
       )
     ) {
       await open(document);
@@ -248,12 +248,12 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   context.subscriptions.push(
-    vscode.window.onDidChangeVisibleTextEditors(colorAllOpen)
+    vscode.window.onDidChangeVisibleTextEditors(colorAllOpen),
   );
   context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(edit));
   context.subscriptions.push(vscode.workspace.onDidCloseTextDocument(close));
   context.subscriptions.push(
-    vscode.workspace.onDidOpenTextDocument(openIfVisible)
+    vscode.workspace.onDidOpenTextDocument(openIfVisible),
   );
 
   // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
@@ -264,7 +264,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     if (ret == null) {
       const document = vscode.workspace.textDocuments.find(
-        (textDocument) => textDocument.uri.toString() === uri.toString()
+        (textDocument) => textDocument.uri.toString() === uri.toString(),
       );
 
       if (document == null) {
@@ -298,7 +298,7 @@ export function activate(context: vscode.ExtensionContext) {
      */
     getLanguage(languageId: string): treeSitter.Language | undefined {
       console.warn(
-        "vscode-parse-tree: getLanguage is deprecated, use createQuery(languageId, source) instead."
+        "vscode-parse-tree: getLanguage is deprecated, use createQuery(languageId, source) instead.",
       );
       validateGetLanguage(languageId);
       return languages[languageId]?.parser?.language ?? undefined;
@@ -306,7 +306,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     createQuery(
       languageId: string,
-      source: string
+      source: string,
     ): treeSitter.Query | undefined {
       const language = languages[languageId]?.parser?.language;
       if (language == null) {
