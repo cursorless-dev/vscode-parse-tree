@@ -80,14 +80,15 @@ export function activate(context: vscode.ExtensionContext) {
    * https://github.com/cursorless-dev/cursorless/issues/2879
    * https://github.com/cursorless-dev/vscode-parse-tree/issues/110
    */
-  const disabledLanguages = semver.gte(vscode.version, "1.98.0")
-    ? new Set(["latex", "swift"])
-    : null;
+  const disabledLanguages =
+    semver.lt(vscode.version, "1.107.0") && semver.gte(vscode.version, "1.98.0")
+      ? new Set(["latex", "swift"])
+      : null;
 
   const validateGetLanguage = (languageId: string) => {
     if (disabledLanguages?.has(languageId)) {
       throw new Error(
-        `${languageId} is disabled on vscode versions >= 1.98.0. See https://github.com/cursorless-dev/cursorless/issues/2879`,
+        `${languageId} is disabled on vscode versions 1.98.0 through 1.06.3. See https://github.com/cursorless-dev/cursorless/issues/2879`,
       );
     }
   };
