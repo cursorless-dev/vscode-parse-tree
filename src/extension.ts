@@ -3,6 +3,7 @@ import * as path from "path";
 import * as semver from "semver";
 import * as vscode from "vscode";
 import * as treeSitter from "web-tree-sitter";
+import { Edit } from "web-tree-sitter";
 import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
 
 interface Language {
@@ -206,14 +207,14 @@ export function activate(context: vscode.ExtensionContext) {
       const startPosition = asPoint(startPos);
       const oldEndPosition = asPoint(oldEndPos);
       const newEndPosition = asPoint(newEndPos);
-      const delta = {
+      const delta = new Edit({
         startIndex,
         oldEndIndex,
         newEndIndex,
         startPosition,
         oldEndPosition,
         newEndPosition,
-      };
+      });
       old.edit(delta);
     }
     const t = parser.parse(edit.document.getText(), old);
