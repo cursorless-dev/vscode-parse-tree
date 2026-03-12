@@ -3,6 +3,7 @@ import type {
   ExtensionContext,
   TextDocument,
   TextDocumentChangeEvent,
+  Uri,
 } from "vscode";
 import { window, workspace } from "vscode";
 import type { Tree } from "web-tree-sitter";
@@ -103,16 +104,39 @@ export function activate(context: ExtensionContext) {
   }
 
   /**
+   * Create a tree-sitter query for a given language and query source
+   * @param languageId the vscode language id of the language to create the query for
+   * @param source the source of the query
+   * @returns the created query, or undefined if the language couldn't be loaded
+   */
+  function createQuery(languageId: string, source: string): Query | undefined {
+    const language = languages[languageId]?.parser?.language;
+    if (language == null) {
+      throwIfLanguageIsDisabled(languageId);
+      return undefined;
+    }
+    return new Query(language, source);
+  }
+
+  /**
    * Get the parse tree for a given document, parsing it if necessary
    * @param document the document to get the tree for
    * @returns the parse tree for the document
    */
-  async function getTree(document: TextDocument): Promise<Tree> {
-    const uriString = document.uri.toString();
+  async function getTreeForUri(uri: Uri): Promise<Tree> {
+    const uriString = uri.toString();
     let tree = trees.get(uriString);
 
     if (tree != null) {
       return tree;
+    }
+
+    const document = workspace.textDocuments.find(
+      (textDocument) => textDocument.uri.toString() === uri.toString(),
+    );
+
+    if (document == null) {
+      throw new Error(`Document ${uriString} is not open`);
     }
 
     tree = await openDocument(document);
@@ -127,21 +151,6 @@ export function activate(context: ExtensionContext) {
     }
 
     throw new UnsupportedLanguageError(document.languageId);
-  }
-
-  /**
-   * Create a tree-sitter query for a given language and query source
-   * @param languageId the vscode language id of the language to create the query for
-   * @param source the source of the query
-   * @returns the created query, or undefined if the language couldn't be loaded
-   */
-  function createQuery(languageId: string, source: string): Query | undefined {
-    const language = languages[languageId]?.parser?.language;
-    if (language == null) {
-      throwIfLanguageIsDisabled(languageId);
-      return undefined;
-    }
-    return new Query(language, source);
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
@@ -180,14 +189,15 @@ export function activate(context: ExtensionContext) {
 
   return {
     loadLanguage,
-    getTree,
     createQuery,
+    getTreeForUri,
+
+    getTree(document: TextDocument) {
+      return getTreeForUri(document.uri);
+    },
 
     getLanguage() {
       throw new DeprecatedError("getLanguage");
-    },
-    getTreeForUri() {
-      throw new DeprecatedError("getTreeForUri");
     },
     getNodeAtLocation() {
       throw new DeprecatedError("getNodeAtLocation");
