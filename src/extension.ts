@@ -1,97 +1,32 @@
-import * as fs from "fs";
-import * as path from "path";
-import * as semver from "semver";
-import * as vscode from "vscode";
-import * as treeSitter from "web-tree-sitter";
+import * as path from "node:path";
+import type {
+  ExtensionContext,
+  TextDocument,
+  TextDocumentChangeEvent,
+} from "vscode";
+import { window, workspace } from "vscode";
+import type { Tree } from "web-tree-sitter";
+import { Parser, Query, Language as TreeSitterLanguage } from "web-tree-sitter";
+import {
+  isLanguageDisabled,
+  throwIfLanguageIsDisabled,
+} from "./disabledLanguages";
 import {
   DeprecatedError,
   LanguageFailedToLoad,
   UnsupportedLanguageError,
 } from "./errors";
+import { languages } from "./languages";
 import { Trees } from "./Trees";
-import { isDocumentVisible } from "./utils";
-import type { Language } from "./types";
-
-/* eslint-disable @typescript-eslint/naming-convention */
-
-// Be sure to declare the language in package.json
-const languages: Record<string, Language | undefined> = {
-  "java-properties": { module: "tree-sitter-properties" },
-  "talon-list": { module: "tree-sitter-talon" },
-  agda: { module: "tree-sitter-agda" },
-  c: { module: "tree-sitter-c" },
-  clojure: { module: "tree-sitter-clojure" },
-  cpp: { module: "tree-sitter-cpp" },
-  csharp: { module: "tree-sitter-c_sharp" },
-  css: { module: "tree-sitter-css" },
-  dart: { module: "tree-sitter-dart" },
-  elixir: { module: "tree-sitter-elixir" },
-  elm: { module: "tree-sitter-elm" },
-  gdscript: { module: "tree-sitter-gdscript" },
-  gleam: { module: "tree-sitter-gleam" },
-  go: { module: "tree-sitter-go" },
-  haskell: { module: "tree-sitter-haskell" },
-  html: { module: "tree-sitter-html" },
-  java: { module: "tree-sitter-java" },
-  javascript: { module: "tree-sitter-javascript" },
-  javascriptreact: { module: "tree-sitter-javascript" },
-  json: { module: "tree-sitter-json" },
-  jsonc: { module: "tree-sitter-json" },
-  jsonl: { module: "tree-sitter-json" },
-  julia: { module: "tree-sitter-julia" },
-  kotlin: { module: "tree-sitter-kotlin" },
-  latex: { module: "tree-sitter-latex" },
-  lua: { module: "tree-sitter-lua" },
-  markdown: { module: "tree-sitter-markdown" },
-  nix: { module: "tree-sitter-nix" },
-  perl: { module: "tree-sitter-perl" },
-  php: { module: "tree-sitter-php" },
-  properties: { module: "tree-sitter-properties" },
-  python: { module: "tree-sitter-python" },
-  r: { module: "tree-sitter-r" },
-  ruby: { module: "tree-sitter-ruby" },
-  rust: { module: "tree-sitter-rust" },
-  scala: { module: "tree-sitter-scala" },
-  scm: { module: "tree-sitter-query" },
-  scss: { module: "tree-sitter-scss" },
-  shellscript: { module: "tree-sitter-bash" },
-  sparql: { module: "tree-sitter-sparql" },
-  starlark: { module: "tree-sitter-python" },
-  swift: { module: "tree-sitter-swift" },
-  talon: { module: "tree-sitter-talon" },
-  terraform: { module: "tree-sitter-hcl" },
-  typescript: { module: "tree-sitter-typescript" },
-  typescriptreact: { module: "tree-sitter-tsx" },
-  xml: { module: "tree-sitter-xml" },
-  yaml: { module: "tree-sitter-yaml" },
-  zig: { module: "tree-sitter-zig" },
-};
+import { getWasmPath, isDocumentVisible } from "./utils";
 
 // For some reason this crashes if we put it inside activate
 // Fix: this isn't a field, suppress package member coloring like Go
-const initParser = treeSitter.Parser.init();
+const initParser = Parser.init();
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: ExtensionContext) {
   // Parse of all visible documents
   const trees = new Trees();
-
-  /**
-   * FIXME: On newer vscode versions some Tree sitter parser throws memory errors
-   * https://github.com/cursorless-dev/cursorless/issues/2879
-   * https://github.com/cursorless-dev/vscode-parse-tree/issues/110
-   */
-  const disabledLanguages =
-    semver.lt(vscode.version, "1.107.0") && semver.gte(vscode.version, "1.98.0")
-      ? new Set(["latex", "swift"])
-      : null;
-
-  const validateGetLanguage = (languageId: string) => {
-    if (disabledLanguages?.has(languageId)) {
-      throw new Error(
-        `${languageId} is disabled on vscode versions 1.98.0 through 1.06.3. See https://github.com/cursorless-dev/cursorless/issues/2879`,
-      );
-    }
-  };
 
   /**
    * Load the parser model for a given language
@@ -112,35 +47,21 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     // Disabled on certain vscode versions due to memory errors in tree-sitter parsers
-    if (disabledLanguages?.has(languageId)) {
+    if (isLanguageDisabled(languageId)) {
       return false;
     }
 
-    const absolute = getWasmPath(language.module);
+    const absolute = getWasmPath(context.extensionPath, language.module);
     const wasm = path.relative(process.cwd(), absolute);
 
     await initParser;
 
-    const lang = await treeSitter.Language.load(wasm);
-    const parser = new treeSitter.Parser();
+    const lang = await TreeSitterLanguage.load(wasm);
+    const parser = new Parser();
     parser.setLanguage(lang);
     language.parser = parser;
 
     return true;
-  }
-
-  function getWasmPath(moduleName: string): string {
-    const absolute = path.join(
-      context.extensionPath,
-      "parsers",
-      moduleName + ".wasm",
-    );
-
-    if (!fs.existsSync(absolute)) {
-      throw Error(`Parser ${moduleName} not found at ${absolute}`);
-    }
-
-    return absolute;
   }
 
   /**
@@ -149,8 +70,8 @@ export function activate(context: vscode.ExtensionContext) {
    * @returns the resulting tree, or undefined if the language couldn't be loaded
    */
   async function openDocument(
-    document: vscode.TextDocument,
-  ): Promise<treeSitter.Tree | undefined> {
+    document: TextDocument,
+  ): Promise<Tree | undefined> {
     const uriString = document.uri.toString();
     let tree = trees.get(uriString);
 
@@ -186,9 +107,7 @@ export function activate(context: vscode.ExtensionContext) {
    * @param document the document to get the tree for
    * @returns the parse tree for the document
    */
-  async function getTree(
-    document: vscode.TextDocument,
-  ): Promise<treeSitter.Tree> {
+  async function getTree(document: TextDocument): Promise<Tree> {
     const uriString = document.uri.toString();
     let tree = trees.get(uriString);
 
@@ -203,7 +122,7 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     if (document.languageId in languages) {
-      validateGetLanguage(document.languageId);
+      throwIfLanguageIsDisabled(document.languageId);
       throw new LanguageFailedToLoad(document.languageId);
     }
 
@@ -216,20 +135,17 @@ export function activate(context: vscode.ExtensionContext) {
    * @param source the source of the query
    * @returns the created query, or undefined if the language couldn't be loaded
    */
-  function createQuery(
-    languageId: string,
-    source: string,
-  ): treeSitter.Query | undefined {
+  function createQuery(languageId: string, source: string): Query | undefined {
     const language = languages[languageId]?.parser?.language;
     if (language == null) {
-      validateGetLanguage(languageId);
+      throwIfLanguageIsDisabled(languageId);
       return undefined;
     }
-    return new treeSitter.Query(language, source);
+    return new Query(language, source);
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
-  function onChange(edit: vscode.TextDocumentChangeEvent) {
+  function onChange(edit: TextDocumentChangeEvent) {
     const language = languages[edit.document.languageId];
     if (language?.parser != null) {
       trees.updateTree(language.parser, edit);
@@ -237,26 +153,26 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   async function openAllVisibleDocuments() {
-    for (const editor of vscode.window.visibleTextEditors) {
+    for (const editor of window.visibleTextEditors) {
       await openDocument(editor.document);
     }
   }
 
-  async function openDocumentIfVisible(document: vscode.TextDocument) {
+  async function openDocumentIfVisible(document: TextDocument) {
     if (isDocumentVisible(document)) {
       await openDocument(document);
     }
   }
 
-  function closeDocument(document: vscode.TextDocument) {
+  function closeDocument(document: TextDocument) {
     trees.delete(document.uri.toString());
   }
 
   context.subscriptions.push(
-    vscode.window.onDidChangeVisibleTextEditors(openAllVisibleDocuments),
-    vscode.workspace.onDidChangeTextDocument(onChange),
-    vscode.workspace.onDidCloseTextDocument(closeDocument),
-    vscode.workspace.onDidOpenTextDocument(openDocumentIfVisible),
+    window.onDidChangeVisibleTextEditors(openAllVisibleDocuments),
+    workspace.onDidChangeTextDocument(onChange),
+    workspace.onDidCloseTextDocument(closeDocument),
+    workspace.onDidOpenTextDocument(openDocumentIfVisible),
   );
 
   // Don't wait for the initial load, it takes too long to inspect the themes and causes VSCode extension host to hang
