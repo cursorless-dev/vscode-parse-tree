@@ -14,12 +14,17 @@ import {
 } from "./disabledLanguages";
 import {
   DeprecatedError,
-  LanguageFailedToLoad,
+  LanguageStillLoadingError,
   UnsupportedLanguageError,
 } from "./errors";
 import { languages } from "./languages";
 import { Trees } from "./Trees";
-import { getWasmPath, isDocumentVisible } from "./utils";
+import {
+  getOpenDocument,
+  getWasmPath,
+  isDocumentVisible,
+  parseDocument,
+} from "./utils";
 
 // For some reason this crashes if we put it inside activate
 // Fix: this isn't a field, suppress package member coloring like Go
@@ -92,14 +97,44 @@ export function activate(context: ExtensionContext) {
       throw new Error(`No parser for language ${document.languageId}`);
     }
 
-    tree = language.parser?.parse(document.getText()) ?? undefined;
-
-    if (tree == null) {
-      throw Error(`Failed to parse ${uriString}`);
-    }
+    tree = parseDocument(language.parser, document);
 
     trees.set(uriString, tree);
 
+    return tree;
+  }
+
+  /**
+   * Get the parse tree for a given document, parsing it if necessary
+   * @param document the document to get the tree for
+   * @returns the parse tree for the document
+   */
+  function getTreeForUri(uri: Uri): Tree {
+    const uriString = uri.toString();
+    let tree = trees.get(uriString);
+
+    // Document is already opened
+    if (tree != null) {
+      return tree;
+    }
+
+    const document = getOpenDocument(uri);
+    const language = languages[document.languageId];
+
+    // Language without a parser, e.g. plaintext
+    if (language == null) {
+      throw new UnsupportedLanguageError(document.languageId);
+    }
+
+    // Language definition exists, but the parser is not loaded. Could be a race
+    // condition or a disabled language.
+    if (language.parser == null) {
+      throwIfLanguageIsDisabled(document.languageId);
+      throw new LanguageStillLoadingError(document.languageId);
+    }
+
+    tree = parseDocument(language.parser, document);
+    trees.set(uriString, tree);
     return tree;
   }
 
@@ -116,41 +151,6 @@ export function activate(context: ExtensionContext) {
       return undefined;
     }
     return new Query(language, source);
-  }
-
-  /**
-   * Get the parse tree for a given document, parsing it if necessary
-   * @param document the document to get the tree for
-   * @returns the parse tree for the document
-   */
-  async function getTreeForUri(uri: Uri): Promise<Tree> {
-    const uriString = uri.toString();
-    let tree = trees.get(uriString);
-
-    if (tree != null) {
-      return tree;
-    }
-
-    const document = workspace.textDocuments.find(
-      (textDocument) => textDocument.uri.toString() === uri.toString(),
-    );
-
-    if (document == null) {
-      throw new Error(`Document ${uriString} is not open`);
-    }
-
-    tree = await openDocument(document);
-
-    if (tree != null) {
-      return tree;
-    }
-
-    if (document.languageId in languages) {
-      throwIfLanguageIsDisabled(document.languageId);
-      throw new LanguageFailedToLoad(document.languageId);
-    }
-
-    throw new UnsupportedLanguageError(document.languageId);
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
