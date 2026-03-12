@@ -7,10 +7,10 @@ export class UnsupportedLanguageError extends Error {
   }
 }
 
-export class LanguageStillLoadingError extends Error {
+export class LanguageFailedToLoad extends Error {
   constructor(language: string) {
-    super(`Language '${language}' is still loading; please wait and try again`);
-    this.name = "LanguageStillLoadingError";
+    super(`Language '${language}' failed to load`);
+    this.name = "LanguageFailedToLoad";
   }
 }
 

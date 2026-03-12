@@ -3,21 +3,18 @@ import * as path from "path";
 import * as semver from "semver";
 import * as vscode from "vscode";
 import * as treeSitter from "web-tree-sitter";
-import { Edit } from "web-tree-sitter";
 import {
   DeprecatedError,
-  LanguageStillLoadingError,
+  LanguageFailedToLoad,
   UnsupportedLanguageError,
 } from "./errors";
-
-interface Language {
-  module: string;
-  parser?: treeSitter.Parser;
-}
+import { Trees } from "./Trees";
+import { isDocumentVisible } from "./utils";
+import type { Language } from "./types";
 
 /* eslint-disable @typescript-eslint/naming-convention */
 
-// Be sure to declare the language in package.json and include a minimalist grammar.
+// Be sure to declare the language in package.json
 const languages: Record<string, Language | undefined> = {
   "java-properties": { module: "tree-sitter-properties" },
   "talon-list": { module: "tree-sitter-talon" },
@@ -74,11 +71,9 @@ const languages: Record<string, Language | undefined> = {
 // Fix: this isn't a field, suppress package member coloring like Go
 const initParser = treeSitter.Parser.init();
 
-// Called when the extension is first activated by user opening a file with the appropriate language
 export function activate(context: vscode.ExtensionContext) {
-  console.debug("Activating tree-sitter...");
   // Parse of all visible documents
-  const trees: Record<string, treeSitter.Tree | undefined> = {};
+  const trees = new Trees();
 
   /**
    * FIXME: On newer vscode versions some Tree sitter parser throws memory errors
@@ -105,34 +100,27 @@ export function activate(context: vscode.ExtensionContext) {
    */
   async function loadLanguage(languageId: string) {
     const language = languages[languageId];
+
+    // Language without a parser, e.g. plaintext
     if (language == null) {
       return false;
     }
+
+    // Already loaded
     if (language.parser != null) {
       return true;
     }
 
+    // Disabled on certain vscode versions due to memory errors in tree-sitter parsers
     if (disabledLanguages?.has(languageId)) {
       return false;
     }
 
-    let absolute;
-    if (path.isAbsolute(language.module)) {
-      absolute = language.module;
-    } else {
-      absolute = path.join(
-        context.extensionPath,
-        "parsers",
-        language.module + ".wasm",
-      );
-    }
-
-    if (!fs.existsSync(absolute)) {
-      throw Error(`Parser for ${languageId} not found at ${absolute}`);
-    }
-
+    const absolute = getWasmPath(language.module);
     const wasm = path.relative(process.cwd(), absolute);
+
     await initParser;
+
     const lang = await treeSitter.Language.load(wasm);
     const parser = new treeSitter.Parser();
     parser.setLanguage(lang);
@@ -141,180 +129,145 @@ export function activate(context: vscode.ExtensionContext) {
     return true;
   }
 
-  async function open(document: vscode.TextDocument) {
-    const uriString = document.uri.toString();
-    if (uriString in trees) {
-      return;
+  function getWasmPath(moduleName: string): string {
+    const absolute = path.join(
+      context.extensionPath,
+      "parsers",
+      moduleName + ".wasm",
+    );
+
+    if (!fs.existsSync(absolute)) {
+      throw Error(`Parser ${moduleName} not found at ${absolute}`);
     }
 
+    return absolute;
+  }
+
+  /**
+   * Open a document and parse it, returning the resulting tree
+   * @param document the document to open
+   * @returns the resulting tree, or undefined if the language couldn't be loaded
+   */
+  async function openDocument(
+    document: vscode.TextDocument,
+  ): Promise<treeSitter.Tree | undefined> {
+    const uriString = document.uri.toString();
+    let tree = trees.get(uriString);
+
+    // Document is already opened
+    if (tree != null) {
+      return tree;
+    }
+
+    // Couldn't load language, skip opening document
     if (!(await loadLanguage(document.languageId))) {
-      return;
+      return undefined;
     }
 
     const language = languages[document.languageId];
+
     if (language?.parser == null) {
       throw new Error(`No parser for language ${document.languageId}`);
     }
-    const t = language.parser?.parse(document.getText());
-    if (t == null) {
-      throw Error(`Failed to parse ${document.uri.toString()}`);
+
+    tree = language.parser?.parse(document.getText()) ?? undefined;
+
+    if (tree == null) {
+      throw Error(`Failed to parse ${uriString}`);
     }
-    trees[uriString] = t;
+
+    trees.set(uriString, tree);
+
+    return tree;
   }
 
-  function openIfLanguageLoaded(document: vscode.TextDocument) {
+  /**
+   * Get the parse tree for a given document, parsing it if necessary
+   * @param document the document to get the tree for
+   * @returns the parse tree for the document
+   */
+  async function getTree(
+    document: vscode.TextDocument,
+  ): Promise<treeSitter.Tree> {
     const uriString = document.uri.toString();
-    if (uriString in trees) {
-      return null;
+    let tree = trees.get(uriString);
+
+    if (tree != null) {
+      return tree;
     }
 
-    const language = languages[document.languageId];
-    if (language?.parser == null) {
-      return null;
+    tree = await openDocument(document);
+
+    if (tree != null) {
+      return tree;
     }
 
-    const t = language.parser.parse(document.getText());
-    if (t == null) {
-      throw Error(`Failed to parse ${document.uri.toString()}`);
+    if (document.languageId in languages) {
+      validateGetLanguage(document.languageId);
+      throw new LanguageFailedToLoad(document.languageId);
     }
-    trees[uriString] = t;
-    return t;
+
+    throw new UnsupportedLanguageError(document.languageId);
+  }
+
+  /**
+   * Create a tree-sitter query for a given language and query source
+   * @param languageId the vscode language id of the language to create the query for
+   * @param source the source of the query
+   * @returns the created query, or undefined if the language couldn't be loaded
+   */
+  function createQuery(
+    languageId: string,
+    source: string,
+  ): treeSitter.Query | undefined {
+    const language = languages[languageId]?.parser?.language;
+    if (language == null) {
+      validateGetLanguage(languageId);
+      return undefined;
+    }
+    return new treeSitter.Query(language, source);
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
-  function edit(edit: vscode.TextDocumentChangeEvent) {
+  function onChange(edit: vscode.TextDocumentChangeEvent) {
     const language = languages[edit.document.languageId];
-    if (language == null || language.parser == null) {
-      return;
+    if (language?.parser != null) {
+      trees.updateTree(language.parser, edit);
     }
-    updateTree(language.parser, edit);
   }
 
-  function updateTree(
-    parser: treeSitter.Parser,
-    edit: vscode.TextDocumentChangeEvent,
-  ) {
-    if (edit.contentChanges.length === 0) {
-      return;
-    }
-    const old = trees[edit.document.uri.toString()];
-    if (old == null) {
-      throw new Error(`No existing tree for ${edit.document.uri.toString()}`);
-    }
-    for (const e of edit.contentChanges) {
-      const startIndex = e.rangeOffset;
-      const oldEndIndex = e.rangeOffset + e.rangeLength;
-      const newEndIndex = e.rangeOffset + e.text.length;
-      const startPos = edit.document.positionAt(startIndex);
-      const oldEndPos = edit.document.positionAt(oldEndIndex);
-      const newEndPos = edit.document.positionAt(newEndIndex);
-      const startPosition = asPoint(startPos);
-      const oldEndPosition = asPoint(oldEndPos);
-      const newEndPosition = asPoint(newEndPos);
-      const delta = new Edit({
-        startIndex,
-        oldEndIndex,
-        newEndIndex,
-        startPosition,
-        oldEndPosition,
-        newEndPosition,
-      });
-      old.edit(delta);
-    }
-    const t = parser.parse(edit.document.getText(), old);
-    if (t == null) {
-      throw Error(`Failed to parse ${edit.document.uri.toString()}`);
-    }
-    trees[edit.document.uri.toString()] = t;
-  }
-
-  function asPoint(pos: vscode.Position): treeSitter.Point {
-    return { row: pos.line, column: pos.character };
-  }
-
-  function close(document: vscode.TextDocument) {
-    delete trees[document.uri.toString()];
-  }
-
-  async function colorAllOpen() {
+  async function openAllVisibleDocuments() {
     for (const editor of vscode.window.visibleTextEditors) {
-      await open(editor.document);
+      await openDocument(editor.document);
     }
   }
 
-  async function openIfVisible(document: vscode.TextDocument) {
-    if (
-      vscode.window.visibleTextEditors.some(
-        (editor) => editor.document.uri.toString() === document.uri.toString(),
-      )
-    ) {
-      await open(document);
+  async function openDocumentIfVisible(document: vscode.TextDocument) {
+    if (isDocumentVisible(document)) {
+      await openDocument(document);
     }
+  }
+
+  function closeDocument(document: vscode.TextDocument) {
+    trees.delete(document.uri.toString());
   }
 
   context.subscriptions.push(
-    vscode.window.onDidChangeVisibleTextEditors(colorAllOpen),
-  );
-  context.subscriptions.push(vscode.workspace.onDidChangeTextDocument(edit));
-  context.subscriptions.push(vscode.workspace.onDidCloseTextDocument(close));
-  context.subscriptions.push(
-    vscode.workspace.onDidOpenTextDocument(openIfVisible),
+    vscode.window.onDidChangeVisibleTextEditors(openAllVisibleDocuments),
+    vscode.workspace.onDidChangeTextDocument(onChange),
+    vscode.workspace.onDidCloseTextDocument(closeDocument),
+    vscode.workspace.onDidOpenTextDocument(openDocumentIfVisible),
   );
 
-  // Don't wait for the initial color, it takes too long to inspect the themes and causes VSCode extension host to hang
-  void colorAllOpen();
-
-  function getTreeForUri(uri: vscode.Uri) {
-    const ret = trees[uri.toString()];
-
-    if (ret == null) {
-      const document = vscode.workspace.textDocuments.find(
-        (textDocument) => textDocument.uri.toString() === uri.toString(),
-      );
-
-      if (document == null) {
-        throw new Error(`Document ${uri.toString()} is not open`);
-      }
-
-      const ret = openIfLanguageLoaded(document);
-
-      if (ret != null) {
-        return ret;
-      }
-
-      const languageId = document.languageId;
-
-      if (languageId in languages) {
-        validateGetLanguage(document.languageId);
-        throw new LanguageStillLoadingError(languageId);
-      } else {
-        throw new UnsupportedLanguageError(languageId);
-      }
-    }
-
-    return ret;
-  }
+  // Don't wait for the initial load, it takes too long to inspect the themes and causes VSCode extension host to hang
+  void openAllVisibleDocuments();
 
   return {
     loadLanguage,
+    getTree,
+    createQuery,
 
-    getTree(document: vscode.TextDocument) {
-      return getTreeForUri(document.uri);
-    },
-
-    createQuery(
-      languageId: string,
-      source: string,
-    ): treeSitter.Query | undefined {
-      const language = languages[languageId]?.parser?.language;
-      if (language == null) {
-        validateGetLanguage(languageId);
-        return undefined;
-      }
-      return new treeSitter.Query(language, source);
-    },
-
-    getLanguage(): treeSitter.Language | undefined {
+    getLanguage() {
       throw new DeprecatedError("getLanguage");
     },
     getTreeForUri() {
@@ -327,9 +280,4 @@ export function activate(context: vscode.ExtensionContext) {
       throw new DeprecatedError("registerLanguage");
     },
   };
-}
-
-// this method is called when your extension is deactivated
-export function deactivate() {
-  // Empty
 }
