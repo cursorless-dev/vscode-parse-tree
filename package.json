@@ -101,10 +101,10 @@
     "@types/vscode": "1.98.0",
     "@vscode/vsce": "^3.7.1",
     "eslint-config-prettier": "^10.1.8",
-    "eslint": "^10.0.2",
+    "eslint": "^10.0.3",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
-    "typescript-eslint": "^8.56.1",
+    "typescript-eslint": "^8.57.0",
     "typescript": "^5.9.3"
   }
 }
