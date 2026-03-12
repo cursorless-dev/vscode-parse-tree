@@ -1,0 +1,60 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+import type { Parser } from "web-tree-sitter";
+
+// Be sure to declare the language in package.json
+export const languages: Record<string, Language | undefined> = {
+  "java-properties": { module: "tree-sitter-properties" },
+  "talon-list": { module: "tree-sitter-talon" },
+  agda: { module: "tree-sitter-agda" },
+  c: { module: "tree-sitter-c" },
+  clojure: { module: "tree-sitter-clojure" },
+  cpp: { module: "tree-sitter-cpp" },
+  csharp: { module: "tree-sitter-c_sharp" },
+  css: { module: "tree-sitter-css" },
+  dart: { module: "tree-sitter-dart" },
+  elixir: { module: "tree-sitter-elixir" },
+  elm: { module: "tree-sitter-elm" },
+  gdscript: { module: "tree-sitter-gdscript" },
+  gleam: { module: "tree-sitter-gleam" },
+  go: { module: "tree-sitter-go" },
+  haskell: { module: "tree-sitter-haskell" },
+  html: { module: "tree-sitter-html" },
+  java: { module: "tree-sitter-java" },
+  javascript: { module: "tree-sitter-javascript" },
+  javascriptreact: { module: "tree-sitter-javascript" },
+  json: { module: "tree-sitter-json" },
+  jsonc: { module: "tree-sitter-json" },
+  jsonl: { module: "tree-sitter-json" },
+  julia: { module: "tree-sitter-julia" },
+  kotlin: { module: "tree-sitter-kotlin" },
+  latex: { module: "tree-sitter-latex" },
+  lua: { module: "tree-sitter-lua" },
+  markdown: { module: "tree-sitter-markdown" },
+  nix: { module: "tree-sitter-nix" },
+  perl: { module: "tree-sitter-perl" },
+  php: { module: "tree-sitter-php" },
+  properties: { module: "tree-sitter-properties" },
+  python: { module: "tree-sitter-python" },
+  r: { module: "tree-sitter-r" },
+  ruby: { module: "tree-sitter-ruby" },
+  rust: { module: "tree-sitter-rust" },
+  scala: { module: "tree-sitter-scala" },
+  scm: { module: "tree-sitter-query" },
+  scss: { module: "tree-sitter-scss" },
+  shellscript: { module: "tree-sitter-bash" },
+  sparql: { module: "tree-sitter-sparql" },
+  starlark: { module: "tree-sitter-python" },
+  swift: { module: "tree-sitter-swift" },
+  talon: { module: "tree-sitter-talon" },
+  terraform: { module: "tree-sitter-hcl" },
+  typescript: { module: "tree-sitter-typescript" },
+  typescriptreact: { module: "tree-sitter-tsx" },
+  xml: { module: "tree-sitter-xml" },
+  yaml: { module: "tree-sitter-yaml" },
+  zig: { module: "tree-sitter-zig" },
+};
+
+interface Language {
+  module: string;
+  parser?: Parser;
+}
