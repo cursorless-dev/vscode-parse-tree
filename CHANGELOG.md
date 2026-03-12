@@ -2,6 +2,15 @@
 
 All notable changes to the "vscode-parse-tree" extension will be documented in this file.
 
+## 0.51.0 (12 Mar 2026)
+
+Removed deprecated api endpoints:
+
+- `getLanguage` - Replaced by `createQuery`
+- `getTreeForUri` - Replaced by `getTree`
+- `getNodeAtLocation` - No direct replacement. Use scm queries and `createQuery` instead.
+- `registerLanguage` - No replacement. We don't believe anyone is using this.
+
 ## 0.33.0 (22 Apr 2025)
 
 ### Enhancements

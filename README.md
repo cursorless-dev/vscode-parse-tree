@@ -1,6 +1,6 @@
 # Parse tree
 
-Exposes an api function that can be used to get a parse tree node for a given file location.
+Exposes an api function that can be used to get a parse tree for a given file.
 
 ## Usage
 
@@ -13,24 +13,12 @@ if (parseTreeExtension == null) {
   throw new Error("Depends on pokey.parse-tree extension");
 }
 
-const { getNodeAtLocation } = await parseTreeExtension.activate();
+const { loadLanguage } = await parseTreeExtension.activate();
 ```
 
 Don't forget to add an `extensionDependencies`-entry to `package.json` as
 described in
 https://code.visualstudio.com/api/references/vscode-api#extensions.
-
-### Parsing a custom language
-
-If you'd like to add support for a new language, see the [Adding a new language](#adding-a-new-language) section below. Alternatively, your extension can register a custom language with this extension. Although this is not the preferred way to add a new language, it can be convenient when you have a parser that you don't believe belongs in the main extension.
-
-Parsing your own language is as simple as registering your `languageId` with an absolute path to your `.wasm` file:
-
-```ts
-const { registerLanguage } = await parseTreeExtension.activate();
-
-registerLanguage(languageId, wasmPath);
-```
 
 ## Contributing
 

@@ -13,3 +13,10 @@ export class LanguageStillLoadingError extends Error {
     this.name = "LanguageStillLoadingError";
   }
 }
+
+export class DeprecatedError extends Error {
+  constructor(name: string) {
+    super(`${name} is deprecated and has been removed from the API`);
+    this.name = "DeprecatedError";
+  }
+}

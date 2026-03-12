@@ -4,7 +4,11 @@ import * as semver from "semver";
 import * as vscode from "vscode";
 import * as treeSitter from "web-tree-sitter";
 import { Edit } from "web-tree-sitter";
-import { LanguageStillLoadingError, UnsupportedLanguageError } from "./errors";
+import {
+  DeprecatedError,
+  LanguageStillLoadingError,
+  UnsupportedLanguageError,
+} from "./errors";
 
 interface Language {
   module: string;
@@ -294,15 +298,8 @@ export function activate(context: vscode.ExtensionContext) {
   return {
     loadLanguage,
 
-    /**
-     * @deprecated
-     */
-    getLanguage(languageId: string): treeSitter.Language | undefined {
-      console.warn(
-        "vscode-parse-tree: getLanguage is deprecated, use createQuery(languageId, source) instead.",
-      );
-      validateGetLanguage(languageId);
-      return languages[languageId]?.parser?.language ?? undefined;
+    getTree(document: vscode.TextDocument) {
+      return getTreeForUri(document.uri);
     },
 
     createQuery(
@@ -317,34 +314,17 @@ export function activate(context: vscode.ExtensionContext) {
       return new treeSitter.Query(language, source);
     },
 
-    /**
-     * Register a parser wasm file for a language not supported by this
-     * extension. Note that {@link wasmPath} must be an absolute path, and
-     * {@link languageId} must not already have a registered parser.
-     * @param languageId The VSCode language id that you'd like to register a
-     * parser for
-     * @param wasmPath The absolute path to the wasm file for your parser
-     */
-    registerLanguage(languageId: string, wasmPath: string) {
-      if (languages[languageId] != null) {
-        throw new Error(`Language id '${languageId}' is already registered`);
-      }
-
-      languages[languageId] = { module: wasmPath };
-      void colorAllOpen();
+    getLanguage(): treeSitter.Language | undefined {
+      throw new DeprecatedError("getLanguage");
     },
-
-    getTree(document: vscode.TextDocument) {
-      return getTreeForUri(document.uri);
+    getTreeForUri() {
+      throw new DeprecatedError("getTreeForUri");
     },
-
-    getTreeForUri,
-
-    getNodeAtLocation(location: vscode.Location) {
-      return getTreeForUri(location.uri).rootNode.descendantForPosition({
-        row: location.range.start.line,
-        column: location.range.start.character,
-      });
+    getNodeAtLocation() {
+      throw new DeprecatedError("getNodeAtLocation");
+    },
+    registerLanguage() {
+      throw new DeprecatedError("registerLanguage");
     },
   };
 }
