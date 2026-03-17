@@ -82,16 +82,15 @@
   "scripts": {
     "clean": "rm -rf ./out && rm -rf parsers",
     "watch": "tsc -watch -p .",
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./ && npm run copy-assets",
+    "vscode:prepublish": "npm run build",
+    "build": "tsc -p ./ && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
-    "build": "vsce package -o build.vsix",
     "prettier": "prettier --write --list-different .",
     "lint": "eslint src && prettier --check ."
   },
   "dependencies": {
     "semver": "^7.7.4",
-    "web-tree-sitter": "^0.26.6"
+    "web-tree-sitter": "^0.26.7"
   },
   "devDependencies": {
     "@cursorless/tree-sitter-wasms": "0.7.0",
@@ -99,12 +98,11 @@
     "@types/node": "^24.12.0",
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.98.0",
-    "@vscode/vsce": "^3.7.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint": "^10.0.3",
     "jiti": "^2.6.1",
     "prettier": "^3.8.1",
-    "typescript-eslint": "^8.57.0",
+    "typescript-eslint": "^8.57.1",
     "typescript": "^5.9.3"
   }
 }
