@@ -4,6 +4,7 @@ import type {
   TextDocument,
   TextDocumentChangeEvent,
   Uri,
+  Location,
 } from "vscode";
 import { window, workspace } from "vscode";
 import type { Tree } from "web-tree-sitter";
@@ -196,11 +197,15 @@ export function activate(context: ExtensionContext) {
       return getTreeForUri(document.uri);
     },
 
+    getNodeAtLocation(location: Location) {
+      return getTreeForUri(location.uri).rootNode.descendantForPosition({
+        row: location.range.start.line,
+        column: location.range.start.character,
+      });
+    },
+
     getLanguage() {
       throw new DeprecatedError("getLanguage");
-    },
-    getNodeAtLocation() {
-      throw new DeprecatedError("getNodeAtLocation");
     },
     registerLanguage() {
       throw new DeprecatedError("registerLanguage");
