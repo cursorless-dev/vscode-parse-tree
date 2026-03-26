@@ -4,7 +4,7 @@ All notable changes to the "vscode-parse-tree" extension will be documented in t
 
 ## 0.53.0 (26 Mar 2026)
 
-Re-added `getNodeAtLocation` per user request.
+- Re-added `getNodeAtLocation` per user request.
 
 ## 0.51.0 (12 Mar 2026)
 
