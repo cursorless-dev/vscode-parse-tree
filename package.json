@@ -81,7 +81,6 @@
   "contributes": {},
   "scripts": {
     "clean": "rm -rf ./out && rm -rf parsers",
-    "watch": "tsc -watch -p .",
     "vscode:prepublish": "npm run build",
     "build": "tsc -p ./ && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
