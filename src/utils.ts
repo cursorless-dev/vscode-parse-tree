@@ -26,10 +26,10 @@ export function getOpenDocument(uri: Uri): TextDocument {
 }
 
 export function getWasmPath(extensionPath: string, moduleName: string): string {
-  const absolute = path.join(extensionPath, "parsers", moduleName + ".wasm");
+  const absolute = path.join(extensionPath, "parsers", `${moduleName}.wasm`);
 
   if (!fs.existsSync(absolute)) {
-    throw Error(`Parser ${moduleName} not found at ${absolute}`);
+    throw new Error(`Parser ${moduleName} not found at ${absolute}`);
   }
 
   return absolute;

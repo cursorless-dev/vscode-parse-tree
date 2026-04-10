@@ -1,8 +1,9 @@
 import type { Position, TextDocumentChangeEvent } from "vscode";
-import { Edit, type Parser, type Point, type Tree } from "web-tree-sitter";
+import { Edit } from "web-tree-sitter";
+import type { Parser, Point, Tree } from "web-tree-sitter";
 
 export class Trees {
-  private trees: Map<string, Tree> = new Map();
+  private readonly trees = new Map<string, Tree>();
 
   get(uri: string): Tree | undefined {
     return this.trees.get(uri);
@@ -16,7 +17,7 @@ export class Trees {
     this.trees.delete(uri);
   }
 
-  updateTree(parser: Parser, edit: TextDocumentChangeEvent) {
+  updateTree(parser: Parser, edit: TextDocumentChangeEvent): void {
     if (edit.contentChanges.length === 0) {
       return;
     }
@@ -52,7 +53,7 @@ export class Trees {
     const tree = parser.parse(edit.document.getText(), old);
 
     if (tree == null) {
-      throw Error(`Failed to parse ${uriString}`);
+      throw new Error(`Failed to parse ${uriString}`);
     }
 
     this.trees.set(uriString, tree);

@@ -7,7 +7,7 @@ import type {
   Location,
 } from "vscode";
 import { window, workspace } from "vscode";
-import type { Tree } from "web-tree-sitter";
+import type { Tree, Node } from "web-tree-sitter";
 import { Parser, Query, Language as TreeSitterLanguage } from "web-tree-sitter";
 import {
   isLanguageDisabled,
@@ -27,11 +27,21 @@ import {
   parseDocument,
 } from "./utils";
 
+interface ReturnValue {
+  loadLanguage: (languageId: string) => Promise<boolean>;
+  createQuery: (languageId: string, source: string) => Query | undefined;
+  getTreeForUri: (uri: Uri) => Tree;
+  getTree: (document: TextDocument) => Tree;
+  getNodeAtLocation: (location: Location) => Node | null;
+  getLanguage: () => never;
+  registerLanguage: () => never;
+}
+
 // For some reason this crashes if we put it inside activate
 // Fix: this isn't a field, suppress package member coloring like Go
 const initParser = Parser.init();
 
-export function activate(context: ExtensionContext) {
+export function activate(context: ExtensionContext): ReturnValue {
   // Parse of all visible documents
   const trees = new Trees();
 
@@ -155,26 +165,27 @@ export function activate(context: ExtensionContext) {
   }
 
   // NOTE: if you make this an async function, it seems to cause edit anomalies
-  function onChange(edit: TextDocumentChangeEvent) {
+  function onChange(edit: TextDocumentChangeEvent): void {
     const language = languages[edit.document.languageId];
     if (language?.parser != null) {
       trees.updateTree(language.parser, edit);
     }
   }
 
-  async function openAllVisibleDocuments() {
+  async function openAllVisibleDocuments(): Promise<void> {
     for (const editor of window.visibleTextEditors) {
+      // oxlint-disable-next-line no-await-in-loop
       await openDocument(editor.document);
     }
   }
 
-  async function openDocumentIfVisible(document: TextDocument) {
+  async function openDocumentIfVisible(document: TextDocument): Promise<void> {
     if (isDocumentVisible(document)) {
       await openDocument(document);
     }
   }
 
-  function closeDocument(document: TextDocument) {
+  function closeDocument(document: TextDocument): void {
     trees.delete(document.uri.toString());
   }
 
