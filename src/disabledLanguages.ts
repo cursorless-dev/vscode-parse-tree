@@ -1,5 +1,5 @@
-import * as vscode from "vscode";
 import * as semver from "semver";
+import * as vscode from "vscode";
 
 /**
  * FIXME: On newer vscode versions some Tree sitter parser throws memory errors
@@ -16,7 +16,7 @@ export function isLanguageDisabled(languageId: string): boolean {
   return disabledLanguages.has(languageId);
 }
 
-export function throwIfLanguageIsDisabled(languageId: string) {
+export function throwIfLanguageIsDisabled(languageId: string): void {
   if (isLanguageDisabled(languageId)) {
     throw new Error(
       `${languageId} is disabled on vscode versions 1.98.0 through 1.06.3. See https://github.com/cursorless-dev/cursorless/issues/2879`,

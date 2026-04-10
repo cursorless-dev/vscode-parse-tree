@@ -81,28 +81,29 @@
   "contributes": {},
   "scripts": {
     "clean": "rm -rf ./out && rm -rf parsers",
-    "watch": "tsc -watch -p .",
     "vscode:prepublish": "npm run build",
     "build": "tsc -p ./ && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
-    "prettier": "prettier --write --list-different .",
-    "lint": "eslint src && prettier --check ."
+    "lint": "npm run typecheck && npm run lint:ts && npm run lint:fmt",
+    "typecheck": "tsc -p . --noEmit",
+    "lint:ts": "oxlint -c oxlint.config.mts --deny-warnings .",
+    "lint:fmt": "oxfmt --check .",
+    "fix": "npm run fix:ts && npm run fix:fmt",
+    "fix:ts": "oxlint -c oxlint.config.mts --fix .",
+    "fix:fmt": "oxfmt ."
   },
   "dependencies": {
     "semver": "^7.7.4",
-    "web-tree-sitter": "^0.26.7"
+    "web-tree-sitter": "^0.26.8"
   },
   "devDependencies": {
     "@cursorless/tree-sitter-wasms": "^0.8.1",
-    "@eslint/js": "^10.0.1",
-    "@types/node": "^24.12.0",
+    "@types/node": "^24.12.2",
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.98.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint": "^10.0.3",
-    "jiti": "^2.6.1",
-    "prettier": "^3.8.1",
-    "typescript-eslint": "^8.57.1",
-    "typescript": "^5.9.3"
+    "oxfmt": "^0.44.0",
+    "oxlint-tsgolint": "^0.20.0",
+    "oxlint": "^1.59.0",
+    "typescript": "^6.0.2"
   }
 }
