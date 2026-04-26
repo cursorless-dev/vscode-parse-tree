@@ -5,19 +5,19 @@ import type { Parser, Point, Tree } from "web-tree-sitter";
 export class Trees {
   private readonly trees = new Map<string, Tree>();
 
-  get(uri: string): Tree | undefined {
+  public get(uri: string): Tree | undefined {
     return this.trees.get(uri);
   }
 
-  set(uri: string, tree: Tree): void {
+  public set(uri: string, tree: Tree): void {
     this.trees.set(uri, tree);
   }
 
-  delete(uri: string): void {
+  public delete(uri: string): void {
     this.trees.delete(uri);
   }
 
-  updateTree(parser: Parser, edit: TextDocumentChangeEvent): void {
+  public updateTree(parser: Parser, edit: TextDocumentChangeEvent): void {
     if (edit.contentChanges.length === 0) {
       return;
     }
