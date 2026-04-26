@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.54.0",
+  "version": "0.55.0",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -82,7 +82,7 @@
   "scripts": {
     "clean": "rm -rf ./out && rm -rf parsers",
     "vscode:prepublish": "npm run build",
-    "build": "tsc -p ./ && npm run copy-assets",
+    "build": "tsc -p . && npm run copy-assets",
     "copy-assets": "sh copy-assets.sh",
     "lint": "npm run typecheck && npm run lint:ts && npm run lint:fmt",
     "typecheck": "tsc -p . --noEmit",
