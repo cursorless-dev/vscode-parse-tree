@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.56.0",
+  "version": "0.56.1",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -10,12 +10,6 @@
   },
   "icon": "images/icon.png",
   "main": "./out/extension.js",
-  "files": [
-    "out",
-    "parsers",
-    "images",
-    "CHANGELOG.md"
-  ],
   "license": "MIT",
   "extensionKind": [
     "ui",
