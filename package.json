@@ -2,12 +2,20 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.55.0",
+  "version": "0.56.0",
   "publisher": "pokey",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pokey/vscode-parse-tree"
+    "url": "git+https://github.com/pokey/vscode-parse-tree.git"
   },
+  "icon": "images/icon.png",
+  "main": "./out/extension.js",
+  "files": [
+    "out",
+    "parsers",
+    "images",
+    "CHANGELOG.md"
+  ],
   "license": "MIT",
   "extensionKind": [
     "ui",
@@ -72,7 +80,6 @@
     "onLanguage:yaml",
     "onLanguage:zig"
   ],
-  "main": "./out/extension.js",
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": true
@@ -101,9 +108,9 @@
     "@types/node": "^24.12.2",
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.98.0",
-    "oxfmt": "^0.44.0",
-    "oxlint-tsgolint": "^0.20.0",
-    "oxlint": "^1.59.0",
-    "typescript": "^6.0.2"
+    "oxfmt": "^0.47.0",
+    "oxlint-tsgolint": "^0.22.1",
+    "oxlint": "^1.62.0",
+    "typescript": "^6.0.3"
   }
 }

@@ -50,7 +50,7 @@ export function activate(context: ExtensionContext): ReturnValue {
    * @param languageId The vscode language id of the language to load
    * @returns a promise resolving to boolean an indicating whether the language could be loaded
    */
-  async function loadLanguage(languageId: string) {
+  async function loadLanguage(languageId: string): Promise<boolean> {
     const language = languages[languageId];
 
     // Language without a parser, e.g. plaintext
