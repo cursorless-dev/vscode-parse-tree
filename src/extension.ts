@@ -1,4 +1,4 @@
-import * as path from "node:path";
+import path from "node:path";
 import type {
   ExtensionContext,
   TextDocument,
@@ -149,21 +149,6 @@ export function activate(context: ExtensionContext): ReturnValue {
     return tree;
   }
 
-  /**
-   * Create a tree-sitter query for a given language and query source
-   * @param languageId the vscode language id of the language to create the query for
-   * @param source the source of the query
-   * @returns the created query, or undefined if the language couldn't be loaded
-   */
-  function createQuery(languageId: string, source: string): Query | undefined {
-    const language = languages[languageId]?.parser?.language;
-    if (language == null) {
-      throwIfLanguageIsDisabled(languageId);
-      return undefined;
-    }
-    return new Query(language, source);
-  }
-
   // NOTE: if you make this an async function, it seems to cause edit anomalies
   function onChange(edit: TextDocumentChangeEvent): void {
     const language = languages[edit.document.languageId];
@@ -222,4 +207,19 @@ export function activate(context: ExtensionContext): ReturnValue {
       throw new DeprecatedError("registerLanguage");
     },
   };
+}
+
+/**
+ * Create a tree-sitter query for a given language and query source
+ * @param languageId the vscode language id of the language to create the query for
+ * @param source the source of the query
+ * @returns the created query, or undefined if the language couldn't be loaded
+ */
+function createQuery(languageId: string, source: string): Query | undefined {
+  const language = languages[languageId]?.parser?.language;
+  if (language == null) {
+    throwIfLanguageIsDisabled(languageId);
+    return undefined;
+  }
+  return new Query(language, source);
 }

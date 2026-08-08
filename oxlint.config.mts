@@ -33,6 +33,7 @@ const disabledRules = [
   "import/no-nodejs-modules",
   "import/no-relative-parent-imports",
   "import/prefer-default-export",
+  "node/no-sync",
   "oxc/no-async-await",
   "oxc/no-optional-chaining",
   "oxc/no-rest-spread-properties",
