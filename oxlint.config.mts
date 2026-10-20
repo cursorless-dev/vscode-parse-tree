@@ -21,6 +21,7 @@ const disabledRules = [
   "eslint/no-undefined",
   "eslint/no-use-before-define",
   "eslint/no-void",
+  "eslint/one-var",
   "eslint/prefer-destructuring",
   "eslint/sort-imports",
   "eslint/sort-keys",
