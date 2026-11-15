@@ -10,10 +10,6 @@ import { window, workspace } from "vscode";
 import type { Tree, Node } from "web-tree-sitter";
 import { Parser, Query, Language as TreeSitterLanguage } from "web-tree-sitter";
 import {
-  isLanguageDisabled,
-  throwIfLanguageIsDisabled,
-} from "./disabledLanguages";
-import {
   DeprecatedError,
   LanguageStillLoadingError,
   UnsupportedLanguageError,
@@ -61,11 +57,6 @@ export function activate(context: ExtensionContext): ReturnValue {
     // Already loaded
     if (language.parser != null) {
       return true;
-    }
-
-    // Disabled on certain vscode versions due to memory errors in tree-sitter parsers
-    if (isLanguageDisabled(languageId)) {
-      return false;
     }
 
     const absolute = getWasmPath(context.extensionPath, language.module);
@@ -140,7 +131,6 @@ export function activate(context: ExtensionContext): ReturnValue {
     // Language definition exists, but the parser is not loaded. Could be a race
     // condition or a disabled language.
     if (language.parser == null) {
-      throwIfLanguageIsDisabled(document.languageId);
       throw new LanguageStillLoadingError(document.languageId);
     }
 
@@ -218,7 +208,6 @@ export function activate(context: ExtensionContext): ReturnValue {
 function createQuery(languageId: string, source: string): Query | undefined {
   const language = languages[languageId]?.parser?.language;
   if (language == null) {
-    throwIfLanguageIsDisabled(languageId);
     return undefined;
   }
   return new Query(language, source);
