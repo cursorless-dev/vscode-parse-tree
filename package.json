@@ -2,7 +2,7 @@
   "name": "parse-tree",
   "displayName": "Parse tree",
   "description": "Access document syntax using tree-sitter",
-  "version": "0.60.0",
+  "version": "0.61.0",
   "publisher": "pokey",
   "repository": {
     "type": "git",
@@ -98,7 +98,7 @@
   },
   "devDependencies": {
     "@cursorless/tree-sitter-wasms": "^0.12.0",
-    "@types/node": "^24.19.2",
+    "@types/node": "^26.6.6",
     "@types/vscode": "1.107.0",
     "oxfmt": "^0.74.0",
     "oxlint-tsgolint": "^7.0.2001",
